@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Console", "FigureNZ.FundamentalFigures.Console\FigureNZ.FundamentalFigures.Console.csproj", "{87753FA1-3EC0-4458-920A-088F9C6905E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures", "FigureNZ.FundamentalFigures\FigureNZ.FundamentalFigures.csproj", "{163F5A4D-55D5-46E4-8F83-468248B5F551}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{79ED9CD6-142B-4E8A-B72A-90A12D220C83}"
+	ProjectSection(SolutionItems) = preProject
+		fundamental-figures.json = fundamental-figures.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87753FA1-3EC0-4458-920A-088F9C6905E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87753FA1-3EC0-4458-920A-088F9C6905E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87753FA1-3EC0-4458-920A-088F9C6905E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87753FA1-3EC0-4458-920A-088F9C6905E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50815FC2-147F-40C8-A0FA-0130DFFA1F59}
+	EndGlobalSection
+EndGlobal
