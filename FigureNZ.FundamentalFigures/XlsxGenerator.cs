@@ -41,7 +41,7 @@ namespace FigureNZ.FundamentalFigures
                                     .Map(r => r.TerritorialAuthority, "Territorial Authority")
                                     .Map(r => r.Date, dataset.Date)
                                     .Map(r => r.Measure, dataset.Measure.Column)
-                                    .Map(r => r.Group, dataset.Measure.Group)
+                                    .Map(r => r.Group, dataset.Measure.Group?.Column)
                                     .Map(r => r.Category, dataset.Category.Column)
                                     .Map(r => r.Value, "Value")
                                     .Map(r => r.ValueUnit, "Value Unit")
@@ -53,6 +53,12 @@ namespace FigureNZ.FundamentalFigures
 
                                 bool hasMeasureInclusions = dataset.Measure.Include != null && dataset.Measure.Include.Any();
                                 HashSet<string> measureInclusions = new HashSet<string>(dataset.Measure.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+
+                                bool hasGroupExclusions = dataset.Measure.Group?.Exclude != null && dataset.Measure.Group.Exclude.Any();
+                                HashSet<string> groupExclusions = new HashSet<string>(dataset.Measure.Group?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+
+                                bool hasGroupInclusions = dataset.Measure.Group?.Include != null && dataset.Measure.Group.Include.Any();
+                                HashSet<string> groupInclusions = new HashSet<string>(dataset.Measure.Group?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
                                 bool hasCategoryExclusions = dataset.Category.Exclude != null && dataset.Category.Exclude.Any();
                                 HashSet<string> categoryExclusions = new HashSet<string>(dataset.Category.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
@@ -79,6 +85,16 @@ namespace FigureNZ.FundamentalFigures
                                         continue;
                                     }
 
+                                    if (hasGroupExclusions && groupExclusions.Contains(r.Group))
+                                    {
+                                        continue;
+                                    }
+
+                                    if (hasGroupInclusions && !groupInclusions.Contains(r.Group))
+                                    {
+                                        continue;
+                                    }
+
                                     if (hasCategoryExclusions && categoryExclusions.Contains(r.Category))
                                     {
                                         continue;
@@ -91,12 +107,20 @@ namespace FigureNZ.FundamentalFigures
 
                                     r.Parent = dataset.Parent;
                                     r.Uri = dataset.Uri;
+                                    r.Separator = dataset.Measure.Group?.Separator;
 
                                     Include measure = dataset.Measure.Include?.FirstOrDefault(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
 
                                     if (measure != null)
                                     {
                                         r.MeasureLabel = measure.Label;
+                                    }
+
+                                    Include group = dataset.Measure.Group?.Include?.FirstOrDefault(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
+
+                                    if (group != null)
+                                    {
+                                        r.GroupLabel = group.Label;
                                     }
 
                                     Include category = dataset.Category.Include?.FirstOrDefault(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
@@ -177,7 +201,11 @@ namespace FigureNZ.FundamentalFigures
 
         public string MeasureLabel { get; set; }
 
+        public string Separator { get; set; }
+
         public string Group { get; set; }
+
+        public string GroupLabel { get; set; }
 
         public string Category { get; set; }
 
@@ -191,7 +219,7 @@ namespace FigureNZ.FundamentalFigures
 
         public string MeasureFormatted()
         {
-            return !string.IsNullOrWhiteSpace(Group) ? $"{MeasureLabel ?? Measure} by {Group}" : $"{MeasureLabel ?? Measure}";
+            return !string.IsNullOrWhiteSpace(Group) ? $"{MeasureLabel ?? Measure} {Separator ?? "—"} {GroupLabel ?? Group}" : $"{MeasureLabel ?? Measure}";
         }
 
         public string CategoryFormatted()
@@ -232,7 +260,18 @@ namespace FigureNZ.FundamentalFigures
     {
         public string Column { get; set; }
 
-        public string Group { get; set; }
+        public Group Group { get; set; }
+
+        public List<Include> Include { get; set; }
+
+        public List<string> Exclude { get; set; }
+    }
+
+    public class Group
+    {
+        public string Column { get; set; }
+
+        public string Separator { get; set; }
 
         public List<Include> Include { get; set; }
 

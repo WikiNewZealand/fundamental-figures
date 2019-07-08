@@ -88,7 +88,26 @@
       "parent": "Income",
       "measure": {
         "column": "Benefit type",
-        "group": "Grouping variable",
+        "group": {
+          "column": "Grouping variable",
+          "separator": "by",
+          "include": [
+            {
+              "value": "Gender"
+            },
+            {
+              "value": "Ethnic Group"
+            },
+            {
+              "value": "Age Group"
+            },
+            {
+              "value": "Continuous Duration",
+              "label": "Duration" 
+            }
+          ],
+          "exclude": []
+        },
         "include": [],
         "exclude": []
       },
