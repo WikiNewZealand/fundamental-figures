@@ -1,103 +1,118 @@
 {
-    "datasets": [
-        {
-            "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
-            "parent": "Demographics",
-            "measure": { 
-                "column": "Measure", 
-                "include": [ 
-                    { 
-                        "value": "Population", 
-                        "label": "Population" 
-                    }
-                ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Series", 
-                "include": [
-                    {
-                        "value": "Census usually resident population count",
-                        "label": "Census Population Count"
-                    },
-                    {
-                        "value": "Estimated resident population",
-                        "label": "Estimated Population"
-                    },
-                    {
-                        "value": "High population projection"
-                    },
-                    {
-                        "value": "Medium population projection"
-                    },
-                    {
-                        "value": "Low population projection"
-                    }
-                ],
-                "exclude": [ ] 
-            },
-            "date": "Year ended June"
-        },
-        {
-            "uri": "https://figure.nz/table/VL93L0Yr0wPdvbKB/download",
-            "parent": "Demographics",
-            "measure": { 
-                "column": "Measure", 
-                "include": [ 
-                    { 
-                        "value": "Sex for the census usually resident population count", 
-                        "label": "Census population by sex" 
-                    }
-                ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Sex", 
-                "include": [ 
-                    { 
-                        "value": "Male"
-                    },
-                    { 
-                        "value": "Female"
-                    }
-                ],
-                "exclude": [ ] 
-            },
-            "date": "Census Year"
-        },
-        {
-            "uri": "https://figure.nz/table/NUI0tdCOI51h0VTJ/download",
-            "parent": "Demographics",
-            "measure": { 
-                "column": "Measure",
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Category",
-                "include": [ ],
-                "exclude": [
-                    "Total people stated",
-                    "Total people"
-                ]
-            },
-            "date": "Census Year"
-        },
-        {
-            "uri": "https://figure.nz/table/a5X7TSwPRjKASUSv/download",
-            "parent": "Income",
-            "measure": { 
-                "column": "Benefit type", 
-                "group": "Grouping variable",
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Category", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Quarter"
-        }
-    ]
+  "datasets": [
+    {
+      "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
+      "parent": "Demographics",
+      "measure": {
+        "column": "Measure",
+        "include": [
+          {
+            "value": "Population",
+            "label": "Population"
+          }
+        ],
+        "exclude": []
+      },
+      "category": {
+        "column": "Series",
+        "include": [
+          {
+            "value": "Census usually resident population count",
+            "label": "Census Population Count"
+          },
+          {
+            "value": "Estimated resident population",
+            "label": "Estimated Population"
+          },
+          {
+            "value": "High population projection"
+          },
+          {
+            "value": "Medium population projection"
+          },
+          {
+            "value": "Low population projection"
+          }
+        ],
+        "exclude": []
+      },
+      "date": "Year ended June"
+    },
+    {
+      "uri": "https://figure.nz/table/VL93L0Yr0wPdvbKB/download",
+      "parent": "Demographics",
+      "measure": {
+        "column": "Measure",
+        "include": [
+          {
+            "value": "Sex for the census usually resident population count",
+            "label": "Census population by sex"
+          }
+        ],
+        "exclude": []
+      },
+      "category": {
+        "column": "Sex",
+        "include": [
+          {
+            "value": "Male"
+          },
+          {
+            "value": "Female"
+          }
+        ],
+        "exclude": []
+      },
+      "date": "Census Year"
+    },
+    {
+      "uri": "https://figure.nz/table/NUI0tdCOI51h0VTJ/download",
+      "parent": "Demographics",
+      "measure": {
+        "column": "Measure",
+        "include": [],
+        "exclude": []
+      },
+      "category": {
+        "column": "Category",
+        "include": [],
+        "exclude": [
+          "Total people stated",
+          "Total people"
+        ]
+      },
+      "date": "Census Year"
+    },
+    {
+      "uri": "https://figure.nz/table/a5X7TSwPRjKASUSv/download",
+      "parent": "Income",
+      "measure": {
+        "column": "Benefit type",
+        "group": "Grouping variable",
+        "include": [],
+        "exclude": []
+      },
+      "category": {
+        "column": "Category",
+        "include": [],
+        "exclude": []
+      },
+      "date": "Quarter"
+    },
+    {
+      "uri": "https://figure.nz/table/iFv0j48BDpKqCD7S/download",
+      "parent": "Income",
+      "measure": {
+        "column": "Family Income",
+        "include": [],
+        "exclude": []
+      },
+      "category": {
+        "column": "Value Label",
+        "include": [],
+        "exclude": []
+      },
+      "date": "Census Year"
+    }
+  ]
 }

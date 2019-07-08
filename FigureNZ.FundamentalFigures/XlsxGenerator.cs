@@ -183,7 +183,7 @@ namespace FigureNZ.FundamentalFigures
 
         public string CategoryLabel { get; set; }
 
-        public long? Value { get; set; }
+        public decimal? Value { get; set; }
 
         public string ValueUnit { get; set; }
 
