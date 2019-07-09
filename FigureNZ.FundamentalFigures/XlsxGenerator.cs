@@ -38,14 +38,14 @@ namespace FigureNZ.FundamentalFigures
                                 csv.Configuration.HeaderValidated = null;
                                 csv.Configuration.MissingFieldFound = null;
                                 csv.Configuration.RegisterClassMap(new RecordMap()
-                                    .Map(r => r.TerritorialAuthority, "Territorial Authority")
+                                    .Map(r => r.Discriminator, dataset.Discriminator ?? "Territorial Authority")
                                     .Map(r => r.Date, dataset.Date)
                                     .Map(r => r.Measure, dataset.Measure.Column)
                                     .Map(r => r.Group, dataset.Measure.Group?.Column)
                                     .Map(r => r.Category, dataset.Category.Column)
-                                    .Map(r => r.Value, "Value")
-                                    .Map(r => r.ValueUnit, "Value Unit")
-                                    .Map(r => r.ValueLabel, "Value Label")
+                                    .Map(r => r.Value, dataset.Value ?? "Value")
+                                    .Map(r => r.ValueUnit, dataset.ValueUnit ?? "Value Unit")
+                                    .Map(r => r.ValueLabel, dataset.ValueLabel ?? "Value Label")
                                 );
 
                                 bool hasMeasureExclusions = dataset.Measure.Exclude != null && dataset.Measure.Exclude.Any();
@@ -70,7 +70,12 @@ namespace FigureNZ.FundamentalFigures
 
                                 foreach (Record r in csv.GetRecords<Record>())
                                 {
-                                    if (!r.TerritorialAuthority.Equals(term, StringComparison.OrdinalIgnoreCase))
+                                    if (r.Discriminator == null)
+                                    {
+                                        continue;
+                                    }
+
+                                    if (!r.Discriminator.Equals(term, StringComparison.OrdinalIgnoreCase))
                                     {
                                         continue;
                                     }
@@ -193,7 +198,7 @@ namespace FigureNZ.FundamentalFigures
 
         public Uri Uri { get; set; }
 
-        public string TerritorialAuthority { get; set; }
+        public string Discriminator { get; set; }
 
         public string Date { get; set; }
 
@@ -248,6 +253,14 @@ namespace FigureNZ.FundamentalFigures
         public Uri Uri { get; set; }
 
         public string Parent { get; set; }
+
+        public string Discriminator { get; set; }
+
+        public string Value { get; set; }
+
+        public string ValueUnit { get; set; }
+
+        public string ValueLabel { get; set; }
 
         public Measure Measure { get; set; }
 

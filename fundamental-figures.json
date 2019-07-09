@@ -103,7 +103,7 @@
             },
             {
               "value": "Continuous Duration",
-              "label": "Duration" 
+              "label": "Duration"
             }
           ],
           "exclude": []
@@ -132,6 +132,22 @@
         "exclude": []
       },
       "date": "Census Year"
+    },
+    {
+      "uri": "https://figure.nz/table/T52DqR6aqRo8a8Lp/download",
+      "parent": "Education",
+      "discriminator": "Territorial authority",
+      "measure": {
+        "column": "Measure",
+        "include": [],
+        "exclude": []
+      },
+      "category": {
+        "column": "Value Label",
+        "include": [],
+        "exclude": []
+      },
+      "date": "Year as at 1 July"
     }
   ]
 }
