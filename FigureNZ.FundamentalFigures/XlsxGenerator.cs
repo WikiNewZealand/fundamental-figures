@@ -16,6 +16,9 @@ namespace FigureNZ.FundamentalFigures
     {
         public async Task<Stream> FromFigure(Figure figure, string term)
         {
+            Console.WriteLine($"Processing {figure.Datasets.Count} datasets with term '{term}'...");
+            Console.WriteLine();
+
             using (ExcelPackage workbook = new ExcelPackage())
             {
                 ExcelWorksheet worksheet = workbook.Workbook.Worksheets.Add(term);
@@ -28,6 +31,13 @@ namespace FigureNZ.FundamentalFigures
                 {
                     foreach (Dataset dataset in figure.Datasets)
                     {
+                        int countRecords = 0;
+                        int countMissingDiscriminator = 0;
+                        int countExcludedByDiscriminator = 0;
+                        int countExcludedByMeasure = 0;
+                        int countExcludedByGroup = 0;
+                        int countExcludedByCategory = 0;
+
                         using (HttpResponseMessage response = await client.GetAsync(dataset.Uri))
                         {
                             response.EnsureSuccessStatusCode();
@@ -70,43 +80,53 @@ namespace FigureNZ.FundamentalFigures
 
                                 foreach (Record r in csv.GetRecords<Record>())
                                 {
+                                    countRecords++;
+
                                     if (r.Discriminator == null)
                                     {
+                                        countMissingDiscriminator++;
                                         continue;
                                     }
 
                                     if (!r.Discriminator.Equals(term, StringComparison.OrdinalIgnoreCase))
                                     {
+                                        countExcludedByDiscriminator++;
                                         continue;
                                     }
 
                                     if (hasMeasureExclusions && measureExclusions.Contains(r.Measure))
                                     {
+                                        countExcludedByMeasure++;
                                         continue;
                                     }
 
                                     if (hasMeasureInclusions && !measureInclusions.Contains(r.Measure))
                                     {
+                                        countExcludedByMeasure++;
                                         continue;
                                     }
 
                                     if (hasGroupExclusions && groupExclusions.Contains(r.Group))
                                     {
+                                        countExcludedByGroup++;
                                         continue;
                                     }
 
                                     if (hasGroupInclusions && !groupInclusions.Contains(r.Group))
                                     {
+                                        countExcludedByGroup++;
                                         continue;
                                     }
 
                                     if (hasCategoryExclusions && categoryExclusions.Contains(r.Category))
                                     {
+                                        countExcludedByCategory++;
                                         continue;
                                     }
 
                                     if (hasCategoryInclusions && !categoryInclusions.Contains(r.Category))
                                     {
+                                        countExcludedByCategory++;
                                         continue;
                                     }
 
@@ -180,6 +200,37 @@ namespace FigureNZ.FundamentalFigures
                                 // Add a blank row between datasets
                                 measureLabel = null;
                                 row++;
+
+                                Console.WriteLine($"Processed '{response.Content.Headers.ContentDisposition.FileName}' from '{dataset.Uri}'");
+                                Console.WriteLine($" - {countRecords} records read");
+
+                                if (countMissingDiscriminator > 0)
+                                {
+                                    Console.WriteLine($" - {countMissingDiscriminator} records missing \"discriminator\"");
+                                }
+
+                                if (countExcludedByDiscriminator > 0)
+                                {
+                                    Console.WriteLine($" - {countExcludedByDiscriminator} records excluded by \"discriminator\"");
+                                }
+
+                                if (countExcludedByMeasure > 0)
+                                {
+                                    Console.WriteLine($" - {countExcludedByMeasure} records excluded by \"measure\"");
+                                }
+
+                                if (countExcludedByGroup > 0)
+                                {
+                                    Console.WriteLine($" - {countExcludedByGroup} records excluded by \"group\"");
+                                }
+
+                                if (countExcludedByCategory > 0)
+                                {
+                                    Console.WriteLine($" - {countExcludedByCategory} records excluded by \"category\"");
+                                }
+
+                                Console.WriteLine($" - {set.Count} records written to output");
+                                Console.WriteLine();
                             }
                         }
                     }
