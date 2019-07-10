@@ -75,31 +75,31 @@ namespace FigureNZ.FundamentalFigures
                             csv.Configuration.RegisterClassMap(new RecordMap()
                                 .Map(r => r.Discriminator, dataset.Discriminator ?? "Territorial Authority")
                                 .Map(r => r.Date, dataset.Date)
-                                .Map(r => r.Measure, dataset.Measure.Column)
-                                .Map(r => r.Group, dataset.Measure.Group?.Column)
-                                .Map(r => r.Category, dataset.Category.Column)
+                                .Map(r => r.Measure, dataset.Measure?.Column)
+                                .Map(r => r.Group, dataset.Measure?.Group?.Column)
+                                .Map(r => r.Category, dataset.Category?.Column)
                                 .Map(r => r.Value, dataset.Value ?? "Value")
                                 .Map(r => r.ValueUnit, dataset.ValueUnit ?? "Value Unit")
                                 .Map(r => r.ValueLabel, dataset.ValueLabel ?? "Value Label")
                             );
 
-                            bool hasMeasureExclusions = dataset.Measure.Exclude != null && dataset.Measure.Exclude.Any();
-                            HashSet<string> measureExclusions = new HashSet<string>(dataset.Measure.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+                            bool hasMeasureExclusions = dataset.Measure?.Exclude != null && dataset.Measure.Exclude.Any();
+                            HashSet<string> measureExclusions = new HashSet<string>(dataset.Measure?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
-                            bool hasMeasureInclusions = dataset.Measure.Include != null && dataset.Measure.Include.Any();
-                            HashSet<string> measureInclusions = new HashSet<string>(dataset.Measure.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+                            bool hasMeasureInclusions = dataset.Measure?.Include != null && dataset.Measure.Include.Any();
+                            HashSet<string> measureInclusions = new HashSet<string>(dataset.Measure?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
-                            bool hasGroupExclusions = dataset.Measure.Group?.Exclude != null && dataset.Measure.Group.Exclude.Any();
-                            HashSet<string> groupExclusions = new HashSet<string>(dataset.Measure.Group?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+                            bool hasGroupExclusions = dataset.Measure?.Group?.Exclude != null && dataset.Measure.Group.Exclude.Any();
+                            HashSet<string> groupExclusions = new HashSet<string>(dataset.Measure?.Group?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
-                            bool hasGroupInclusions = dataset.Measure.Group?.Include != null && dataset.Measure.Group.Include.Any();
-                            HashSet<string> groupInclusions = new HashSet<string>(dataset.Measure.Group?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+                            bool hasGroupInclusions = dataset.Measure?.Group?.Include != null && dataset.Measure.Group.Include.Any();
+                            HashSet<string> groupInclusions = new HashSet<string>(dataset.Measure?.Group?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
-                            bool hasCategoryExclusions = dataset.Category.Exclude != null && dataset.Category.Exclude.Any();
-                            HashSet<string> categoryExclusions = new HashSet<string>(dataset.Category.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+                            bool hasCategoryExclusions = dataset.Category?.Exclude != null && dataset.Category.Exclude.Any();
+                            HashSet<string> categoryExclusions = new HashSet<string>(dataset.Category?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
-                            bool hasCategoryInclusions = dataset.Category.Include != null && dataset.Category.Include.Any();
-                            HashSet<string> categoryInclusions = new HashSet<string>(dataset.Category.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+                            bool hasCategoryInclusions = dataset.Category?.Include != null && dataset.Category.Include.Any();
+                            HashSet<string> categoryInclusions = new HashSet<string>(dataset.Category?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
                             List<Record> set = new List<Record>();
 
@@ -157,24 +157,24 @@ namespace FigureNZ.FundamentalFigures
 
                                 r.Parent = dataset.Parent;
                                 r.Uri = dataset.Uri;
-                                r.Separator = dataset.Measure.Group?.Separator;
+                                r.Separator = dataset.Measure?.Group?.Separator;
                                 r.DateLabel = dataset.Date;
 
-                                Include measure = dataset.Measure.Include?.FirstOrDefault(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
+                                Include measure = dataset.Measure?.Include?.FirstOrDefault(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
 
                                 if (measure != null)
                                 {
                                     r.MeasureLabel = measure.Label;
                                 }
 
-                                Include group = dataset.Measure.Group?.Include?.FirstOrDefault(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
+                                Include group = dataset.Measure?.Group?.Include?.FirstOrDefault(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
 
                                 if (group != null)
                                 {
                                     r.GroupLabel = group.Label;
                                 }
 
-                                Include category = dataset.Category.Include?.FirstOrDefault(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
+                                Include category = dataset.Category?.Include?.FirstOrDefault(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
 
                                 if (category != null)
                                 {
@@ -190,8 +190,8 @@ namespace FigureNZ.FundamentalFigures
                                     .OrderByDescending(r => r.Date)
                                     .First()
                                 )
-                                .OrderBy(r => dataset.Measure.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
-                                .ThenBy(r => dataset.Category.Include?.FindIndex(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase)))
+                                .OrderBy(r => dataset.Measure?.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
+                                .ThenBy(r => dataset.Category?.Include?.FindIndex(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase)))
                                 .ToList();
 
                             foreach (Record record in set)
