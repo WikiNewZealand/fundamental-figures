@@ -1,153 +1,438 @@
 {
-  "datasets": [
-    {
-      "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
-      "parent": "Demographics",
-      "measure": {
-        "column": "Measure",
-        "include": [
-          {
-            "value": "Population",
-            "label": "Population"
-          }
-        ],
-        "exclude": []
-      },
-      "category": {
-        "column": "Series",
-        "include": [
-          {
-            "value": "Census usually resident population count",
-            "label": "Census Population Count"
-          },
-          {
-            "value": "Estimated resident population",
-            "label": "Estimated Population"
-          },
-          {
-            "value": "High population projection"
-          },
-          {
-            "value": "Medium population projection"
-          },
-          {
-            "value": "Low population projection"
-          }
-        ],
-        "exclude": []
-      },
-      "date": "Year ended June"
-    },
-    {
-      "uri": "https://figure.nz/table/VL93L0Yr0wPdvbKB/download",
-      "parent": "Demographics",
-      "measure": {
-        "column": "Measure",
-        "include": [
-          {
-            "value": "Sex for the census usually resident population count",
-            "label": "Census population by sex"
-          }
-        ],
-        "exclude": []
-      },
-      "category": {
-        "column": "Sex",
-        "include": [
-          {
-            "value": "Male"
-          },
-          {
-            "value": "Female"
-          }
-        ],
-        "exclude": []
-      },
-      "date": "Census Year"
-    },
-    {
-      "uri": "https://figure.nz/table/NUI0tdCOI51h0VTJ/download",
-      "parent": "Demographics",
-      "measure": {
-        "column": "Measure",
-        "include": [],
-        "exclude": []
-      },
-      "category": {
-        "column": "Category",
-        "include": [],
-        "exclude": [
-          "Total people stated",
-          "Total people"
-        ]
-      },
-      "date": "Census Year"
-    },
-    {
-      "uri": "https://figure.nz/table/a5X7TSwPRjKASUSv/download",
-      "parent": "Income",
-      "measure": {
-        "column": "Benefit type",
-        "group": {
-          "column": "Grouping variable",
-          "separator": "by",
-          "include": [
-            {
-              "value": "Gender"
+    "datasets": [
+        {
+            "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    { 
+                        "value": "Population", 
+                        "label": "Population" 
+                    }
+                ],
+                "exclude": [ ] 
             },
-            {
-              "value": "Ethnic Group"
+            "category": { 
+                "column": "Series", 
+                "include": [
+                    {
+                        "value": "Census usually resident population count",
+                        "label": "Census Population Count"
+                    },
+                    {
+                        "value": "Estimated resident population",
+                        "label": "Estimated Population"
+                    },
+                    {
+                        "value": "High population projection"
+                    },
+                    {
+                        "value": "Medium population projection"
+                    },
+                    {
+                        "value": "Low population projection"
+                    }
+                ],
+                "exclude": [ ] 
             },
-            {
-              "value": "Age Group"
-            },
-            {
-              "value": "Continuous Duration",
-              "label": "Duration"
-            }
-          ],
-          "exclude": []
+            "date": "Year ended June"
         },
-        "include": [],
-        "exclude": []
-      },
-      "category": {
-        "column": "Category",
-        "include": [],
-        "exclude": []
-      },
-      "date": "Quarter"
-    },
-    {
-      "uri": "https://figure.nz/table/iFv0j48BDpKqCD7S/download",
-      "parent": "Income",
-      "measure": {
-        "column": "Family Income",
-        "include": [],
-        "exclude": []
-      },
-      "category": {
-        "column": "Value Label",
-        "include": [],
-        "exclude": []
-      },
-      "date": "Census Year"
-    },
-    {
-      "uri": "https://figure.nz/table/T52DqR6aqRo8a8Lp/download",
-      "parent": "Education",
-      "discriminator": "Territorial authority",
-      "measure": {
-        "column": "Measure",
-        "include": [],
-        "exclude": []
-      },
-      "category": {
-        "column": "Value Label",
-        "include": [],
-        "exclude": []
-      },
-      "date": "Year as at 1 July"
-    }
-  ]
+        {
+            "uri": "https://figure.nz/table/VL93L0Yr0wPdvbKB/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    { 
+                        "value": "Sex for the census usually resident population count", 
+                        "label": "Census population by sex" 
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Sex", 
+                "include": [ 
+                    { 
+                        "value": "Male"
+                    },
+                    { 
+                        "value": "Female"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/hMZ5vC2AbDnPpi8z/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure",
+                "include": [
+                    { 
+                        "value": "Family type for families in occupied private dwellings", 
+                        "label": "Number of families of each family type" 
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Family Type",
+                "include": [ ],
+                "exclude": [ "Total families in occupied private dwellings" ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/NUI0tdCOI51h0VTJ/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure",
+                "include": [ 
+                    { 
+                        "value": "Years at usual residence for the census usually resident population count", 
+                        "label": "Years at usual residence (2013 Census)" 
+                    },
+                    { 
+                        "value": "Usual residence five years ago (2008) indicator for the census usually resident population count", 
+                        "label": "Usual residence five years ago (2008 Census)" 
+                    },
+                    { 
+                        "value": "Maori descent for the census usually resident population count", 
+                        "label": "Māori descent" 
+                    },
+                    { 
+                        "value": "Ethnic group (grouped total responses) for the census usually resident population count", 
+                        "label": "Ethnic group (grouped totals)" 
+                    },
+                    { 
+                        "value": "Years since arrival in New Zealand for the overseas-born census usually resident population count", 
+                        "label": "Years since arrival in NZ for those born overseas" 
+                    },
+                    { 
+                        "value": "Birthplace for the census usually resident population count", 
+                        "label": "Place of birth" 
+                    }
+                    
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Category",
+                "include": [ ],
+                "exclude": [
+                    "Total people stated",
+                    "Total people"
+                ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/pAoznFmTWsqYmXNl/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Value Label",
+                "include": [ 
+                    { 
+                        "value": "% of city/district's population",
+                        "label": "% of city/district's population born in overseas area"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Birthplace",
+                "include": [ 
+                    { 
+                        "value": "Oceania and Antartica excluding New Zealand"
+                    },
+                    { 
+                        "value": "UK and Ireland"
+                    },
+                    { 
+                        "value": "North-West Europe"
+                    },
+                    { 
+                        "value": "Southern and Eastern Europe"
+                    },
+                    { 
+                        "value": "North Africa and the Middle East"
+                    },
+                    { 
+                        "value": "South-East Asia"
+                    },
+                    { 
+                        "value": "Southern and Central Asia"
+                    },
+                    { 
+                        "value": "Americas"
+                    },
+                    { 
+                        "value": "Sub-Saharan Africa"
+                    },
+                    { 
+                        "value": "At sea"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/hFnISbVIuV1PXMxp/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [
+                    { 
+                        "value": "Sources of family income for families in occupied private dwellings", 
+                        "label": "Number of families receiving income from this source" 
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Source of Income",
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/RqhUM3QN9rVpJi8q/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Value Label",
+                "include": [
+                    { 
+                        "value": "Number of families", 
+                        "label": "Number of families in income bracket" 
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Income band",
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/LULoKvlIlvkpKyLa/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Value Label",
+                "include": [ 
+                    { 
+                        "value": "Number of people", 
+                        "label": "Number of people receiving types of benefit" 
+                    }
+                ],
+                "exclude": [ ]              
+            },
+            "category": { 
+                "column": "Benefit type",
+                "include": [ ],
+                "exclude": ["Total Main Benefits"]  
+            },
+            "date": "Quarter"
+        },
+        {
+            "uri": "https://figure.nz/table/a5X7TSwPRjKASUSv/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Benefit type", 
+                "group": { 
+                    "column": "Grouping variable",
+                    "separator": "by"
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Category", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Quarter"
+        },
+        {
+            "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Prior Participation Rate",
+                        "label": "% of children starting school with prior participation in early childhood education"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Ethnic group", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended in month"
+        },
+        {
+            "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Prior Participation Rate",
+                        "label": "% of children starting school with prior participation in early childhood education"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Ethnic group", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended in month"
+        },
+        {
+            "uri": "https://figure.nz/table/T52DqR6aqRo8a8Lp/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Label", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/dYA0t3cF5QWmZCjQ/download",
+            "parent": "Life",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Total number of approved venues with gaming machines in operation",
+                        "label": "Gambling - Total number of approved venues with gaming machines in operation"
+                    },
+                    {
+                        "value": "Total number of machines operating on approved venues",
+                        "label": "Gambling - Total number of machines operating on approved venues"
+                    },
+                    {
+                        "value": "National % of sites",
+                        "label": "Gambling - % of total NZ sites that are located in this area"
+                    },
+                    {
+                        "value": "National % of machines",
+                        "label": "Gambling - % of total NZ machines that are located in this area"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Unit", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Quarter"
+        },
+        {
+            "uri": "https://figure.nz/table/4jJ3IazvxUv9WKJQ/download",
+            "parent": "Life",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Gaming Machine Proceeds",
+                        "label": "Gambling - Gaming Machine Proceeds"
+                    },
+                    {
+                        "value": "% of total Gaming Machine Proceeds",
+                        "label": "Gambling - % of total NZ % Gaming Machine Proceeds made in this area"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Unit", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Quarter"
+        },
+        {
+            "uri": "https://figure.nz/table/mJfUOl7H7J6IlLUe/download",
+            "parent": "Life",
+            "measure": { 
+                "column": "Dog control statistics category", 
+                "group": { 
+                    "column": "Subcategory",
+                    "separator": "—"
+                },
+                "include": [ 
+                    {
+                        "value": "Registered dogs (total)"
+                    },
+                    {
+                        "value": "Owners",
+                        "label": "Dog owners"
+                    },
+                    {
+                        "value": "Ministry of Justice Statistics"
+                    },
+                    {
+                        "value": "Accident Compensation Corporation Statistics",
+                        "label": "ACC Statistics"
+                    }
+
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Item", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/L8wFIweXRAW9Hdpb/download",
+            "parent": "Work safety",
+            "measure": { 
+                "column": "Industry", 
+                "group": { 
+                    "column": "Severity of injury",
+                    "separator": "—",
+                    "include": [ 
+                        {
+                            "value": "More than a week off work",
+                            "label": "Work-related injuries causing more than a week off work"
+                        },
+                        {
+                            "value": "Fatal",
+                            "label": "Fatal work-related injuries"
+                        }
+                    ]
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Injury type", 
+                "include": [ ],
+                "exclude": [ "Total"] 
+            },
+            "date": "Year"
+        }
+    ]
 }
