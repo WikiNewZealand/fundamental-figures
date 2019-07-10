@@ -217,9 +217,10 @@ namespace FigureNZ.FundamentalFigures
 
                                 worksheet.Cells[row, 3].Value = record.CategoryFormatted();
                                 worksheet.Cells[row, 4].Value = record.Value;
-                                worksheet.Cells[row, 5].Value = record.Date;
-                                worksheet.Cells[row, 6].Value = record.DateLabel;
-                                worksheet.Cells[row, 7].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
+                                worksheet.Cells[row, 5].Value = record.ValueLabel;
+                                worksheet.Cells[row, 6].Value = record.Date;
+                                worksheet.Cells[row, 7].Value = record.DateLabel;
+                                worksheet.Cells[row, 8].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
 
                                 row++;
                             }
