@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,6 +6,11 @@
     <LangVersion>latest</LangVersion>
     <AssemblyName>fundamental-figures</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="**\*.csv" />
+    <None Remove="**\*.xlsx" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="..\fundamental-figures.json" Link="fundamental-figures.json">

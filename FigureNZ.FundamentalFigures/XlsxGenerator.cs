@@ -158,6 +158,7 @@ namespace FigureNZ.FundamentalFigures
                                 r.Parent = dataset.Parent;
                                 r.Uri = dataset.Uri;
                                 r.Separator = dataset.Measure.Group?.Separator;
+                                r.DateLabel = dataset.Date;
 
                                 Include measure = dataset.Measure.Include?.FirstOrDefault(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
 
@@ -217,7 +218,8 @@ namespace FigureNZ.FundamentalFigures
                                 worksheet.Cells[row, 3].Value = record.CategoryFormatted();
                                 worksheet.Cells[row, 4].Value = record.Value;
                                 worksheet.Cells[row, 5].Value = record.Date;
-                                worksheet.Cells[row, 6].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
+                                worksheet.Cells[row, 6].Value = record.DateLabel;
+                                worksheet.Cells[row, 7].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
 
                                 row++;
                             }
@@ -276,6 +278,8 @@ namespace FigureNZ.FundamentalFigures
         public string Discriminator { get; set; }
 
         public string Date { get; set; }
+
+        public string DateLabel { get; set; }
 
         public string Measure { get; set; }
 
