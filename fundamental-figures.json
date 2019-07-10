@@ -321,7 +321,7 @@
                 "column": "Measure", 
                 "include": [ 
                     {
-                        "value": "Number of school leavers in tertiary during first year after leaving school",
+                        "value": "Number of school leavers in tertiary during first year after leaving school"
                     }
                 ],
                 "exclude": [ ] 
