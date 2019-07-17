@@ -22,6 +22,8 @@ namespace FigureNZ.FundamentalFigures
             using (ExcelPackage workbook = new ExcelPackage())
             {
                 ExcelWorksheet worksheet = workbook.Workbook.Worksheets.Add(term);
+                worksheet.Cells.Style.Font.Name = "Arial";
+                worksheet.Cells.Style.Font.Size = 12;
 
                 int row = 1;
                 string parentLabel = null;
@@ -42,7 +44,14 @@ namespace FigureNZ.FundamentalFigures
 
                         using (HttpResponseMessage response = await client.SendAsync(new HttpRequestMessage(HttpMethod.Head, dataset.Uri)))
                         {
-                            response.EnsureSuccessStatusCode();
+                            if (!response.IsSuccessStatusCode)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine($"Response for '{dataset.Uri}' failed with '{response.StatusCode}: {response.ReasonPhrase}'");
+                                Console.ResetColor();
+                                Console.WriteLine();
+                                continue;
+                            }
 
                             Console.WriteLine($"Expecting '{response.Content.Headers.ContentDisposition.FileName}'");
                             csvFile = response.Content.Headers.ContentDisposition.FileName;
@@ -59,7 +68,14 @@ namespace FigureNZ.FundamentalFigures
                             using (FileStream stream = new FileStream(csvFile, FileMode.Create))
                             using (HttpResponseMessage response = await client.GetAsync(dataset.Uri))
                             {
-                                response.EnsureSuccessStatusCode();
+                                if (!response.IsSuccessStatusCode)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine($"Downloading '{csvFile}' from '{dataset.Uri}' failed with '{response.StatusCode}: {response.ReasonPhrase}'");
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    continue;
+                                }
                                 
                                 (await response.Content.ReadAsStreamAsync()).CopyTo(stream);
                             }
