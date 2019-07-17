@@ -232,7 +232,37 @@ namespace FigureNZ.FundamentalFigures
                                 }
 
                                 worksheet.Cells[row, 3].Value = record.CategoryFormatted();
-                                worksheet.Cells[row, 4].Value = record.Value;
+
+                                switch (record.ValueUnit)
+                                {
+                                    case "nzd":
+                                        worksheet.Cells[row, 4].Value = record.Value;
+                                        worksheet.Cells[row, 4].Style.Numberformat.Format = "$###,###,###,###,###,###,###,###,##0.00";
+                                        break;
+
+                                    case "percentage":
+                                        worksheet.Cells[row, 4].Value = record.Value / 100;
+                                        worksheet.Cells[row, 4].Style.Numberformat.Format = "0.00%";
+                                        break;
+
+                                    case "number":
+                                    default:
+                                        worksheet.Cells[row, 4].Value = record.Value;
+
+                                        if (record.Value % 1 != 0)
+                                        {
+                                            // This number has decimal places, so format expecting a decimal point
+                                            worksheet.Cells[row, 4].Style.Numberformat.Format = "###,###,###,###,###,###,###,###,##0.##";
+                                        }
+                                        else
+                                        {
+                                            // This number is a whole number, with no decimal point
+                                            worksheet.Cells[row, 4].Style.Numberformat.Format = "###,###,###,###,###,###,###,###,##0";
+                                        }
+                                        
+                                        break;
+                                }
+
                                 worksheet.Cells[row, 5].Value = record.ValueLabel;
                                 worksheet.Cells[row, 6].Value = record.Date;
                                 worksheet.Cells[row, 7].Value = record.DateLabel;
