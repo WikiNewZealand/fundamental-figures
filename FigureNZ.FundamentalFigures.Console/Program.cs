@@ -14,9 +14,16 @@ namespace FigureNZ.FundamentalFigures.Console
 
             string term = args[1];
 
-            string file;
+            string file = Path.Combine(figure.OutputPath, $"{term}.xlsx");
 
-            using (FileStream output = new FileStream( $"{term}.xlsx", FileMode.Create))
+            string directory = Path.GetDirectoryName(file);
+
+            if (!string.IsNullOrWhiteSpace(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            using (FileStream output = new FileStream(file, FileMode.Create))
             {
                 (await new XlsxGenerator().FromFigure(figure, term)).CopyTo(output);
 
