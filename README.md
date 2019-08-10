@@ -28,7 +28,7 @@ A `Dataset` looks like this:
 {
     "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
     "parent": "Name of section that this dataset will be displayed under in the output file",
-	"term": "If the input term equals this value assume *all* rows in this csv are candidates for processing, defaults to 'null' which means we'll compare the input term with the discriminator value for each row",
+    "term": "If the input term equals this value assume *all* rows in this csv are candidates for processing, defaults to 'null' which means we'll compare the input term with the discriminator value for each row",
     "discriminator": "Name of the column that we search, defaults to 'Territorial Authority'",
     "value": "Name of the column that holds the value of each row, defaults to 'Value'",
     "valueUnit": "Not currently used, defaults to 'ValueUnit'",
@@ -40,11 +40,11 @@ A `Dataset` looks like this:
             "separator": "Text to separate measure and group for display purposes, defaults to —",
             "include": [
                 {
-					"value": "Include row only if its group matches this value",
-					"label": "[OPTIONAL] Transform row's group to this text for display purposes",					
+                    "value": "Include row only if its group matches this value",
+                    "label": "[OPTIONAL] Transform row's group to this text for display purposes",					
                 },
                 {
-					"value": "Include row only if its group matches this other row"
+                    "value": "Include row only if its group matches this other row"
                 }
             ],
             "exclude": [
@@ -54,9 +54,9 @@ A `Dataset` looks like this:
         },
         "include": [
             {
-                "value": "Include row only if its measure matches this value",
-				"label": "[OPTIONAL] Transform row's measure to this text for display purposes"
-				"convert-to-percentage": true // <-- [OPTIONAL] Calculate each category's value as a percentage of the overall measurement + group total
+		"value": "Include row only if its measure matches this value",
+		"label": "[OPTIONAL] Transform row's measure to this text for display purposes"
+		"convert-to-percentage": true // <-- [OPTIONAL] Calculate each category's value as a percentage of the overall measurement + group total
             },
             {
                 "value": "Include row only if its measure matches this other value"
