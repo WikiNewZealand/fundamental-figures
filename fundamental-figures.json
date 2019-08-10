@@ -48,7 +48,8 @@
                 "include": [ 
                     { 
                         "value": "Sex for the census usually resident population count", 
-                        "label": "Census population by sex" 
+                        "label": "Census population by sex",
+                        "convert-to-percentage": true 
                     }
                 ],
                 "exclude": [ ] 
@@ -115,7 +116,8 @@
                     },
                     { 
                         "value": "Birthplace for the census usually resident population count", 
-                        "label": "Place of birth" 
+                        "label": "Place of birth", 
+                        "convert-to-percentage": true
                     }
                     
                 ],
@@ -617,30 +619,67 @@
             "parent": "Pets",
             "discriminator": "Territorial authority",
             "measure": { 
-                "column": "Measure", 
+                "column": "Grouping variable", 
                 "group": { 
-                    "column": "Grouping variable",
-                    "separator": "—"
+                    "column": "Category",
+                    "separator": "—",
+                    "include": [
+                        {
+                            "value": "Dog-related injury"
+                        },
+                        {
+                            "value": "Under the Dog Control Act 1996"
+                        },
+                        {
+                            "value": "Classified",
+                            "label": "Classification of dog owners"
+                        },
+                        {
+                            "value": "Total",
+                            "label": "Total number of dog owners"
+                        }
+                    ]
                 },
-                "include": [ 
+                "include": [
                     {
-                        "value": "Registered dogs"
-                    },
-                    {
-                        "value": "Owners",
-                        "label": "Dog owners"
+                        "value": "Accident Compensation Corporation Statistics",
+                        "label": "ACC Statistics"
                     },
                     {
                         "value": "Ministry of Justice Statistics"
                     },
                     {
-                        "value": "Accident Compensation Corporation Statistics",
-                        "label": "ACC Statistics"
+                        "value": "Owners",
+                        "label": "Dog owners"
                     }
-
                 ],
-
+                "exclude": [ 
+                    "Registered dogs"
+                ] 
+            },
+            "category": { 
+                "column": "Measure", 
+                "include": [ ],
                 "exclude": [ ] 
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/fK7iZAOJhHHirYPk/download",
+            "parent": "Pets",
+            "discriminator": "Territorial authority",
+            "measure": { 
+                "column": "Grouping variable", 
+                "group": { 
+                    "column": "Measure",
+                    "separator": "—"
+                },
+                "include": [ ],
+                "exclude": [ 
+                    "Accident Compensation Corporation Statistics", 
+                    "Ministry of Justice Statistics",
+                    "Owners"
+                ] 
             },
             "category": { 
                 "column": "Category", 
