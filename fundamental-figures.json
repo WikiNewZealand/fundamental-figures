@@ -234,7 +234,36 @@
             },
             "category": { 
                 "column": "Income band",
-                "include": [ ],
+                "include": [
+                    {
+                        "value": "*-20000",
+                        "label": "$20,000 or less"
+                    },
+                    {
+                        "value": "20001-30000",
+                        "label": "$20,001 to $30,000"
+                    },
+                    {
+                        "value": "30001-50000",
+                        "label": "$30,001 to $50,000"
+                    },
+                    {
+                        "value": "50001-70000",
+                        "label": "$50,001 to $70,000"
+                    },
+                    {
+                        "value": "70001-100000",
+                        "label": "$70,001 to $100,000"
+                    },
+                    {
+                        "value": "100001-*",
+                        "label": "$100,000 and over"
+                    },
+                    {
+                        "value": "NS",
+                        "label": "Not stated"
+                    }
+                 ],
                 "exclude": [ ]
             },
             "date": "Census Year"
