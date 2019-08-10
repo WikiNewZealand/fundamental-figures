@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.Configuration;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 
 namespace FigureNZ.FundamentalFigures
@@ -183,6 +184,7 @@ namespace FigureNZ.FundamentalFigures
                             if (measure != null)
                             {
                                 r.MeasureLabel = measure.Label;
+                                r.ConvertToPercentage = measure.ConvertToPercentage;
                             }
 
                             Include group = dataset.Measure?.Group?.Include?.FirstOrDefault(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
@@ -208,6 +210,25 @@ namespace FigureNZ.FundamentalFigures
                                 .OrderByDescending(r => r.Date)
                                 .First()
                             )
+                            .GroupBy(r => new { r.Discriminator, r.Measure, r.Group })
+                            .Select(g =>
+                            {
+                                decimal? total = g.Sum(r => r.Value);
+
+                                if (total == null || total == 0)
+                                {
+                                    return g;
+                                }
+
+                                foreach (Record r in g.Where(r => r.ConvertToPercentage))
+                                {
+                                    r.ValueUnit = "percentage";
+                                    r.Value = (r.Value / total) * 100;
+                                }
+
+                                return g;
+                            })
+                            .SelectMany(g => g)
                             .OrderBy(r => r.Discriminator)
                             .ThenBy(r => dataset.Measure?.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
                             .ThenBy(r => r.Measure, StringComparer.OrdinalIgnoreCase)
@@ -368,6 +389,8 @@ namespace FigureNZ.FundamentalFigures
 
         public string ValueLabel { get; set; }
 
+        public bool ConvertToPercentage { get; set; }
+
         public string MeasureFormatted()
         {
             return !string.IsNullOrWhiteSpace(Group) ? $"{MeasureLabel ?? Measure} {Separator ?? "—"} {GroupLabel ?? Group}" : $"{MeasureLabel ?? Measure}";
@@ -463,6 +486,9 @@ namespace FigureNZ.FundamentalFigures
         public string Value { get; set; }
 
         public string Label { get; set; }
+
+        [JsonProperty("convert-to-percentage")]
+        public bool ConvertToPercentage { get; set; }
     }
 
     public class HttpFile

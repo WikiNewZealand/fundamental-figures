@@ -39,11 +39,11 @@ A `Dataset` looks like this:
             "separator": "Text to separate measure and group for display purposes, defaults to —",
             "include": [
                 {
-                "value": "Include row only if its group matches this value",
-                "label": "[OPTIONAL] Transform row's group to this text for display purposes"
+					"value": "Include row only if its group matches this value",
+					"label": "[OPTIONAL] Transform row's group to this text for display purposes",					
                 },
                 {
-                "value": "Include row only if its group matches this other row"
+					"value": "Include row only if its group matches this other row"
                 }
             ],
             "exclude": [
@@ -53,11 +53,12 @@ A `Dataset` looks like this:
         },
         "include": [
             {
-                "value": "Include row only if its measure matches this value"
+                "value": "Include row only if its measure matches this value",
+				"label": "[OPTIONAL] Transform row's measure to this text for display purposes"
+				"convert-to-percentage": true // <-- [OPTIONAL] Calculate each category's value as a percentage of the overall measurement + group total
             },
             {
-                "value": "Include row only if its measure matches this other value",
-                "label": "[OPTIONAL] Transform row's measure to this text for display purposes"
+                "value": "Include row only if its measure matches this other value"
             }
         ],
         "exclude": [
