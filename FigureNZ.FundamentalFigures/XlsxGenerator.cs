@@ -19,7 +19,9 @@ namespace FigureNZ.FundamentalFigures
     {
         public async Task<Stream> FromFigure(Figure figure, string term)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Processing {figure.Datasets.Count} datasets with term '{term}'...");
+            Console.ResetColor();
             Console.WriteLine();
 
             // Use custom HttpClient to prevent auto-following 30x redirect responses because we want to interrogate redirects manually
