@@ -1,9 +1,10 @@
 # fundamental-figures
 
-The console app requires two parameters:
+The console app requires two parameters, with one optional parameter:
 
 1. The path to a .json configuraton file
 2. A search term (enclose multi-word terms with double quotes)
+3. [OPTIONAL] `true` or `false` to launch your installed .xlsx file viewer after processing is complete (defaults to `true`)
 
 e.g. `fundamental-figures config.json hamilton`
 

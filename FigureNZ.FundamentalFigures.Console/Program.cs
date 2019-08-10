@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -31,6 +32,12 @@ namespace FigureNZ.FundamentalFigures.Console
             }
 
             System.Console.WriteLine($"Wrote '{file}'");
+
+            if (args.Length >= 3 && args[2] == "false")
+            {
+                Environment.Exit(0);
+                return;
+            }
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
