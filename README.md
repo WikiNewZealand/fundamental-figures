@@ -27,6 +27,7 @@ A `Dataset` looks like this:
 {
     "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
     "parent": "Name of section that this dataset will be displayed under in the output file",
+	"term": "If the input term equals this value assume *all* rows in this csv are candidates for processing, defaults to 'null' which means we'll compare the input term with the discriminator value for each row",
     "discriminator": "Name of the column that we search, defaults to 'Territorial Authority'",
     "value": "Name of the column that holds the value of each row, defaults to 'Value'",
     "valueUnit": "Not currently used, defaults to 'ValueUnit'",
@@ -145,4 +146,17 @@ A starting point for a `dataset` is:
     },
     "date": ""
 }
+```
+
+To solve the "Auckland problem", where Auckland has its own csv file for a `dataset` that contains individual Local Board Areas, create a duplicate `dataset` and use the `term` and `discriminator` values:
+
+```
+{
+    "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxy/download",
+    ...
+	"term": "Auckland",
+    "discriminator": "Local Board Area",
+	...
+}
+
 ```

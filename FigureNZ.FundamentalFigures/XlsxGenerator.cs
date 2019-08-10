@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -125,7 +126,7 @@ namespace FigureNZ.FundamentalFigures
                                 continue;
                             }
 
-                            if (!r.Discriminator.Equals(term, StringComparison.OrdinalIgnoreCase))
+                            if (!term.Equals(r.Discriminator, StringComparison.OrdinalIgnoreCase) && !term.Equals(dataset.Term, StringComparison.OrdinalIgnoreCase))
                             {
                                 countExcludedByDiscriminator++;
                                 continue;
@@ -167,6 +168,11 @@ namespace FigureNZ.FundamentalFigures
                                 continue;
                             }
 
+                            if (!term.Equals(r.Discriminator, StringComparison.OrdinalIgnoreCase))
+                            {
+                                r.Discriminator = $"{term.ToTitleCase()} — {r.Discriminator}";
+                            }
+
                             r.Parent = dataset.Parent;
                             r.Uri = dataset.Uri;
                             r.Separator = dataset.Measure?.Group?.Separator;
@@ -197,12 +203,13 @@ namespace FigureNZ.FundamentalFigures
                         }
                         
                         set = set
-                            .GroupBy(r => new { r.Measure, r.Group, r.Category })
+                            .GroupBy(r => new { r.Discriminator, r.Measure, r.Group, r.Category })
                             .Select(g => g
                                 .OrderByDescending(r => r.Date)
                                 .First()
                             )
-                            .OrderBy(r => dataset.Measure?.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
+                            .OrderBy(r => r.Discriminator)
+                            .ThenBy(r => dataset.Measure?.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
                             .ThenBy(r => r.Measure, StringComparer.OrdinalIgnoreCase)
                             .ThenBy(r => dataset.Measure?.Group?.Include?.FindIndex(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase)))
                             .ThenBy(r => r.Group, StringComparer.OrdinalIgnoreCase)
@@ -212,68 +219,77 @@ namespace FigureNZ.FundamentalFigures
 
                         foreach (Record record in set)
                         {
+                            int col = 1;
+
                             if (parentLabel != dataset.Parent)
                             {
                                 parentLabel = dataset.Parent;
-                                worksheet.Cells[row, 1].Value = parentLabel;
+                                worksheet.Cells[row, col].Value = parentLabel;
                             }
+                            col++;
 
                             if (measureLabel != record.MeasureFormatted())
                             {
-                                // Add a blank row between measures
-                                // TODO: Figure out how to avoid this null check
-                                if (measureLabel != null)
-                                {
-                                    row++;
-                                }
-
-                                measureLabel = record.MeasureFormatted();
-                                worksheet.Cells[row, 2].Value = measureLabel;
+                                // Always write Discriminator when we're writing a new measure
+                                worksheet.Cells[row, col].Value = record.Discriminator;
                             }
+                            col++;
 
-                            worksheet.Cells[row, 3].Value = record.CategoryFormatted();
+                            if (measureLabel != record.MeasureFormatted())
+                            {
+                                measureLabel = record.MeasureFormatted();
+                                worksheet.Cells[row, col].Value = measureLabel;
+                            }
+                            col++;
+
+                            worksheet.Cells[row, col].Value = record.CategoryFormatted();
+                            col++;
 
                             switch (record.ValueUnit)
                             {
                                 case "nzd":
-                                    worksheet.Cells[row, 4].Value = record.Value;
-                                    worksheet.Cells[row, 4].Style.Numberformat.Format = "$###,###,###,###,###,###,###,###,##0.00";
+                                    worksheet.Cells[row, col].Value = record.Value;
+                                    worksheet.Cells[row, col].Style.Numberformat.Format = "$###,###,###,###,###,###,###,###,##0.00";
                                     break;
 
                                 case "percentage":
-                                    worksheet.Cells[row, 4].Value = record.Value / 100;
-                                    worksheet.Cells[row, 4].Style.Numberformat.Format = "0.00%";
+                                    worksheet.Cells[row, col].Value = record.Value / 100;
+                                    worksheet.Cells[row, col].Style.Numberformat.Format = "0.00%";
                                     break;
 
                                 case "number":
                                 default:
-                                    worksheet.Cells[row, 4].Value = record.Value;
+                                    worksheet.Cells[row, col].Value = record.Value;
 
                                     if (record.Value % 1 != 0)
                                     {
                                         // This number has decimal places, so format expecting a decimal point
-                                        worksheet.Cells[row, 4].Style.Numberformat.Format = "###,###,###,###,###,###,###,###,##0.##";
+                                        worksheet.Cells[row, col].Style.Numberformat.Format = "###,###,###,###,###,###,###,###,##0.##";
                                     }
                                     else
                                     {
                                         // This number is a whole number, with no decimal point
-                                        worksheet.Cells[row, 4].Style.Numberformat.Format = "###,###,###,###,###,###,###,###,##0";
+                                        worksheet.Cells[row, col].Style.Numberformat.Format = "###,###,###,###,###,###,###,###,##0";
                                     }
 
                                     break;
                             }
+                            col++;
 
-                            worksheet.Cells[row, 5].Value = record.ValueLabel;
-                            worksheet.Cells[row, 6].Value = record.Date;
-                            worksheet.Cells[row, 7].Value = record.DateLabel;
-                            worksheet.Cells[row, 8].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
+                            worksheet.Cells[row, col].Value = record.ValueLabel;
+                            col++;
+
+                            worksheet.Cells[row, col].Value = record.Date;
+                            col++;
+
+                            worksheet.Cells[row, col].Value = record.DateLabel;
+                            col++;
+
+                            worksheet.Cells[row, col].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
+                            col++;
 
                             row++;
                         }
-
-                        // Add a blank row between datasets
-                        measureLabel = null;
-                        row++;
 
                         Console.WriteLine($" - {countRecords} records read");
 
@@ -302,7 +318,13 @@ namespace FigureNZ.FundamentalFigures
                             Console.WriteLine($" - {countExcludedByCategory} records excluded by \"category\"");
                         }
 
+                        if (set.Count == 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+
                         Console.WriteLine($" - {set.Count} records written to output");
+                        Console.ResetColor();
                         Console.WriteLine();
                     }
                 }
@@ -388,8 +410,10 @@ namespace FigureNZ.FundamentalFigures
 
         public string Parent { get; set; }
 
-        public string Discriminator { get; set; }
+        public string Term { get; set; }
 
+        public string Discriminator { get; set; }
+        
         public string Value { get; set; }
 
         public string ValueUnit { get; set; }
@@ -446,6 +470,14 @@ namespace FigureNZ.FundamentalFigures
         public Uri Uri { get; set; }
 
         public string FileName { get; set; }
+    }
+
+    public static class StringExtensions
+    {
+        public static string ToTitleCase(this string s)
+        {
+            return Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(s);
+        }
     }
 
     public static class HttpClientExtensions
