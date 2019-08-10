@@ -41,15 +41,15 @@ namespace FigureNZ.FundamentalFigures.Console
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                Process.Start(new ProcessStartInfo("cmd", $"/c start {file}"));
+                Process.Start(new ProcessStartInfo("cmd", $"/c start \"\" \"{file}\""));
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                Process.Start("xdg-open", file);
+                Process.Start("xdg-open", $"\"{file}\"");
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                Process.Start("open", file);
+                Process.Start("open", $"\"{file}\"");
             }
         }
     }
