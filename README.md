@@ -154,9 +154,9 @@ To solve the "Auckland problem", where Auckland has its own csv file for a `data
 {
     "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxy/download",
     ...
-	"term": "Auckland",
+    "term": "Auckland",
     "discriminator": "Local Board Area",
-	...
+    ...
 }
 
 ```
