@@ -259,8 +259,9 @@
             "date": "Quarter"
         },
         {
-            "uri": "https://figure.nz/table/a5X7TSwPRjKASUSv/download",
+            "uri": "https://figure.nz/table/Plydk0XvoJ502h8w/download",
             "parent": "Income",
+            "discriminator": "Territorial authority",
             "measure": { 
                 "column": "Benefit type", 
                 "group": { 
@@ -298,8 +299,53 @@
             "date": "Year ended in month"
         },
         {
-            "uri": "https://figure.nz/table/4YKy8HkVXUvTnBQV/download",
+            "uri": "https://figure.nz/table/cK5RMsOoYF5neb2A/download",
             "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Prior Participation Rate",
+                        "label": "% of children starting school with prior participation in early childhood education"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Ethnic group", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended in month"
+        },
+        {
+            "uri": "https://figure.nz/table/oME3q0UIenFKYzJU/download",
+            "parent": "Education",
+            "discriminator": "Territorial authority",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Transient students",
+                        "label": "Students who changed school twice or more between 1 March and 1 November"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Label", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/WUZ1k5rtCcIXq0jW/download",
+            "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local board area",
             "measure": { 
                 "column": "Measure", 
                 "include": [ 
@@ -320,6 +366,27 @@
         {
             "uri": "https://figure.nz/table/VmWT7dYH6VuN0nRO/download",
             "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Number of school leavers in tertiary during first year after leaving school"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Qualification level", 
+                "include": [ ],
+                "exclude": [ "Total" ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/EwYDoKIL2VJrfLnS/download",
+            "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
             "measure": { 
                 "column": "Measure", 
                 "include": [ 
@@ -420,6 +487,34 @@
             "date": "Year as at 1 July"
         },
         {
+            "uri": "https://figure.nz/table/kbNVBaEwdfUNsPf7/download",
+            "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Level of student need", 
+                "include": [ 
+                    {
+                        "value": "High Need"
+                    },
+                    {
+                        "value": "Very High Need"
+                    },
+                    {
+                        "value": "Extension",
+                        "label": "Extended scheme for older students who previously were excluded"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
             "uri": "https://figure.nz/table/EjpyQrJlX8LRZphl/download",
             "parent": "Education",
             "measure": { 
@@ -470,6 +565,35 @@
             "date": "Quarter"
         },
         {
+            "uri": "https://figure.nz/table/x6ec5qfomcv6RrcD/download",
+            "parent": "Gambling",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Total number of approved venues with gaming machines in operation",
+                        "label": "Total number of approved venues with gaming machines in operation"
+                    },
+                    {
+                        "value": "Total number of machines operating on approved venues",
+                        "label": "Total number of machines operating on approved venues"
+                    },
+                    {
+                        "value": "National % of sites",
+                        "label": "% of total NZ sites that are located in this area"
+                    },
+                    {
+                        "value": "National % of machines",
+                        "label": "% of total NZ machines that are located in this area"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "date": "Quarter"
+        },
+        {
             "uri": "https://figure.nz/table/4jJ3IazvxUv9WKJQ/download",
             "parent": "Gambling",
             "measure": { 
@@ -489,17 +613,18 @@
             "date": "Quarter"
         },
         {
-            "uri": "https://figure.nz/table/mJfUOl7H7J6IlLUe/download",
+            "uri": "https://figure.nz/table/fK7iZAOJhHHirYPk/download",
             "parent": "Pets",
+            "discriminator": "Territorial authority",
             "measure": { 
-                "column": "Dog control statistics category", 
+                "column": "Measure", 
                 "group": { 
-                    "column": "Subcategory",
+                    "column": "Grouping variable",
                     "separator": "—"
                 },
                 "include": [ 
                     {
-                        "value": "Registered dogs (total)"
+                        "value": "Registered dogs"
                     },
                     {
                         "value": "Owners",
@@ -514,10 +639,11 @@
                     }
 
                 ],
+
                 "exclude": [ ] 
             },
             "category": { 
-                "column": "Item", 
+                "column": "Category", 
                 "include": [ ],
                 "exclude": [ ] 
             },
