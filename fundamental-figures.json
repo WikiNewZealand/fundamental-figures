@@ -1,4 +1,6 @@
 {
+    "inputpath": "./csv",
+    "outputpath": "./xlsx",
     "datasets": [
         {
             "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
@@ -236,8 +238,9 @@
             "date": "Census Year"
         },
         {
-            "uri": "https://figure.nz/table/LULoKvlIlvkpKyLa/download",
+            "uri": "https://figure.nz/table/SMdFo3ocObcD7W6Q/download",
             "parent": "Income",
+            "discriminator": "Territorial authority",
             "measure": { 
                 "column": "Value Label",
                 "include": [ 
