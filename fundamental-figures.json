@@ -130,6 +130,21 @@
             "date": "Census Year"
         },
         {
+            "uri": "https://figure.nz/table/3Oro8C1i2MOAnHSL/download",
+            "parent": "Demographics",
+            "measure": {
+                "column": "Value Label",
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Ethnic group",
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "date": "Year"
+        },
+        {
             "uri": "https://figure.nz/table/pAoznFmTWsqYmXNl/download",
             "parent": "Demographics",
             "measure": { 
@@ -280,28 +295,89 @@
             "date": "Year ended in month"
         },
         {
-            "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
+            "uri": "https://figure.nz/table/4YKy8HkVXUvTnBQV/download",
             "parent": "Education",
             "measure": { 
                 "column": "Measure", 
                 "include": [ 
                     {
-                        "value": "Prior Participation Rate",
-                        "label": "% of children starting school with prior participation in early childhood education"
+                        "value": "Transient students",
+                        "label": "Students who changed school twice or more between 1 March and 1 November"
                     }
                 ],
                 "exclude": [ ] 
             },
             "category": { 
-                "column": "Ethnic group", 
+                "column": "Value Label", 
                 "include": [ ],
                 "exclude": [ ] 
             },
-            "date": "Year ended in month"
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/VmWT7dYH6VuN0nRO/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Number of school leavers in tertiary during first year after leaving school"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Qualification level", 
+                "include": [ ],
+                "exclude": [ "Total" ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/UBNMx2bi4bYNKXhi/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority of employment",
+            "measure": { 
+                "column": "Training type", 
+                "include": [ 
+                    {
+                        "value": "All Apprentices (including New Zealand Apprentices)",
+                        "label": "Apprentices"
+                    },
+                    {
+                        "value": "New Zealand Apprentices",
+                        "label": "Apprentices in the New Zealand Apprenticeships scheme"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Label", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/YC1uJ26319dpOw1S/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority of employment",
+            "measure": { 
+                "column": "Training type", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Label", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
         },
         {
             "uri": "https://figure.nz/table/T52DqR6aqRo8a8Lp/download",
             "parent": "Education",
+            "discriminator": "Territorial authority",
             "measure": { 
                 "column": "Measure", 
                 "include": [ ],
@@ -315,64 +391,103 @@
             "date": "Year as at 1 July"
         },
         {
+            "uri": "https://figure.nz/table/6fzIjHApsQDUkfOm/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Level of student need", 
+                "include": [ 
+                    {
+                        "value": "High Need"
+                    },
+                    {
+                        "value": "Very High Need"
+                    },
+                    {
+                        "value": "Extension",
+                        "label": "Extended scheme for older students who previously were excluded"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/EjpyQrJlX8LRZphl/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "group": {
+                    "column": "Sector",
+                    "separator": "—",
+                    "include": [ ],
+                    "exclude": [
+                        "Total"
+                    ]
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Category", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
             "uri": "https://figure.nz/table/dYA0t3cF5QWmZCjQ/download",
-            "parent": "Life",
+            "parent": "Gambling",
             "measure": { 
                 "column": "Measure", 
                 "include": [ 
                     {
                         "value": "Total number of approved venues with gaming machines in operation",
-                        "label": "Gambling - Total number of approved venues with gaming machines in operation"
+                        "label": "Total number of approved venues with gaming machines in operation"
                     },
                     {
                         "value": "Total number of machines operating on approved venues",
-                        "label": "Gambling - Total number of machines operating on approved venues"
+                        "label": "Total number of machines operating on approved venues"
                     },
                     {
                         "value": "National % of sites",
-                        "label": "Gambling - % of total NZ sites that are located in this area"
+                        "label": "% of total NZ sites that are located in this area"
                     },
                     {
                         "value": "National % of machines",
-                        "label": "Gambling - % of total NZ machines that are located in this area"
+                        "label": "% of total NZ machines that are located in this area"
                     }
                 ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Value Unit", 
-                "include": [ ],
                 "exclude": [ ] 
             },
             "date": "Quarter"
         },
         {
             "uri": "https://figure.nz/table/4jJ3IazvxUv9WKJQ/download",
-            "parent": "Life",
+            "parent": "Gambling",
             "measure": { 
                 "column": "Measure", 
                 "include": [ 
                     {
                         "value": "Gaming Machine Proceeds",
-                        "label": "Gambling - Gaming Machine Proceeds"
+                        "label": "Gaming Machine Proceeds"
                     },
                     {
                         "value": "% of total Gaming Machine Proceeds",
-                        "label": "Gambling - % of total NZ % Gaming Machine Proceeds made in this area"
+                        "label": "% of total NZ % Gaming Machine Proceeds made in this area"
                     }
                 ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Value Unit", 
-                "include": [ ],
                 "exclude": [ ] 
             },
             "date": "Quarter"
         },
         {
             "uri": "https://figure.nz/table/mJfUOl7H7J6IlLUe/download",
-            "parent": "Life",
+            "parent": "Pets",
             "measure": { 
                 "column": "Dog control statistics category", 
                 "group": { 
