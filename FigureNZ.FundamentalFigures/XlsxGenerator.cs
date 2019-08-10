@@ -12,6 +12,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using Newtonsoft.Json;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace FigureNZ.FundamentalFigures
 {
@@ -34,6 +35,7 @@ namespace FigureNZ.FundamentalFigures
 
                 int row = 1;
                 string parentLabel = null;
+                string discriminatorLabel = null;
                 string measureLabel = null;
 
                 foreach (Dataset dataset in figure.Datasets)
@@ -117,6 +119,7 @@ namespace FigureNZ.FundamentalFigures
                             .Map(r => r.Value, dataset.Value ?? "Value")
                             .Map(r => r.ValueUnit, dataset.ValueUnit ?? "Value Unit")
                             .Map(r => r.ValueLabel, dataset.ValueLabel ?? "Value Label")
+                            .Map(r => r.NullReason, dataset.NullReason ?? "Null Reason")
                         );
 
                         foreach (Record r in csv.GetRecords<Record>())
@@ -222,7 +225,7 @@ namespace FigureNZ.FundamentalFigures
                                     return g;
                                 }
 
-                                foreach (Record r in g.Where(r => r.ConvertToPercentage))
+                                foreach (Record r in g.Where(r => r.ConvertToPercentage && r.Value != null))
                                 {
                                     r.ValueUnit = "percentage";
                                     r.Value = (r.Value / total) * 100;
@@ -251,25 +254,37 @@ namespace FigureNZ.FundamentalFigures
                             }
                             col++;
 
-                            if (measureLabel != record.MeasureFormatted())
+                            if (measureLabel != record.MeasureFormatted() || discriminatorLabel != record.Discriminator)
                             {
-                                // Always write Discriminator when we're writing a new measure
-                                worksheet.Cells[row, col].Value = record.Discriminator;
-                            }
-                            col++;
+                                discriminatorLabel = record.Discriminator;
+                                worksheet.Cells[row, col].Value = discriminatorLabel;
+                                col++;
 
-                            if (measureLabel != record.MeasureFormatted())
-                            {
                                 measureLabel = record.MeasureFormatted();
                                 worksheet.Cells[row, col].Value = measureLabel;
+                                col++;
                             }
-                            col++;
-
+                            else
+                            {
+                                col++;
+                                col++;
+                            }
+                            
                             worksheet.Cells[row, col].Value = record.CategoryFormatted();
                             col++;
 
+                            if (record.Value == null)
+                            {
+                                record.ValueUnit = "null";
+                            }
+
                             switch (record.ValueUnit)
                             {
+                                case "null":
+                                    worksheet.Cells[row, col].Value = record.NullReason;
+                                    worksheet.Cells[row, col].Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                                    break;
+
                                 case "nzd":
                                     worksheet.Cells[row, col].Value = record.Value;
                                     worksheet.Cells[row, col].Style.Numberformat.Format = "$###,###,###,###,###,###,###,###,##0.00";
@@ -391,8 +406,10 @@ namespace FigureNZ.FundamentalFigures
 
         public string ValueLabel { get; set; }
 
-        public bool ConvertToPercentage { get; set; }
+        public string NullReason { get; set; }
 
+        public bool ConvertToPercentage { get; set; }
+        
         public string MeasureFormatted()
         {
             return !string.IsNullOrWhiteSpace(Group) ? $"{MeasureLabel ?? Measure} {Separator ?? "—"} {GroupLabel ?? Group}" : $"{MeasureLabel ?? Measure}";
@@ -444,6 +461,8 @@ namespace FigureNZ.FundamentalFigures
         public string ValueUnit { get; set; }
 
         public string ValueLabel { get; set; }
+
+        public string NullReason { get; set; }
 
         public Measure Measure { get; set; }
 
