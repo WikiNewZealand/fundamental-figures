@@ -16,8 +16,32 @@ namespace FigureNZ.FundamentalFigures
             {
                 Console.WriteLine($"Processing '{Path.GetFileName(csvFile)}'");
 
+                // Danger, Will Robinson!
+                //
+                // CsvHelper stores property names in couple of Dictionaries that use a string key.
+                // These dictionaries are case sensitive, because C# supports properties the same name as long as the cases are different (e.g. "discriminator" and "Discriminator" are different properties)
+                //
+                // But, we want a case _insensitive_ match for when a new csv file differs in column header case only (e.g. "Territorial Authority" and "Territorial authority") so we don't have to fix our Dataset configuration
+                // As per CsvHelper's documentation, we're expected to use the PrepareHeaderForMatch property to call ToLower() on all column headers:
+                //   - https://joshclose.github.io/CsvHelper/getting-started/
+                //   - https://github.com/JoshClose/CsvHelper/issues/1183
+                //
+                // That violates Microsoft's sting comparison guidelines, however: https://docs.microsoft.com/en-us/dotnet/csharp/how-to/compare-strings
+                //
+                // I'd prefer to replace the Dictionaries with ones that use a case insensitive match:
+                //
+                //  - csv.Context.NamedIndexes = new Dictionary<string, List<int>>(StringComparer.OrdinalIgnoreCase);
+                //  - csv.Context.NamedIndexCache = new Dictionary<string, (string, int)>(StringComparer.OrdinalIgnoreCase);
+                //
+                // ...which works right now, but reaching into CsvHelper's internals feels kind of fragile.
+                //
+                // So, we'll grumble and go ahead with ToLower()
+                csv.Configuration.PrepareHeaderForMatch = (header, index) => header.ToLowerInvariant();
+
+                // If we have more or fewer headers or properties than we expect, just keep going
                 csv.Configuration.HeaderValidated = null;
                 csv.Configuration.MissingFieldFound = null;
+                
                 csv.Configuration.RegisterClassMap(new RecordMap()
                     .Map(r => r.Discriminator, dataset.Discriminator ?? "Territorial Authority")
                     .Map(r => r.Date, dataset.Date)
@@ -29,7 +53,7 @@ namespace FigureNZ.FundamentalFigures
                     .Map(r => r.ValueLabel, dataset.ValueLabel ?? "Value Label")
                     .Map(r => r.NullReason, dataset.NullReason ?? "Null Reason")
                 );
-
+                
                 return dataset.ToRecords(csv, term);
             }
         }
