@@ -1,56 +1,88 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+using FigureNZ.FundamentalFigures.Excel;
+using FigureNZ.FundamentalFigures.Json;
+using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
 
 namespace FigureNZ.FundamentalFigures.Console
 {
     class Program
     {
-        static async Task Main(string[] args)
+        public static int Main(string[] args)
         {
-            Figure figure = JsonConvert.DeserializeObject<Figure>(File.ReadAllText(args[0]));
+            var app = new CommandLineApplication();
 
-            string term = args[1];
+            var pathToConfiguration = app.Argument<string>("Path", "Local path to the .json configuration file that defines your Figure").IsRequired();
 
-            string file = Path.Combine(figure.OutputPath, $"{term}.xlsx");
+            var discriminatorTerm = app.Argument<string>("Term", "The term used to search the discriminator column of each dataset, e.g. 'Auckland'").IsRequired();
 
-            string directory = Path.GetDirectoryName(file);
+            var inputPath = app.Option<string>("-in|--input-path", "Local path where input .csv files will be cached, defaults to './input'", CommandOptionType.SingleValue);
 
-            if (!string.IsNullOrWhiteSpace(directory))
+            var outputPath = app.Option<string>("-out|--output-path", "Local path where the output file will be written, defaults to './output'", CommandOptionType.SingleValue);
+
+            var outputType = app.Option<OutputTypeEnum>("-t|--output-type", "Either 'json' or 'excel', default is 'excel'", CommandOptionType.SingleValue);
+
+            var openOutputFile = app.Option<bool>("-o|--open-output-file", "Open the output file in your default file handler when processing is complete", CommandOptionType.NoValue);
+
+            app.HelpOption();
+
+            app.OnExecute(async () =>
             {
-                Directory.CreateDirectory(directory);
-            }
+                string config = pathToConfiguration.ParsedValue;
+                string term = discriminatorTerm.ParsedValue;
+                string input = inputPath.ParsedValue ?? "./input";
+                string output = outputPath.ParsedValue ?? "./output";
+                OutputTypeEnum type = outputType.ParsedValue;
+                bool open = openOutputFile.Values.Any();
 
-            using (FileStream output = new FileStream(file, FileMode.Create))
-            {
-                (await new XlsxGenerator().FromFigure(figure, term)).CopyTo(output);
+                FileInfo file;
 
-                file = output.Name;
-            }
+                switch (type)
+                {
+                    case OutputTypeEnum.Excel:
 
-            System.Console.WriteLine($"Wrote '{file}'");
+                        file = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
+                            .ToRecords(term, input)
+                            .ToExcelPackage(Path.Combine(output, $"{term}.xlsx"));
 
-            if (args.Length >= 3 && args[2] == "false")
-            {
-                Environment.Exit(0);
-                return;
-            }
+                        break;
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                Process.Start(new ProcessStartInfo("cmd", $"/c start \"\" \"{file}\""));
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                Process.Start("xdg-open", $"\"{file}\"");
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {
-                Process.Start("open", $"\"{file}\"");
-            }
+                    case OutputTypeEnum.Json:
+
+                        file = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
+                            .ToRecords(term, input)
+                            .ToJson(Path.Combine(output, $"{term}.json"), Formatting.Indented);
+
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                if (open)
+                {
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        Process.Start(new ProcessStartInfo("cmd", $"/c start \"\" \"{file.FullName}\""));
+                    }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                    {
+                        Process.Start("xdg-open", $"\"{file.FullName}\"");
+                    }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                    {
+                        Process.Start("open", $"\"{file.FullName}\"");
+                    }
+                }
+
+                return 0;
+            });
+
+            return app.Execute(args);
         }
     }
 }

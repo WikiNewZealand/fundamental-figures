@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="4.5.3.2" />
+    <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="5.8.64" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FigureNZ.FundamentalFigures\FigureNZ.FundamentalFigures.csproj" />
+  </ItemGroup>
+
+</Project>

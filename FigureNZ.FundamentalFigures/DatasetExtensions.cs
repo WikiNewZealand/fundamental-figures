@@ -194,7 +194,7 @@ namespace FigureNZ.FundamentalFigures
                     foreach (Record r in g.Where(r => r.ConvertToPercentage && r.Value != null))
                     {
                         r.ValueUnit = "percentage";
-                        r.ValueLabel = r.ValueLabel.Replace("Number", "%", StringComparison.OrdinalIgnoreCase);
+                        r.ValueLabel = r.ValueLabel.ReplaceCaseInsensitive("Number", "%");
                         r.Value = (r.Value / total) *
                                   100; // Multiple by 100 to stay consistent with other values that are natively 100-based
                     }

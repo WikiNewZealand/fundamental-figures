@@ -19,11 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="5.8.64" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FigureNZ.FundamentalFigures.Excel\FigureNZ.FundamentalFigures.Excel.csproj" />
+    <ProjectReference Include="..\FigureNZ.FundamentalFigures.Json\FigureNZ.FundamentalFigures.Json.csproj" />
     <ProjectReference Include="..\FigureNZ.FundamentalFigures\FigureNZ.FundamentalFigures.csproj" />
   </ItemGroup>
 

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
-namespace FigureNZ.FundamentalFigures
+namespace FigureNZ.FundamentalFigures.Excel
 {
     public static class ExcelWorksheetExtensions
     {
-        public static ExcelWorksheet FromRecords(this ExcelWorksheet worksheet, List<Record> set)
+        public static ExcelWorksheet PopulateFromRecords(this ExcelWorksheet worksheet, List<Record> set)
         {
             int row = 1;
             string discriminatorLabel = null;
@@ -86,7 +85,7 @@ namespace FigureNZ.FundamentalFigures
                 worksheet.Cells[row, col].Value = record.DateLabel;
                 col++;
 
-                worksheet.Cells[row, col].Value = record.Uri.ToString().Replace("/download", string.Empty, StringComparison.OrdinalIgnoreCase);
+                worksheet.Cells[row, col].Value = record.UriFormatted();
                 col++;
 
                 row++;

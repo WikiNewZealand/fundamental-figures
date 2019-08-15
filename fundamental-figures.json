@@ -1,6 +1,4 @@
 {
-    "inputpath": "./csv",
-    "outputpath": "./xlsx",
     "datasets": [
         {
             "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",

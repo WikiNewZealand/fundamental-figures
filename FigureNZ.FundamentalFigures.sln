@@ -1,16 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Console", "FigureNZ.FundamentalFigures.Console\FigureNZ.FundamentalFigures.Console.csproj", "{87753FA1-3EC0-4458-920A-088F9C6905E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures", "FigureNZ.FundamentalFigures\FigureNZ.FundamentalFigures.csproj", "{163F5A4D-55D5-46E4-8F83-468248B5F551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures", "FigureNZ.FundamentalFigures\FigureNZ.FundamentalFigures.csproj", "{163F5A4D-55D5-46E4-8F83-468248B5F551}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{79ED9CD6-142B-4E8A-B72A-90A12D220C83}"
 	ProjectSection(SolutionItems) = preProject
 		fundamental-figures.json = fundamental-figures.json
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Excel", "FigureNZ.FundamentalFigures.Excel\FigureNZ.FundamentalFigures.Excel.csproj", "{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures.Json", "FigureNZ.FundamentalFigures.Json\FigureNZ.FundamentalFigures.Json.csproj", "{DE9C1985-C038-4CFE-98ED-39AE27204868}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +30,14 @@ Global
 		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{163F5A4D-55D5-46E4-8F83-468248B5F551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

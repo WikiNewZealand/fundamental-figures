@@ -1,12 +1,18 @@
 # fundamental-figures
 
-The console app requires two parameters, with one optional parameter:
+The console app requires two parameters:
 
-1. The path to a .json configuraton file
-2. A search term (enclose multi-word terms with double quotes)
-3. [OPTIONAL] `true` or `false` to launch your installed .xlsx file viewer after processing is complete (defaults to `true`)
+1. The path to a .json configuraton file (enclose paths with spaces inside double quotes)
+2. A search term (enclose multi-word terms inside double quotes)
 
-e.g. `fundamental-figures config.json hamilton`
+e.g. `fundamental-figures fundamental-figures.json hamilton`
+
+Other options:
+- `-in|--input-path` to specify the local path where input .csv files will be cached, defaults to './input'
+- `-out|--output-path` to specify the local path where the output file will be written, defaults to './output'
+- `-t|--output-type` to select output file type, either 'json' or 'excel', default is 'excel'
+- `-o|--open-output-file` to open the output file in your default file handler when processing is complete
+- `-?|-h|--help` to show help information
 
 The .json configuration file populates an instance of the `Figure` class. 
 

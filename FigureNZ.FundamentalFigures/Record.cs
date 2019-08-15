@@ -47,5 +47,10 @@ namespace FigureNZ.FundamentalFigures
         {
             return $"{CategoryLabel ?? Category}";
         }
+
+        public string UriFormatted()
+        {
+            return Uri.ToString().ReplaceCaseInsensitive("/download", string.Empty);
+        }
     }
 }
