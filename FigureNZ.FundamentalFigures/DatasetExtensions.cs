@@ -208,7 +208,6 @@ namespace FigureNZ.FundamentalFigures
                 .ThenBy(r => dataset.Measure?.Group?.Include?.FindIndex(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase)))
                 .ThenBy(r => r.Group, StringComparer.OrdinalIgnoreCase)
                 .ThenBy(r => dataset.Category?.Include?.FindIndex(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase)))
-                .ThenBy(r => r.Category, StringComparer.OrdinalIgnoreCase)
                 .ToList();
             
             Console.WriteLine($" - {countRecords} records read");
