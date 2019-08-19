@@ -46,7 +46,7 @@ namespace FigureNZ.FundamentalFigures.Json
                                         Categories = m.Select(r => new
                                         {
                                             Label = r.CategoryFormatted(),
-                                            r.Value
+                                            Value = r.ValueFormatted()
                                         }),
                                         m.FirstOrDefault()?.ValueUnit,
                                         m.FirstOrDefault()?.ValueLabel,
@@ -64,6 +64,35 @@ namespace FigureNZ.FundamentalFigures.Json
             Console.WriteLine($"Wrote '{file.FullName}'");
 
             return file;
+        }
+
+        public static string ValueFormatted(this Record record)
+        {
+            switch (record.ValueUnit)
+            {
+                case "null":
+                    return record.NullReason;
+
+                case "nzd":
+                    return record.Value?.ToString("$###,###,###,###,###,###,###,###,##0.00");
+
+                case "percentage":
+
+                    return (record.Value / 100)?.ToString("0.00%");
+
+                case "number":
+                default:
+                    if (record.Value % 1 != 0)
+                    {
+                        // This number has decimal places, so format expecting a decimal point
+                        return record.Value?.ToString("###,###,###,###,###,###,###,###,##0.##");
+                    }
+                    else
+                    {
+                        // This number is a whole number, with no decimal point
+                        return record.Value?.ToString("###,###,###,###,###,###,###,###,##0");
+                    }
+            }
         }
     }
 }
