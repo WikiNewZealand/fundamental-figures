@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="output\**" />
+    <EmbeddedResource Remove="output\**" />
     <None Remove="**\*.csv" />
     <None Remove="**\*.xlsx" />
+    <None Remove="output\**" />
   </ItemGroup>
 
   <ItemGroup>
