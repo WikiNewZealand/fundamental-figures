@@ -25,20 +25,32 @@ namespace FigureNZ.FundamentalFigures.Json
             {
                 new JsonSerializer { Formatting = formatting }.Serialize(
                     json,
-                    records.GroupBy(r => r.Parent).ToDictionary(
-                        g => g.Key,
-                        g => g.Select(r => new
-                        {
-                            r.Discriminator,
-                            Measure = r.MeasureFormatted(),
-                            Category = r.CategoryFormatted(),
-                            r.Value,
-                            r.ValueUnit,
-                            r.ValueLabel,
-                            r.Date,
-                            r.DateLabel,
-                            Uri = r.UriFormatted()
-                        }))
+                    new
+                    {
+                        records.FirstOrDefault()?.Discriminator,
+                        Records = records
+                            .GroupBy(r => r.Parent)
+                            .Select(p => new
+                            {
+                                Label = p.Key,
+                                Measures = p
+                                    .GroupBy(r => r.MeasureFormatted())
+                                    .Select(m => new
+                                    {
+                                        Label = m.Key,
+                                        Categories = m.Select(r => new
+                                        {
+                                            Label = r.CategoryFormatted(),
+                                            r.Value
+                                        }),
+                                        m.FirstOrDefault()?.ValueUnit,
+                                        m.FirstOrDefault()?.ValueLabel,
+                                        m.FirstOrDefault()?.Date,
+                                        m.FirstOrDefault()?.DateLabel,
+                                        Source = m.FirstOrDefault()?.UriFormatted()
+                                    })
+                            })
+                    }
                 );
             }
 
