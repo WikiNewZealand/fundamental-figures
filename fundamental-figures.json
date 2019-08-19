@@ -39,6 +39,44 @@
             "date": "Year ended June"
         },
         {
+            "uri": "https://figure.nz/table/OBZl3mRZUjCTRWoD/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/exRiLbx17PAuSlT6/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Age in broad groups for the census usually resident population count",
+                        "label": "Age in broad groups",
+                        "convert-to-percentage": true 
+                    },
+                    {
+                        "value": "Age in five-year groups for the census usually resident population count",
+                        "label": "Age in five-year groups",
+                        "convert-to-percentage": true 
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Age group", 
+                "include": [ ],
+                "exclude": [ 
+                    "Total people"
+                ] 
+            },
+            "date": "Census Year"
+        },
+        {
             "uri": "https://figure.nz/table/VL93L0Yr0wPdvbKB/download",
             "parent": "Demographics",
             "measure": { 
@@ -46,7 +84,7 @@
                 "include": [ 
                     { 
                         "value": "Sex for the census usually resident population count", 
-                        "label": "Census population by sex",
+                        "label": "Population by sex",
                         "convert-to-percentage": true 
                     }
                 ],
@@ -198,14 +236,195 @@
             "date": "Census Year"
         },
         {
-            "uri": "https://figure.nz/table/hFnISbVIuV1PXMxp/download",
+            "uri": "https://figure.nz/table/Tnc6EcmqhcZTLJvv/download",
+            "parent": "Demographics",
+            "measure": {
+                "column": "Measure",
+                "include": [ 
+                    {
+                        "value": "Cigarette smoking behaviour for the census usually resident population count aged 15 years and over",
+                        "label": "Cigarette smoking behaviour (Age 15+)"
+                    },
+                    {
+                        "value": "Highest qualification for the census usually resident population count aged 15 years and over",
+                        "label": "Highest qualification (Age 15+)"
+                    },
+                    {
+                        "value": "Legally registered relationship status for the census usually resident population count aged 15 years and over",
+                        "label": "Legally registered relationship status (Age 15+)"
+                    },
+                    {
+                        "value": "Partnership status in current relationship for the census usually resident population count aged 15 years and over",
+                        "label": "Current relationship partner status (Age 15+)"
+                    },
+                    {
+                        "value": "Number of children born alive for the female census usually resident population count aged 15 years and over",
+                        "label": "Number of children given birth to (Age 15+, Live births only)"
+                    },
+                    {
+                        "value": "Religious affiliation (total responses) for the census usually resident population count",
+                        "label": "Religious affiliation"
+                    },
+                    {
+                        "value": "Study participation for the census usually resident population count aged 15 years and over",
+                        "label": "Participating in study (Age 15+)"
+                    },
+                    {
+                        "value": "Tenure holder for the census usually resident population count aged 15 years and over",
+                        "label": "Home ownership"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Category",
+                "include": [ ],
+                "exclude": [ 
+                    "Total people",
+                    "Total people stated"
+                ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/Ki6RAC7VIPBooFv2/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/Dv7YCDz4Pa4BEJde/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/niv4WkpUOwhJKrhZ/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/NyZriQwsM72swSq0/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [ 
+                    {
+                        "value": "Total personal income (grouped) for the census usually resident population count aged 15 years and over",
+                        "label": "Total personal income for people who live in this area (Age 15+)"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Income Band",
+                "include": [ 
+                    { 
+                        "value": "*-5000",
+                        "label": "$5,000 and under" 
+                    },
+                    { 
+                        "value": "5001-10000",
+                        "label": "$5,001-$10,000" 
+                    },
+                    { 
+                        "value": "10001-20000",
+                        "label": "$10,001-$20,000" 
+                    },
+                    { 
+                        "value": "20001-30000",
+                        "label": "$20,001-$30,000" 
+                    },
+                    { 
+                        "value": "30001-50000",
+                        "label": "$30,001-$50,000" 
+                    },
+                    { 
+                        "value": "50001-*",
+                        "label": "$50,001 and over" 
+                    },
+                    { 
+                        "value": "NS",
+                        "label": "Not stated" 
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/NyZriQwsM72swSq0/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [ 
+                    {
+                        "value": "Total personal income (grouped) for the census usually resident population count aged 15 years and over",
+                        "label": "Total personal income for people who live in this area (Age 15+)",
+                        "convert-to-percentage": true
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Income Band",
+                "include": [ 
+                    { 
+                        "value": "*-5000",
+                        "label": "$5,000 and under" 
+                    },
+                    { 
+                        "value": "5001-10000",
+                        "label": "$5,001-$10,000" 
+                    },
+                    { 
+                        "value": "10001-20000",
+                        "label": "$10,001-$20,000" 
+                    },
+                    { 
+                        "value": "20001-30000",
+                        "label": "$20,001-$30,000" 
+                    },
+                    { 
+                        "value": "30001-50000",
+                        "label": "$30,001-$50,000" 
+                    },
+                    { 
+                        "value": "50001-*",
+                        "label": "$50,001 and over" 
+                    },
+                    { 
+                        "value": "NS",
+                        "label": "Not stated" 
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/Pzttxl8rdrsraqxi/download",
             "parent": "Income",
             "measure": { 
                 "column": "Measure",
                 "include": [
                     { 
-                        "value": "Sources of family income for families in occupied private dwellings", 
-                        "label": "Number of families receiving income from this source" 
+                        "value": "Sources of personal income for the census usually resident population count aged 15 years and over", 
+                        "label": "Sources of personal income for people who live in area (Age 15+)",
+                        "convert-to-percentage": true
                     }
                  ],
                 "exclude": [ ] 
@@ -213,7 +432,10 @@
             "category": { 
                 "column": "Source of Income",
                 "include": [ ],
-                "exclude": [ ]
+                "exclude": [ 
+                    "Total people Stated",
+                    "Total people"
+                ]
             },
             "date": "Census Year"
         },
@@ -235,7 +457,7 @@
                 "include": [
                     {
                         "value": "*-20000",
-                        "label": "$20,000 or less"
+                        "label": "$20,000 and under"
                     },
                     {
                         "value": "20001-30000",
@@ -263,6 +485,80 @@
                     }
                  ],
                 "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/RqhUM3QN9rVpJi8q/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Value Label",
+                "include": [
+                    { 
+                        "value": "Number of families", 
+                        "label": "Number of families in income bracket", 
+                        "convert-to-percentage": true  
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Income band",
+                "include": [
+                    {
+                        "value": "*-20000",
+                        "label": "$20,000 and under"
+                    },
+                    {
+                        "value": "20001-30000",
+                        "label": "$20,001 to $30,000"
+                    },
+                    {
+                        "value": "30001-50000",
+                        "label": "$30,001 to $50,000"
+                    },
+                    {
+                        "value": "50001-70000",
+                        "label": "$50,001 to $70,000"
+                    },
+                    {
+                        "value": "70001-100000",
+                        "label": "$70,001 to $100,000"
+                    },
+                    {
+                        "value": "100001-*",
+                        "label": "$100,000 and over"
+                    },
+                    {
+                        "value": "NS",
+                        "label": "Not stated"
+                    }
+                 ],
+                "exclude": [ ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/hFnISbVIuV1PXMxp/download",
+            "parent": "Income",
+            "measure": { 
+                "column": "Measure",
+                "include": [
+                    { 
+                        "value": "Sources of family income for families in occupied private dwellings", 
+                        "label": "Sources of income for families",
+                        "convert-to-percentage": true  
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Source of Income",
+                "include": [ ],
+                "exclude": [ 
+                    "Total families stated",
+                    "Total families in occupied private dwellings"
+                ]
             },
             "date": "Census Year"
         },
@@ -308,6 +604,179 @@
             "date": "Quarter"
         },
         {
+            "uri": "https://figure.nz/table/4zpn0VpMy6sohnxS/download",
+            "parent": "Income",
+            "discriminator": "Territorial Authority",
+            "measure": {
+                "column": "Measure",
+                "include": [
+                    {
+                        "value": "Sources of household income for households in occupied private dwellings",
+                        "label": "Household income sources for households living in private dwellings",
+                        "convert-to-percentage": true
+                    }
+                 ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Category",
+                "include": [ ],
+                "exclude": [
+                    "Total households in occupied private dwellings",
+                    "Total households stated",
+                    "Total households in rented occupied private dwellings"
+                 ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/QtBjepmslacLQrEv/download   ",
+            "parent": "Households",
+            "discriminator": "Territorial Authority",
+            "measure": {
+                "column": "Register",
+                "include": [
+                    {
+                        "value": "Housing Register",
+                        "label": "Households eligible for and ready to be matched to social housing"
+                    }
+                 ],
+                "exclude": [ ]
+            },
+            "date": "Quarter"
+        },
+        {
+            "uri": "https://figure.nz/table/4zpn0VpMy6sohnxS/download",
+            "parent": "Households",
+            "discriminator": "Territorial Authority",
+            "measure": {
+                "column": "Measure",
+                "include": [ 
+                    {
+                        "value": "Tenure of household for households in occupied private dwellings",
+                        "label": "Home ownership for households" 
+                    },
+                    {
+                        "value": "Weekly rent paid for households in rented occupied private dwellings",
+                        "label": "Weekly rent paid for households" 
+                    },
+                    {
+                        "value": "Sector of landlord for households in rented occupied private dwellings",
+                        "label": "Landlord sector for households in rented dwellings" 
+                    },
+                    {
+                        "value": "Number of motor vehicles for households in occupied private dwellings",
+                        "label": "Number of motor vehicles for households" 
+                    },
+                    {
+                        "value": "Access to telecommunications for households in occupied private dwellings",
+                        "label": "Telecommunications access for households" 
+                    }
+                ],
+                "exclude": [ "Sources of household income for households in occupied private dwellings" ]
+            },
+            "category": {
+                "column": "Category",
+                "include": [ ],
+                "exclude": [ 
+                    "Total households in occupied private dwellings",
+                    "Total households stated",
+                    "Total households in rented occupied private dwellings"
+                ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/ABvYEjdpjQjht3Je/download",
+            "parent": "Households",
+            "discriminator": "Territorial Authority",
+            "measure": {
+                "column": "Measure",
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Category",
+                "include": [ ],
+                "exclude": [ 
+                    "Total occupied private dwellings",
+                    "Total occupied dwellings",
+                    "Total dwellings stated" 
+                ]
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/QtpoLOy8ALl0WWFX/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Service type", 
+                "include": [ 
+                    {
+                        "value": "Education & Care",
+                        "label": "Children in Childcare Centres for early childhood education" 
+                    },
+                    {
+                        "value": "Home-based",
+                        "label": "Children in home-based early childhood education"
+                    },
+                    {
+                        "value": "Kindergarten",
+                        "label": "Children in kindergarten for early childhood education"
+                    },
+                    {
+                        "value": "Kōhanga Reo",
+                        "label": "Children in Kōhanga Reo for early childhood education"
+                    },
+                    {
+                        "value": "Playcentre",
+                        "label": "Children in Playcentre for early childhood education"
+                    },
+                    {
+                        "value": "Total early childhood education services",
+                        "label": "Total number of children in early childhood education services"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Ethnic group", 
+                "group": {
+                    "column": "Age of child",
+                    "separator": "—",
+                    "include": [
+                        {
+                            "value": "0",
+                            "label": "Children aged 0"
+                        },
+                        {
+                            "value": "1",
+                            "label": "Children aged 1"
+                        },
+                        {
+                            "value": "2",
+                            "label": "Children aged 2"
+                        },
+                        {
+                            "value": "3",
+                            "label": "Children aged 3"
+                        },
+                        {
+                            "value": "4",
+                            "label": "Children aged 4"
+                        },{
+                            "value": "5",
+                            "label": "Children aged 5"
+                        }
+                     ],
+                    "exclude": [ ]
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at end of June"
+        },
+        {
             "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
             "parent": "Education",
             "measure": { 
@@ -337,7 +806,7 @@
                 "include": [ 
                     {
                         "value": "Prior Participation Rate",
-                        "label": "% of children starting school with prior participation in early childhood education"
+                        "label": "Children starting school with prior participation in early childhood education"
                     }
                 ],
                 "exclude": [ ] 
@@ -348,6 +817,112 @@
                 "exclude": [ ] 
             },
             "date": "Year ended in month"
+        },
+        {
+            "uri": "https://figure.nz/table/B9NwEt5bj91RMR6k/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "% of students",
+                        "label": "Student attendance"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": {
+                "column": "Measure", 
+                "include": [
+                    {
+                        "value": "Students Attending Regularly",
+                        "label": "Students Attending Regularly (90-100% attendance)"
+                    },
+                    {
+                        "value": "95-100% Attendance",
+                        "label": "Students with 95-100% attendance"
+                    },
+                    {
+                        "value": "90-95% Attendance",
+                        "label": "Students with 90-95% attendance"
+                    },
+                    {
+                        "value": "85-90% Attendance",
+                        "label": "Students with 85-90% attendance"
+                    },
+                    {
+                        "value": "75-85% Attendance",
+                        "label": "Students with 70-85% attendance"
+                    },
+                    {
+                        "value": "0-75% Attendance",
+                        "label": "Students with 0-75% attendance"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/B9NwEt5bj91RMR6k/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "% of classes",
+                        "label": "Lateness to classes of more than 10 minutes"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": {
+                "column": "Measure", 
+                "include": [
+                    {
+                        "value": "Classes Arrived Late to",
+                        "label": "Classes attended to which students arrived late"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/B9NwEt5bj91RMR6k/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "% of student half-days",
+                        "label": "Student half-days"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": {
+                "column": "Measure", 
+                "include": [
+                    {
+                        "value": "Present Half-Days",
+                        "label": "Students were present"
+                    },
+                    {
+                        "value": "Justified Absence Half-Days",
+                        "label": "Students had justified absences"
+                    },
+                    {
+                        "value": "Unjustified Absence Half-Days",
+                        "label": "Students had unjustified absences"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
         },
         {
             "uri": "https://figure.nz/table/oME3q0UIenFKYzJU/download",
@@ -567,6 +1142,176 @@
             "date": "Year"
         },
         {
+            "uri": "https://figure.nz/table/OXk9E53mYKN9vojM/download",
+            "parent": "Work",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Work and labour force status for the census usually resident population count aged 15 years and over",
+                        "label": "Work and labour force status (Age 15+)"
+                    },
+                    {
+                        "value": "Occupation (ANZSCO major group) for the employed census usually resident population count aged 15 years and over",
+                        "label": "Occupation for people who live in area (ANZSCO major group, age 15+)"
+                    },
+                    {
+                        "value": "Occupation (ANZSCO major group) for workplace address for the employed census usually resident population count aged 15 years and over",
+                        "label": "Occupation for people who work in area (ANZSCO major group, age 15+)"
+                    },
+                    {
+                        "value": "Status in employment for the employed census usually resident population count aged 15 years and over",
+                        "label": "Employment type for people who are employed (Age 15+)"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Category", 
+                "include": [ ],
+                "exclude": [
+                    "Total people",
+                    "Total people stated"
+                 ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/MBkIPz77pJwWvZXN/download",
+            "parent": "Work",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Hours worked in employment per week for the employed census usually resident population count aged 15 years and over",
+                        "label": "Hours worked per week for people who live in area (Age 15+)"
+                    },
+                    {
+                        "value": "Main means of travel to work for the employed census usually resident population count aged 15 years and over",
+                        "label": "Main means of travel to work for people who live in area (Age 15+)"
+                    },
+                    {
+                        "value": "Main means of travel to work for workplace address for the employed census usually resident population count aged 15 years and over",
+                        "label": "Main means of travel to work for people who work in area (Age 15+)"
+                    },
+                    {
+                        "value": "Unpaid activities for the census usually resident population count aged 15 years and over",
+                        "label": "Unpaid activities for people who live in the area (Age 15+)"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Category", 
+                "include": [ ],
+                "exclude": [
+                    "Total people",
+                    "Total people stated"
+                 ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/L7oNdnRlUQ0qdnqX/download",
+            "parent": "Work",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Industry (ANZSIC06 division) for the employed census usually resident population count aged 15 years and over",
+                        "label": "Industry of employment for people who live in the area (ANZSIC 06 division, Age 15+)" 
+                    },
+                    {
+                        "value": "Industry (ANZSIC06 division) for workplace address for the employed census usually resident population count aged 15 years and over",
+                        "label": "Industry of employment for people who work in the area (ANZSIC 06 division, Age 15+)" 
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Industry", 
+                "include": [ ],
+                "exclude": [
+                    "Total all industries",
+                    "Total people stated"
+                 ] 
+            },
+            "date": "Census Year"
+        },
+        {
+            "uri": "https://figure.nz/table/IQHbzzmTRCv10dZl/download",
+            "parent": "Work safety",
+            "measure": { 
+                "column": "Industry", 
+                "group": { 
+                    "column": "Severity of injury",
+                    "separator": "—",
+                    "include": [ 
+                        {
+                            "value": "More than a week off work",
+                            "label": "Work-related injuries causing more than a week off work"
+                        },
+                        {
+                            "value": "Fatal",
+                            "label": "Fatal work-related injuries"
+                        }
+                    ]
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Injury type", 
+                "include": [ ],
+                "exclude": ["Total"] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/hLjWezuyy0XFDzkR/download",
+            "parent": "Transport",
+            "discriminator": "Territorial authority",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "Number of crashes",
+                        "label": "Motor vehicle crashes"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended December"
+        },
+        {
+            "uri": "https://figure.nz/table/cr6oMUoFIpEJ6RmD/download",
+            "parent": "Transport",
+            "discriminator": "Territorial authority",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "Number of people",
+                        "label": "Transport injuries and fatalities in road crashes"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Severity of crash", 
+                "include": [ ],
+                "exclude": [
+                    "Total casualties"
+                ] 
+            },
+            "date": "Year ended December"
+        },
+        {
             "uri": "https://figure.nz/table/dYA0t3cF5QWmZCjQ/download",
             "parent": "Gambling",
             "measure": { 
@@ -716,33 +1461,114 @@
             "date": "Year ended June"
         },
         {
-            "uri": "https://figure.nz/table/L8wFIweXRAW9Hdpb/download",
-            "parent": "Work safety",
+            "uri": "https://figure.nz/table/3CLxlW8upLuX93bS/download",
+            "parent": "Agriculture",
+            "measure": {
+                "column": "Value Label",
+                "include": [
+                {
+                    "value": "Number of farms",
+                    "label": "Farm size"
+                } 
+            ]
+            },
+            "category": { 
+                "column": "Farm size (ha)", 
+                "include": [ 
+                    {
+                        "value": "Under 5",
+                        "label": "Under 5 hectares"
+                    },
+                    {
+                        "value": "5–9",
+                        "label": "Between 5-9 hectares"
+                    },
+                    {
+                        "value": "10–19",
+                        "label": "Between 10-19 hectares"
+                    },
+                    {
+                        "value": "20–39",
+                        "label": "Between 20-39 hectares"
+                    },
+                    {
+                        "value": "40–59",
+                        "label": "Between 40-59 hectares"
+                    },
+                    {
+                        "value": "60–79",
+                        "label": "Between 60-79 hectares"
+                    },
+                    {
+                        "value": "80–99",
+                        "label": "Between 80-99 hectares"
+                    },
+                    {
+                        "value": "100–199",
+                        "label": "Between 100-199 hectares"
+                    },
+                    {
+                        "value": "200–399",
+                        "label": "Between 200-399 hectares"
+                    },
+                    {
+                        "value": "400–599",
+                        "label": "Between 400-599 hectares"
+                    },
+                    {
+                        "value": "600–799",
+                        "label": "Between 600-799 hectares"
+                    },
+                    {
+                        "value": "800–999",
+                        "label": "Between 800-999 hectares"
+                    },
+                    {
+                        "value": "1,000–1,999",
+                        "label": "Between 1,000-1,999 hectares"
+                    },
+                    {
+                        "value": "2,000–3,999",
+                        "label": "Between 2,000-3,999 hectares"
+                    },
+                    {
+                        "value": "4,000 and over",
+                        "label": "Over 4,000 hectares"
+                    }
+                ],
+                "exclude": [ "Total" ] 
+            },
+            "date": "Year as at 30 June"
+        },
+        {
+            "uri": "https://figure.nz/table/NVUyQsuEkAdreQZX/download",
+            "parent": "Agriculture",
             "measure": { 
-                "column": "Industry", 
-                "group": { 
-                    "column": "Severity of injury",
-                    "separator": "—",
-                    "include": [ 
-                        {
-                            "value": "More than a week off work",
-                            "label": "Work-related injuries causing more than a week off work"
-                        },
-                        {
-                            "value": "Fatal",
-                            "label": "Fatal work-related injuries"
-                        }
-                    ]
-                },
+                "column": "Grouping variable", 
                 "include": [ ],
                 "exclude": [ ] 
             },
             "category": { 
-                "column": "Injury type", 
+                "column": "Category", 
                 "include": [ ],
-                "exclude": [ "Total"] 
+                "exclude": ["TOTAL land"] 
             },
-            "date": "Year"
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/1zH3WqED6S4J9bW8/download",
+            "parent": "Elections",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Age group", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Month"
         }
     ]
 }
