@@ -201,7 +201,8 @@
                 "column": "Birthplace",
                 "include": [ 
                     { 
-                        "value": "Oceania and Antartica excluding New Zealand"
+                        "value": "Oceania and Antartica excluding New Zealand",
+                        "label": "Oceania and Antarctica, excluding New Zealand"
                     },
                     { 
                         "value": "UK and Ireland"
@@ -646,6 +647,22 @@
             "date": "Quarter"
         },
         {
+            "uri": "https://figure.nz/table/8JXPnvqsPzlEPPXq/download",
+            "parent": "Households",
+            "discriminator": "Territorial Authority",
+            "measure": {
+                "column": "Register",
+                "include": [
+                    {
+                        "value": "Transfer Register",
+                        "label": "Households in social housing who need to be rehoused for reasons such as too few or too many bedrooms, or for health reasons."
+                    }
+                 ],
+                "exclude": [ ]
+            },
+            "date": "Quarter"
+        },
+        {
             "uri": "https://figure.nz/table/4zpn0VpMy6sohnxS/download",
             "parent": "Households",
             "discriminator": "Territorial Authority",
@@ -654,11 +671,11 @@
                 "include": [ 
                     {
                         "value": "Tenure of household for households in occupied private dwellings",
-                        "label": "Home ownership for households" 
+                        "label": "Home ownership by households" 
                     },
                     {
                         "value": "Weekly rent paid for households in rented occupied private dwellings",
-                        "label": "Weekly rent paid for households" 
+                        "label": "Weekly rent paid by households" 
                     },
                     {
                         "value": "Sector of landlord for households in rented occupied private dwellings",
@@ -1310,6 +1327,47 @@
                 ] 
             },
             "date": "Year ended December"
+        },
+        {
+            "uri": "https://figure.nz/table/JozFNr6rrjnB6qvE/download",
+            "parent": "Transport",
+            "discriminator": "Territorial Authority",
+            "measure": { 
+                "column": "Nature of crash", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Severity", 
+                "include": [ ],
+                "exclude": [
+                    "Total casualties"
+                ] 
+            },
+            "date": "Year ended December"
+        },
+        {
+            "uri": "https://figure.nz/table/7Ld9os5qXZ06YTsN/download",
+            "parent": "Transport",
+            "discriminator": "Territorial Authority",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "Number of vehicles",
+                        "label": "Vehicle registrations"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Vehicle type", 
+                "include": [ ],
+                "exclude": [
+                    "All"
+                ] 
+            },
+            "date": "Year as at 31 December"
         },
         {
             "uri": "https://figure.nz/table/dYA0t3cF5QWmZCjQ/download",
