@@ -47,7 +47,7 @@ namespace FigureNZ.FundamentalFigures.Console
 
                         file = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
                             .ToRecords(term, input)
-                            .ToExcelPackage(Path.Combine(output, $"{term}.xlsx"));
+                            .ToExcelPackage(Path.Combine(output, $"{term.ToTitleCase()}.xlsx"));
 
                         break;
 
@@ -55,7 +55,7 @@ namespace FigureNZ.FundamentalFigures.Console
 
                         file = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
                             .ToRecords(term, input)
-                            .ToJson(Path.Combine(output, $"{term}.json"), Formatting.Indented);
+                            .ToJson(Path.Combine(output, $"{term.ToTitleCase()}.json"), Formatting.Indented);
 
                         break;
 

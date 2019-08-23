@@ -32,17 +32,18 @@ namespace FigureNZ.FundamentalFigures.Json
                     json,
                     new
                     {
-                        records.FirstOrDefault()?.Discriminator,
+                        Dataset = Path.GetFileNameWithoutExtension(path),
                         Records = records
                             .GroupBy(r => r.Parent)
                             .Select(p => new
                             {
                                 Label = p.Key,
                                 Measures = p
-                                    .GroupBy(r => r.MeasureFormatted())
+                                    .GroupBy(r => new { Measure = r.MeasureFormatted(), r.Discriminator })
                                     .Select(m => new
                                     {
-                                        Label = m.Key,
+                                        m.FirstOrDefault()?.Discriminator,
+                                        Label = m.Key.Measure,
                                         Categories = m.Select(r => new
                                         {
                                             Label = r.CategoryFormatted(),
