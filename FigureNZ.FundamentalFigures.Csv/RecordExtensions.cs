@@ -24,7 +24,7 @@ namespace FigureNZ.FundamentalFigures.Csv
             {
                 var map = new RecordMap()
                     .Map(r => r.Discriminator, "Territorial Authority")
-                    .Map(r => r.Parent, "Parent")
+                    .Map(r => r.Parent, "Topic")
                     .Map(r => r.Measure, "Measure")
                     .Map(r => r.Category, "Category")
                     .Map(r => r.Value, "Value")
