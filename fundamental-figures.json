@@ -1315,11 +1315,11 @@
                     },
                     {
                         "value": "National % of sites",
-                        "label": "% of total NZ sites that are located in this area"
+                        "label": "Percentage of total NZ sites that are located in this area"
                     },
                     {
                         "value": "National % of machines",
-                        "label": "% of total NZ machines that are located in this area"
+                        "label": "Percentage of total NZ machines that are located in this area"
                     }
                 ],
                 "exclude": [ ] 
@@ -1344,11 +1344,11 @@
                     },
                     {
                         "value": "National % of sites",
-                        "label": "% of total NZ sites that are located in this area"
+                        "label": "Percentage of total NZ sites that are located in this area"
                     },
                     {
                         "value": "National % of machines",
-                        "label": "% of total NZ machines that are located in this area"
+                        "label": "Percentage of total NZ machines that are located in this area"
                     }
                 ],
                 "exclude": [ ] 
@@ -1367,7 +1367,7 @@
                     },
                     {
                         "value": "% of total Gaming Machine Proceeds",
-                        "label": "% of total NZ % Gaming Machine Proceeds made in this area"
+                        "label": "Percentage of total NZ % Gaming Machine Proceeds made in this area"
                     }
                 ],
                 "exclude": [ ] 
