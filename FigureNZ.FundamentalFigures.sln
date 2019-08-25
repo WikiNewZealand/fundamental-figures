@@ -14,7 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Excel", "FigureNZ.FundamentalFigures.Excel\FigureNZ.FundamentalFigures.Excel.csproj", "{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures.Json", "FigureNZ.FundamentalFigures.Json\FigureNZ.FundamentalFigures.Json.csproj", "{DE9C1985-C038-4CFE-98ED-39AE27204868}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Json", "FigureNZ.FundamentalFigures.Json\FigureNZ.FundamentalFigures.Json.csproj", "{DE9C1985-C038-4CFE-98ED-39AE27204868}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures.Csv", "FigureNZ.FundamentalFigures.Csv\FigureNZ.FundamentalFigures.Csv.csproj", "{C2BB8790-E875-4C10-B61A-30693E3FDD6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures.Jekyll", "FigureNZ.FundamentalFigures.Jekyll\FigureNZ.FundamentalFigures.Jekyll.csproj", "{992CF9DE-F735-45FB-AD18-92212AB7EF5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE9C1985-C038-4CFE-98ED-39AE27204868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2BB8790-E875-4C10-B61A-30693E3FDD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BB8790-E875-4C10-B61A-30693E3FDD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BB8790-E875-4C10-B61A-30693E3FDD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BB8790-E875-4C10-B61A-30693E3FDD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992CF9DE-F735-45FB-AD18-92212AB7EF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992CF9DE-F735-45FB-AD18-92212AB7EF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992CF9DE-F735-45FB-AD18-92212AB7EF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992CF9DE-F735-45FB-AD18-92212AB7EF5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

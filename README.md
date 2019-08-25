@@ -10,7 +10,7 @@ e.g. `fundamental-figures fundamental-figures.json hamilton`
 Other options:
 - `-in|--input-path` to specify the local path where input .csv files will be cached, defaults to './input'
 - `-out|--output-path` to specify the local path where the output file will be written, defaults to './output'
-- `-t|--output-type` to select output file type, either 'json' or 'excel', default is 'excel'
+- `-t|--output-type` to select output file type, one of 'excel', 'json', 'csv', or 'yaml', default is 'excel'
 - `-o|--open-output-file` to open the output file in your default file handler when processing is complete
 - `-?|-h|--help` to show help information
 

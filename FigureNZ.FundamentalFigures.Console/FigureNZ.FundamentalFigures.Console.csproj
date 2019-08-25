@@ -28,7 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FigureNZ.FundamentalFigures.Csv\FigureNZ.FundamentalFigures.Csv.csproj" />
     <ProjectReference Include="..\FigureNZ.FundamentalFigures.Excel\FigureNZ.FundamentalFigures.Excel.csproj" />
+    <ProjectReference Include="..\FigureNZ.FundamentalFigures.Jekyll\FigureNZ.FundamentalFigures.Jekyll.csproj" />
     <ProjectReference Include="..\FigureNZ.FundamentalFigures.Json\FigureNZ.FundamentalFigures.Json.csproj" />
     <ProjectReference Include="..\FigureNZ.FundamentalFigures\FigureNZ.FundamentalFigures.csproj" />
   </ItemGroup>

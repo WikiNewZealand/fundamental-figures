@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using FigureNZ.FundamentalFigures.Csv;
 using FigureNZ.FundamentalFigures.Excel;
+using FigureNZ.FundamentalFigures.Jekyll;
 using FigureNZ.FundamentalFigures.Json;
 using McMaster.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
@@ -24,7 +28,7 @@ namespace FigureNZ.FundamentalFigures.Console
 
             var outputPath = app.Option<string>("-out|--output-path", "Local path where the output file will be written, defaults to './output'", CommandOptionType.SingleValue);
 
-            var outputType = app.Option<OutputTypeEnum>("-t|--output-type", "Either 'json' or 'excel', default is 'excel'", CommandOptionType.SingleValue);
+            var outputType = app.Option<OutputTypeEnum>("-t|--output-type", "One of 'excel', 'json', 'csv', or 'yaml', default is 'excel'", CommandOptionType.MultipleValue);
 
             var openOutputFile = app.Option<bool>("-o|--open-output-file", "Open the output file in your default file handler when processing is complete", CommandOptionType.NoValue);
 
@@ -36,46 +40,61 @@ namespace FigureNZ.FundamentalFigures.Console
                 string term = discriminatorTerm.ParsedValue;
                 string input = inputPath.ParsedValue ?? "./input";
                 string output = outputPath.ParsedValue ?? "./output";
-                OutputTypeEnum type = outputType.ParsedValue;
                 bool open = openOutputFile.Values.Any();
 
-                FileInfo file;
+                IEnumerable<OutputTypeEnum> types = outputType.ParsedValues;
 
-                switch (type)
+                if (types == null || !types.Any())
                 {
-                    case OutputTypeEnum.Excel:
-
-                        file = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
-                            .ToRecords(term, input)
-                            .ToExcelPackage(Path.Combine(output, $"{term.ToTitleCase()}.xlsx"));
-
-                        break;
-
-                    case OutputTypeEnum.Json:
-
-                        file = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
-                            .ToRecords(term, input)
-                            .ToJson(Path.Combine(output, $"{term.ToTitleCase()}.json"), Formatting.Indented);
-
-                        break;
-
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    types = new List<OutputTypeEnum> { OutputTypeEnum.Excel };
                 }
 
-                if (open)
+                var records = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config))
+                    .ToRecords(term, input);
+
+                foreach (OutputTypeEnum type in types)
                 {
-                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    FileInfo file;
+
+                    switch (type)
                     {
-                        Process.Start(new ProcessStartInfo("cmd", $"/c start \"\" \"{file.FullName}\""));
+                        case OutputTypeEnum.Excel:
+
+                            file = records.ToExcelPackage(Path.Combine(output, $"{term.ToTitleCase()}.xlsx"));
+                            break;
+
+                        case OutputTypeEnum.Json:
+
+                            file = records.ToJson(Path.Combine(output, $"{term.ToTitleCase()}.json"), Formatting.Indented);
+                            break;
+
+                        case OutputTypeEnum.Csv:
+
+                            file = records.ToCsv(Path.Combine(output, $"{term.ToTitleCase()}.csv"));
+                            break;
+
+                        case OutputTypeEnum.Yaml:
+                            file = records.ToYaml(Path.Combine(output, $"{term.ToTitleCase()}.md"));
+                            break;
+
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
-                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+
+                    if (open)
                     {
-                        Process.Start("xdg-open", $"\"{file.FullName}\"");
-                    }
-                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                    {
-                        Process.Start("open", $"\"{file.FullName}\"");
+                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                        {
+                            Process.Start(new ProcessStartInfo("cmd", $"/c start \"\" \"{file.FullName}\""));
+                        }
+                        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                        {
+                            Process.Start("xdg-open", $"\"{file.FullName}\"");
+                        }
+                        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                        {
+                            Process.Start("open", $"\"{file.FullName}\"");
+                        }
                     }
                 }
 

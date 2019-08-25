@@ -3,6 +3,8 @@
     public enum OutputTypeEnum
     {
         Excel,
-        Json
+        Json,
+        Csv,
+        Yaml
     }
 }
