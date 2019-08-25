@@ -192,7 +192,7 @@
                 "include": [ 
                     { 
                         "value": "% of city/district's population",
-                        "label": "% of city/district's population born in overseas area"
+                        "label": "Percentage of city/district's population born overseas"
                     }
                 ],
                 "exclude": [ ] 
@@ -724,76 +724,6 @@
             "date": "Census Year"
         },
         {
-            "uri": "https://figure.nz/table/QtpoLOy8ALl0WWFX/download",
-            "parent": "Education",
-            "measure": { 
-                "column": "Service type", 
-                "include": [ 
-                    {
-                        "value": "Education & Care",
-                        "label": "Children in Childcare Centres for early childhood education" 
-                    },
-                    {
-                        "value": "Home-based",
-                        "label": "Children in home-based early childhood education"
-                    },
-                    {
-                        "value": "Kindergarten",
-                        "label": "Children in kindergarten for early childhood education"
-                    },
-                    {
-                        "value": "Kōhanga Reo",
-                        "label": "Children in Kōhanga Reo for early childhood education"
-                    },
-                    {
-                        "value": "Playcentre",
-                        "label": "Children in Playcentre for early childhood education"
-                    },
-                    {
-                        "value": "Total early childhood education services",
-                        "label": "Total number of children in early childhood education services"
-                    }
-                ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Ethnic group", 
-                "group": {
-                    "column": "Age of child",
-                    "separator": "—",
-                    "include": [
-                        {
-                            "value": "0",
-                            "label": "Children aged 0"
-                        },
-                        {
-                            "value": "1",
-                            "label": "Children aged 1"
-                        },
-                        {
-                            "value": "2",
-                            "label": "Children aged 2"
-                        },
-                        {
-                            "value": "3",
-                            "label": "Children aged 3"
-                        },
-                        {
-                            "value": "4",
-                            "label": "Children aged 4"
-                        },{
-                            "value": "5",
-                            "label": "Children aged 5"
-                        }
-                     ],
-                    "exclude": [ ]
-                },
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Year as at end of June"
-        },
-        {
             "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
             "parent": "Education",
             "measure": { 
@@ -801,7 +731,7 @@
                 "include": [ 
                     {
                         "value": "Prior Participation Rate",
-                        "label": "% of children starting school with prior participation in early childhood education"
+                        "label": "Percentage of children starting school with prior participation in early childhood education"
                     }
                 ],
                 "exclude": [ ] 
@@ -1385,11 +1315,11 @@
                     },
                     {
                         "value": "National % of sites",
-                        "label": "% of total NZ sites that are located in this area"
+                        "label": "Percentage of total NZ sites that are located in this area"
                     },
                     {
                         "value": "National % of machines",
-                        "label": "% of total NZ machines that are located in this area"
+                        "label": "Percentage of total NZ machines that are located in this area"
                     }
                 ],
                 "exclude": [ ] 
@@ -1414,11 +1344,11 @@
                     },
                     {
                         "value": "National % of sites",
-                        "label": "% of total NZ sites that are located in this area"
+                        "label": "Percentage of total NZ sites that are located in this area"
                     },
                     {
                         "value": "National % of machines",
-                        "label": "% of total NZ machines that are located in this area"
+                        "label": "Percentage of total NZ machines that are located in this area"
                     }
                 ],
                 "exclude": [ ] 
@@ -1437,7 +1367,7 @@
                     },
                     {
                         "value": "% of total Gaming Machine Proceeds",
-                        "label": "% of total NZ % Gaming Machine Proceeds made in this area"
+                        "label": "Percentage of total NZ % Gaming Machine Proceeds made in this area"
                     }
                 ],
                 "exclude": [ ] 
