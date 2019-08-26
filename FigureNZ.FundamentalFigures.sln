@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{79ED9CD6-142B-4E8A-B72A-90A12D220C83}"
 	ProjectSection(SolutionItems) = preProject
 		fundamental-figures.json = fundamental-figures.json
+		territorial-authorities.txt = territorial-authorities.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Excel", "FigureNZ.FundamentalFigures.Excel\FigureNZ.FundamentalFigures.Excel.csproj", "{DB2CEC9E-9864-4016-87BF-C6C030DDB88F}"

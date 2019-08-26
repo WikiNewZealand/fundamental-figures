@@ -10,9 +10,13 @@ e.g. `fundamental-figures fundamental-figures.json hamilton`
 Other options:
 - `-in|--input-path` to specify the local path where input .csv files will be cached, defaults to './input'
 - `-out|--output-path` to specify the local path where the output file will be written, defaults to './output'
-- `-t|--output-type` to select output file type, one of 'excel', 'json', 'csv', or 'yaml', default is 'excel'
+- `-t|--output-type` to select output file type, one or more of 'excel', 'json', 'csv', or 'yaml', default is 'excel'
 - `-o|--open-output-file` to open the output file in your default file handler when processing is complete
 - `-?|-h|--help` to show help information
+
+Instead of running the console app once per search term, you can supply a newline-separated file of search terms as an @-file argument:
+
+`fundamental-figures ..\fundamental-figures.json @..\territorial-authorities.txt -t excel -t json -t csv -t yaml`
 
 The .json configuration file populates an instance of the `Figure` class. 
 
