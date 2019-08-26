@@ -279,7 +279,159 @@
             },
             "category": {
                 "column": "Category",
-                "include": [ ],
+                "include": [ 
+                    {
+                        "value": "Regular Smoker"
+                    },
+                    {
+                        "value": "Ex-Smoker"
+                    },
+                    {
+                        "value": "Never Smoked Regularly",
+                        "label": "Never smoked regularly"
+                    },
+                    {
+                        "value": "No Qualification"
+                    },
+                    {
+                        "value": "Level 1 Certificate"
+                    },
+                    {
+                        "value": "Level 2 Certificate"
+                    },
+                    {
+                        "value": "Level 3 Certificate"
+                    },
+                    {
+                        "value": "Level 4 Certificate"
+                    },
+                    {
+                        "value": "Level 5 or Level 6 Diploma"
+                    },
+                    {
+                        "value": "Bachelor Degree and Level 7 Qualifications"
+                    },
+                    {
+                        "value": "Postgraduate and Honours Degrees"
+                    },
+                    {
+                        "value": "Masters Degree"
+                    },
+                    {
+                        "value": "Doctorate Degree"
+                    },
+                    {
+                        "value": "Overseas Secondary School Qualification"
+                    },
+                    {
+                        "value": "Married (not separated)",
+                        "label": "Married"
+                    },
+                    {
+                        "value": "Separated/divorced or dissolved/widowed/surviving partner"
+                    },
+                    {
+                        "value": "Never married and never in a civil union"
+                    },
+                    {
+                        "value": "Partnered"
+                    },
+                    {
+                        "value": "Non-Partnered"
+                    },
+                    {
+                        "value": "No Children",
+                        "label": "No children"
+                    },
+                    {
+                        "value": "One Child",
+                        "label": "One child"
+                    },
+                    {
+                        "value": "Two Children",
+                        "label": "Two children"
+                    },
+                    {
+                        "value": "Three Children",
+                        "label": "Three children"
+                    },
+                    {
+                        "value": "Four Children",
+                        "label": "Four children"
+                    },
+                    {
+                        "value": "Five Children",
+                        "label": "Five children"
+                    },
+                    {
+                        "value": "Six or More Children",
+                        "label": "Six or more children"
+                    },
+                    {
+                        "value": "No Religion",
+                        "label": "No religion"
+                    },
+                    {
+                        "value": "Buddhist"
+                    },
+                    {
+                        "value": "Christian"
+                    },
+                    {
+                        "value": "Hindu"
+                    },
+                    {
+                        "value": "Islam/Muslim"
+                    },
+                    {
+                        "value": "Judaism/ Jewish",
+                        "label": "Judaism"
+                    },
+                    {
+                        "value": "Maori Christian",
+                        "label": "Māori Christian"
+                    },
+                    {
+                        "value": "Spiritualism and New Age Religions",
+                        "label": "Spiritualism and new-age religions"
+                    },
+                    {
+                        "value": "Other Religions",
+                        "label": "Other religions"
+                    },
+                    {
+                        "value": "Full-time Study",
+                        "label": "Full-time study"
+                    },
+                    {
+                        "value": "Part-time Study",
+                        "label": "Part-time study"
+                    },
+                    {
+                        "value": "Full-time and Part-time Study",
+                        "label": "Full-time and part-time study"
+                    },
+                    {
+                        "value": "Not Studying",
+                        "label": "Not studying"
+                    },
+                    {
+                        "value": "Own or Partly Own Usual Residence",
+                        "label": "Own or partly-own home they usually live in"
+                    },
+                    {
+                        "value": "Do Not Own Usual Residence",
+                        "label": "Does not own home they usually live in"
+                    },
+                    {
+                        "value": "Object to Answering",
+                        "label": "Object to answering"
+                    },
+                    {
+                        "value": "Not Elsewhere Included",
+                        "label": "Not elsewhere included"
+                    }             
+                ],
                 "exclude": [ 
                     "Total people",
                     "Total people stated"
