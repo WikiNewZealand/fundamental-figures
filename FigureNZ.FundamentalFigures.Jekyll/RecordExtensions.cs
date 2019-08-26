@@ -19,11 +19,12 @@ namespace FigureNZ.FundamentalFigures.Jekyll
             Directory.CreateDirectory(Path.GetDirectoryName(path));
 
             using (FileStream output = new FileStream(path, FileMode.Create))
-            using (StreamWriter writer = new StreamWriter(output, Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(output, new UTF8Encoding(false)))
             {
                 writer.WriteLine("---");
                 writer.WriteLine($"data: {Path.GetFileNameWithoutExtension(path)}");
                 writer.WriteLine("---");
+                writer.WriteLine();
             }
 
             FileInfo file = new FileInfo(path);
