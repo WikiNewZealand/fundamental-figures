@@ -1,6 +1,31 @@
 {
     "datasets": [
         {
+            "uri": "https://figure.nz/table/exRiLbx17PAuSlT6/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Age in broad groups for the census usually resident population count",
+                        "label": "Resident population at time of census",
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Age group", 
+                "include": [ 
+                    {
+                        "value": "Total people",
+                        "label": "Total population"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "date": "Census Year"
+        },
+        {
             "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
             "parent": "Demographics",
             "measure": { 
