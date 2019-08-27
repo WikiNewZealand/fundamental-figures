@@ -1,6 +1,30 @@
 {
     "datasets": [
         {
+            "uri": "https://figure.nz/table/VL93L0Yr0wPdvbKB/download",
+            "parent": "Demographics",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    { 
+                        "value": "Census usually resident population count", 
+                        "label": "Resident population at time of census"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Sex", 
+                "include": [ 
+                    { 
+                        "value": "Total people"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "date": "Census Year"
+        },
+        {
             "uri": "https://figure.nz/table/xZOqU5b6uSVVMPiD/download",
             "parent": "Demographics",
             "measure": { 
