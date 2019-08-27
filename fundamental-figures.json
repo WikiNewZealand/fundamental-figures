@@ -17,10 +17,6 @@
                 "column": "Series", 
                 "include": [
                     {
-                        "value": "Census usually resident population count",
-                        "label": "Census Population Count"
-                    },
-                    {
                         "value": "Estimated resident population",
                         "label": "Estimated Population"
                     },
@@ -918,47 +914,59 @@
             "date": "Year ended in month"
         },
         {
-            "uri": "https://figure.nz/table/B9NwEt5bj91RMR6k/download",
+            "uri": "https://figure.nz/table/iVYwsM05ucfo1jBL/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/UVAcM5d9Sw3HxSw5/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [
+                    {
+                        "value": "Number of schools",
+                        "label": "Total schools in this area"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/Lz86F0zqSiKox53Y/download",
             "parent": "Education",
             "discriminator": "Territorial Authority",
             "measure": { 
-                "column": "Value Label", 
+                "column": "Measure", 
                 "include": [ 
                     {
-                        "value": "% of students",
+                        "value": "Students attendance",
                         "label": "Student attendance"
                     }
                 ],
                 "exclude": [ ] 
             },
-            "category": {
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/SwmiWnwZczsZ8T7H/download",
+            "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
+            "measure": { 
                 "column": "Measure", 
-                "include": [
+                "include": [ 
                     {
-                        "value": "Students Attending Regularly",
-                        "label": "Students Attending Regularly (90-100% attendance)"
-                    },
-                    {
-                        "value": "95-100% Attendance",
-                        "label": "Students with 95-100% attendance"
-                    },
-                    {
-                        "value": "90-95% Attendance",
-                        "label": "Students with 90-95% attendance"
-                    },
-                    {
-                        "value": "85-90% Attendance",
-                        "label": "Students with 85-90% attendance"
-                    },
-                    {
-                        "value": "75-85% Attendance",
-                        "label": "Students with 70-85% attendance"
-                    },
-                    {
-                        "value": "0-75% Attendance",
-                        "label": "Students with 0-75% attendance"
+                        "value": "Students attendance",
+                        "label": "Student attendance"
                     }
-                 ],
+                ],
                 "exclude": [ ] 
             },
             "date": "Year"
@@ -1239,6 +1247,168 @@
                 "exclude": [ ] 
             },
             "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/l7qpKHPQLrNqZYeb/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Māori language in education", 
+                "group": {
+                    "column": "Ethnic group",
+                    "separator": "—",
+                    "include": [ 
+                        {
+                            "value": "Māori",
+                            "label": "Māori students"
+                        },
+                        {
+                            "value": "Non-Māori",
+                            "label": "Non-Māori students"
+                        }
+                    ],
+                    "exclude": [ ]
+                },
+                "include": [
+                    {
+                        "value": "Māori medium",
+                        "label": "Students taught some or all subjects in Māori at least 50% of time"
+                    },
+                    {
+                        "value": "Māori Language in English medium",
+                        "label": "Students learning Māori as a language subject"
+                    },
+                    {
+                        "value": "No Māori language learning / Not Applicable",
+                        "label": "Students do not learn Māori"
+                    }
+
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Māori language immersion level", 
+                "include": [
+                    {
+                        "value": "Level 1: 81-100%",
+                        "label": "81-100% Māori language immersion (20-25 hours a week)"
+                    },
+                    {
+                        "value": "Level 2: 51-80%",
+                        "label": "51-80% Māori language immersion (12.5-20 hours a week)"
+                    },
+                    {
+                        "value": "Level 3: 31-50%",
+                        "label": "31-50% Māori language immersion (7.5-12.5 hours a week)"
+                    },
+                    {
+                        "value": "Level 4(a): up to 30%",
+                        "label": "12-30% Māori language immersion (3-7.5 hours a week)"
+                    },
+                    {
+                        "value": "Level 4(b): At least 3 Hours",
+                        "label": "Students learn Māori as a subject for at least 3 hours a week"
+                    },
+                    {
+                        "value": "Level 5: Less than 3 Hours",
+                        "label": "Students learn Māori as a subject for less than 3 hours a week"
+                    },
+                    {
+                        "value": "Level 6: Taha Māori",
+                        "label": "Taha Māori - Students learn Māori songs, greetings, simple words)"
+                    },
+                    {
+                        "value": "No Māori language learning"
+                    },
+                    {
+                        "value": "Not eligible for MLP funding",
+                        "label": "Not eligible for Māori Language Programme funding"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/wbmiKb8cK61H5RzW/download",
+            "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
+            "measure": { 
+                "column": "Māori language in education", 
+                "group": {
+                    "column": "Ethnic group",
+                    "separator": "—",
+                    "include": [ 
+                        {
+                            "value": "Māori",
+                            "label": "Māori students"
+                        },
+                        {
+                            "value": "Non-Māori",
+                            "label": "Non-Māori students"
+                        }
+                    ],
+                    "exclude": [ ]
+                },
+                "include": [
+                    {
+                        "value": "Māori medium",
+                        "label": "Students taught some or all subjects in Māori at least 50% of time"
+                    },
+                    {
+                        "value": "Māori Language in English medium",
+                        "label": "Students learning Māori as a language subject"
+                    },
+                    {
+                        "value": "No Māori language learning / Not Applicable",
+                        "label": "Students do not learn Māori"
+                    }
+
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Māori language immersion level", 
+                "include": [
+                    {
+                        "value": "Level 1: 81-100%",
+                        "label": "81-100% Māori language immersion (20-25 hours a week)"
+                    },
+                    {
+                        "value": "Level 2: 51-80%",
+                        "label": "51-80% Māori language immersion (12.5-20 hours a week)"
+                    },
+                    {
+                        "value": "Level 3: 31-50%",
+                        "label": "31-50% Māori language immersion (7.5-12.5 hours a week)"
+                    },
+                    {
+                        "value": "Level 4(a): up to 30%",
+                        "label": "12-30% Māori language immersion (3-7.5 hours a week)"
+                    },
+                    {
+                        "value": "Level 4(b): At least 3 Hours",
+                        "label": "Students learn Māori as a subject for at least 3 hours a week"
+                    },
+                    {
+                        "value": "Level 5: Less than 3 Hours",
+                        "label": "Students learn Māori as a subject for less than 3 hours a week"
+                    },
+                    {
+                        "value": "Level 6: Taha Māori",
+                        "label": "Taha Māori - Students learn Māori songs, greetings, simple words)"
+                    },
+                    {
+                        "value": "No Māori language learning"
+                    },
+                    {
+                        "value": "Not eligible for MLP funding",
+                        "label": "Not eligible for Māori Language Programme funding"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
         },
         {
             "uri": "https://figure.nz/table/OXk9E53mYKN9vojM/download",
@@ -1686,7 +1856,7 @@
             "measure": { 
                 "column": "Grouping variable", 
                 "include": [ ],
-                "exclude": [ ] 
+                "exclude": [ "Forestry", "Forestry (volume)"] 
             },
             "category": { 
                 "column": "Category", 
