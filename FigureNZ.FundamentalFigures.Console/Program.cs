@@ -64,21 +64,21 @@ namespace FigureNZ.FundamentalFigures.Console
                         {
                             case OutputTypeEnum.Excel:
 
-                                file = records.ToExcelPackage(Path.Combine(output, $"{term.ToTitleCase()}.xlsx"));
+                                file = records.ToExcelPackage(Path.Combine(output, $"{term}.xlsx"));
                                 break;
 
                             case OutputTypeEnum.Json:
 
-                                file = records.ToJson(Path.Combine(output, $"{term.ToTitleCase()}.json"), Formatting.Indented);
+                                file = records.ToJson(Path.Combine(output, $"{term}.json"), Formatting.Indented);
                                 break;
 
                             case OutputTypeEnum.Csv:
 
-                                file = records.ToCsv(Path.Combine(output, $"{term.ToTitleCase()}.csv"));
+                                file = records.ToCsv(Path.Combine(output, $"{term}.csv"));
                                 break;
 
                             case OutputTypeEnum.Yaml:
-                                file = records.ToYaml(Path.Combine(output, $"{term.ToTitleCase()}.md"));
+                                file = records.ToYaml(Path.Combine(output, $"{term}.md"));
                                 break;
 
                             default:
