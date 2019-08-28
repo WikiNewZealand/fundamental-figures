@@ -45,7 +45,19 @@ namespace FigureNZ.FundamentalFigures
 
         public string CategoryFormatted()
         {
-            return $"{CategoryLabel ?? Category}";
+            var category = $"{CategoryLabel ?? Category}";
+
+            if (category.StartsWith("*-", StringComparison.OrdinalIgnoreCase))
+            {
+                category = category.Remove(0, 2) + " and under";
+            }
+
+            if (category.EndsWith("-*", StringComparison.OrdinalIgnoreCase))
+            {
+                category = category.Remove(category.Length - 2, 2) + " and over";
+            }
+
+            return category;
         }
 
         public string UriFormatted()
