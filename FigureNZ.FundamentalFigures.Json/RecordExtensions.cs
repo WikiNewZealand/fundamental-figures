@@ -79,7 +79,7 @@ namespace FigureNZ.FundamentalFigures.Json
 
                 case "percentage":
 
-                    return (record.Value / 100)?.ToString("0.00%");
+                    return (record.Value / 100)?.ToString("0.0%");
 
                 case "number":
                 default:
