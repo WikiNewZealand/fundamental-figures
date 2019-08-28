@@ -1738,10 +1738,6 @@
                     {
                         "value": "Gaming Machine Proceeds",
                         "label": "Gaming Machine Proceeds"
-                    },
-                    {
-                        "value": "% of total Gaming Machine Proceeds",
-                        "label": "Percentage of total NZ % Gaming Machine Proceeds made in this area"
                     }
                 ],
                 "exclude": [ ] 
@@ -1794,7 +1790,7 @@
             "category": { 
                 "column": "Measure", 
                 "include": [ ],
-                "exclude": [ ] 
+                "exclude": [ "Cost of claims for injuries received in any year (excl. GST)" ] 
             },
             "date": "Year ended June"
         },
