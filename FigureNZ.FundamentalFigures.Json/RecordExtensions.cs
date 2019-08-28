@@ -47,12 +47,12 @@ namespace FigureNZ.FundamentalFigures.Json
                                         Categories = m.Select(r => new
                                         {
                                             Label = r.CategoryFormatted(),
-                                            Value = r.ValueFormatted()
+                                            Value = r.ValueFormatted(),
+                                            r.ValueUnit,
+                                            r.ValueLabel,
+                                            r.Date,
+                                            r.DateLabel
                                         }),
-                                        m.FirstOrDefault()?.ValueUnit,
-                                        m.FirstOrDefault()?.ValueLabel,
-                                        m.FirstOrDefault()?.Date,
-                                        m.FirstOrDefault()?.DateLabel,
                                         Source = m.FirstOrDefault()?.UriFormatted()
                                     })
                             })
