@@ -1549,13 +1549,42 @@
                         }
                     ]
                 },
-                "include": [ ],
+                "include": [ 
+                    {
+                        "value": "Total all industries",
+                        "label": "Injuries in all industries"
+                    }
+                ],
                 "exclude": [ ] 
             },
             "category": { 
                 "column": "Injury type", 
                 "include": [ ],
                 "exclude": ["Total"] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/IQHbzzmTRCv10dZl/download",
+            "parent": "Work safety",
+            "measure": { 
+                "column": "Severity of injury",    
+                "include": [ 
+                        {
+                            "value": "More than a week off work",
+                            "label": "Work-related injuries causing more than a week off work"
+                        },
+                        {
+                            "value": "Fatal",
+                            "label": "Fatal work-related injuries"
+                        }
+                    ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Industry", 
+                "include": [ ],
+                "exclude": [ "Total all industries" ] 
             },
             "date": "Year"
         },
