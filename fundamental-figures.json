@@ -1789,8 +1789,20 @@
             },
             "category": { 
                 "column": "Measure", 
-                "include": [ ],
-                "exclude": [ "Cost of claims for injuries received in any year (excl. GST)" ] 
+                "include": [
+                    {
+                        "value": "New claims"
+                    },
+                    {
+                        "value": "Cost of claims for injuries received in current year (excl. GST)",
+                        "label": "Cost of claims for injuries received in year (excl. GST)"
+                    },
+                    {
+                        "value": "Cost of claims for injuries received in any year (excl. GST)",
+                        "label": "Total cost of claims for all injuries ever received, up until date (excl. GST)"
+                    }
+                 ],
+                "exclude": [ ] 
             },
             "date": "Year ended June"
         },
