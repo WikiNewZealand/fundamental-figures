@@ -1795,11 +1795,11 @@
                     },
                     {
                         "value": "Cost of claims for injuries received in current year (excl. GST)",
-                        "label": "Cost of claims for injuries received in year (excl. GST)"
+                        "label": "Cost of claims for dog-related injuries received in year (excl. GST)"
                     },
                     {
                         "value": "Cost of claims for injuries received in any year (excl. GST)",
-                        "label": "Total cost of claims for all injuries ever received, up until date (excl. GST)"
+                        "label": "Total cost of claims for all dog-related injuries ever received, up until date (excl. GST)"
                     }
                  ],
                 "exclude": [ ] 
