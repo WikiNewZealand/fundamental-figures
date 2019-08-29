@@ -1738,6 +1738,10 @@
                     {
                         "value": "Gaming Machine Proceeds",
                         "label": "Gaming Machine Proceeds"
+                    },
+                    {
+                        "value": "% of total Gaming Machine Proceeds",
+                        "label": "Percentage of total NZ % Gaming Machine Proceeds made in this area"
                     }
                 ],
                 "exclude": [ ] 
