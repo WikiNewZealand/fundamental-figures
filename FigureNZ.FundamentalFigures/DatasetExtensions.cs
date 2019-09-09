@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using CsvHelper;
+using CsvHelper.TypeConversion;
 using Newtonsoft.Json;
 
 namespace FigureNZ.FundamentalFigures
@@ -42,6 +43,20 @@ namespace FigureNZ.FundamentalFigures
                 // If we have more or fewer headers or properties than we expect, just keep going
                 csv.Configuration.HeaderValidated = null;
                 csv.Configuration.MissingFieldFound = null;
+
+                csv.Configuration.ReadingExceptionOccurred = exception =>
+                {
+                    if (exception is TypeConverterException)
+                    {
+                        // Some text in the Value column, instead of a number
+                        // In most datasets, Value is null and we're supplied a null reason to indicate why we don't have a value
+                        // However, some datasets include the null reason in the value column and cause type conversion errors
+                        // We'll just skip these rows
+                        return false;
+                    }
+
+                    return true;
+                };
                 
                 csv.Configuration.RegisterClassMap(new RecordMap()
                     .Map(r => r.Discriminator, dataset.Discriminator ?? "Territorial Authority")
