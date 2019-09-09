@@ -6,6 +6,14 @@
     "North Shore",
     "Papakura",
     "Rodney",
-    "Auckland"
+    "Auckland City",
+    "Auckland Council",
+    "Auckland Transport",
+    "Auckland Tourism, Events and Economic Development",
+    "ATEED"
+  ],
+  "Ashburton": [
+    "Ashburton District Council",
+    "Canterbury Regional Council"
   ] 
 }

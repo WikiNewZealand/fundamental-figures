@@ -2242,6 +2242,90 @@
                 "exclude": [ ] 
             },
             "date": "Month"
+        },
+        {
+            "uri": "https://figure.nz/table/T2Pky1MavryS2xzy/download",
+            "parent": "Elections",
+            "term-mapping": "../territorial-authorities-mapping.json",
+            "discriminator": "Government entity",
+            "measure": { 
+                "column": "Authority", 
+                "group": {
+                    "column": "Type",
+                    "separator": "-",
+                    "include": [ ],
+                    "exclude": [ ]
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/awE6B0Siz3kPENiS/download",
+            "parent": "Local Government Finances",
+            "discriminator": "Local authority",
+            "term-mapping": "../territorial-authorities-mapping.json",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [
+                    {
+                        "value": "NZD thousands",
+                        "label": "Financial position of local authorities"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Financial measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/S2LNiW2acMml59MK/download",
+            "parent": "Local Government Finances",
+            "discriminator": "Local authority",
+            "term-mapping": "../territorial-authorities-mapping.json",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [
+                    {
+                        "value": "NZD thousands",
+                        "label": "Local authority income and expenditure"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Income and expenditure item", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/BDbwxnnEA5khmkwC/download",
+            "parent": "Local Government Finances",
+            "discriminator": "Local authority",
+            "term-mapping": "../territorial-authorities-mapping.json",
+            "measure": { 
+                "column": "Activity", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Income and expenditure item", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year ended June"
         }
     ]
 }
