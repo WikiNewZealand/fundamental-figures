@@ -69,7 +69,14 @@ namespace FigureNZ.FundamentalFigures.Json
 
         public static string ValueFormatted(this Record record)
         {
-            switch (record.ValueUnit)
+            string valueUnit = record.ValueUnit;
+
+            if (record.Value == null)
+            {
+                valueUnit = "null";
+            }
+
+            switch (valueUnit)
             {
                 case "null":
                     return record.NullReason;

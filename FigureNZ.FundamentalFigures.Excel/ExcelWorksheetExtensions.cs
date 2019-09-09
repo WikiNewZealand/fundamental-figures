@@ -35,12 +35,14 @@ namespace FigureNZ.FundamentalFigures.Excel
                 worksheet.Cells[row, col].Value = record.CategoryFormatted();
                 col++;
 
+                string valueUnit = record.ValueUnit;
+
                 if (record.Value == null)
                 {
-                    record.ValueUnit = "null";
+                    valueUnit = "null";
                 }
 
-                switch (record.ValueUnit)
+                switch (valueUnit)
                 {
                     case "null":
                         worksheet.Cells[row, col].Value = record.NullReason;
