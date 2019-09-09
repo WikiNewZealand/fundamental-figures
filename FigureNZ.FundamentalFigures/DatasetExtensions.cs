@@ -121,6 +121,7 @@ namespace FigureNZ.FundamentalFigures
             int countExcludedByMeasure = 0;
             int countExcludedByGroup = 0;
             int countExcludedByCategory = 0;
+            int countExcludedByValue = 0;
 
             foreach (Record r in csv.GetRecords<Record>())
             {
@@ -210,13 +211,13 @@ namespace FigureNZ.FundamentalFigures
             }
 
             set = set
-                .GroupBy(r => new {r.Discriminator, r.Measure, r.Group, r.Category})
+                .GroupBy(r => new { r.Discriminator, r.Measure, r.Group, r.Category })
                 .Select(g => g
                     .OrderByDescending(r => r.Date)
                     .ThenByDescending(r => r.Value) // Case where Auckland appears twice for the same year because super city
                     .First()
                 )
-                .GroupBy(r => new {r.Discriminator, r.Measure, r.Group})
+                .GroupBy(r => new {r.Discriminator, r.Measure, r.Group}) // If we're excluding zero values, pull them out here
                 .Select(g =>
                 {
                     decimal? total = g.Sum(r => r.Value);
@@ -230,13 +231,22 @@ namespace FigureNZ.FundamentalFigures
                     {
                         r.ValueUnit = "percentage";
                         r.ValueLabel = r.ValueLabel.ReplaceCaseInsensitive("Number", "%");
-                        r.Value = (r.Value / total) *
-                                  100; // Multiple by 100 to stay consistent with other values that are natively 100-based
+                        r.Value = (r.Value / total) * 100; // Multiple by 100 to stay consistent with other values that are natively 100-based
                     }
 
                     return g;
                 })
                 .SelectMany(g => g)
+                .Where(r =>
+                {
+                    if (dataset.ExcludeZeroValues && r.Value == 0)
+                    {
+                        countExcludedByValue++;
+                        return false;
+                    }
+
+                    return true;
+                })
                 .OrderBy(r => r.Discriminator)
                 .ThenBy(r => dataset.Measure?.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
                 .ThenBy(r => r.Measure, StringComparer.OrdinalIgnoreCase)
@@ -270,6 +280,11 @@ namespace FigureNZ.FundamentalFigures
             if (countExcludedByCategory > 0)
             {
                 Console.WriteLine($" - {countExcludedByCategory} records excluded by \"category\"");
+            }
+
+            if (countExcludedByValue > 0)
+            {
+                Console.WriteLine($" - {countExcludedByValue} records excluded by \"value\"");
             }
 
             if (set.Count == 0)

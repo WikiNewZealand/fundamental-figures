@@ -42,8 +42,9 @@ A `Dataset` looks like this:
     "term-mapping": "Path to a file that defines alternate terms, e.g. map 'Auckland' to 'Auckland District Health Board' and 'Auckland City Council' to include rows with those terms as well. Defaults to null, which means no mappings will be loaded.",
     "discriminator": "Name of the column that we search, defaults to 'Territorial Authority'",
     "value": "Name of the column that holds the value of each row, defaults to 'Value'",
-    "valueUnit": "Not currently used, defaults to 'ValueUnit'",
-    "valueLabel": "Not currently used, defaults to 'ValueLabel'",
+    "valueUnit": "Name of the column that holds the value unit of each row, defaults to 'ValueUnit'",
+    "valueLabel": "Name of the column that holds the value label of each row, defaults to 'ValueLabel'",
+    "exclude-zero-values": false, // <-- Exclude zero values from the final grouped result set, defaults to false
     "measure": {
         "column": "Name of column that defines subsets of this dataset",
         "group": {

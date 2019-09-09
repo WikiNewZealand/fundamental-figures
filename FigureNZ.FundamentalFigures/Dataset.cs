@@ -24,6 +24,9 @@ namespace FigureNZ.FundamentalFigures
 
         public string NullReason { get; set; }
 
+        [JsonProperty("exclude-zero-values")]
+        public bool ExcludeZeroValues { get; set; }
+
         public Measure Measure { get; set; }
 
         public Category Category { get; set; }
