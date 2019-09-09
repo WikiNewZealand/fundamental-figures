@@ -2244,27 +2244,26 @@
             "date": "Month"
         },
         {
-            "uri": "https://figure.nz/table/T2Pky1MavryS2xzy/download",
-            "parent": "Elections",
+            "uri": "https://figure.nz/table/deetNqyR2dBOp6WS/download",
+            "parent": "Local Government Finances",
+            "discriminator": "Territorial Authority",
             "term-mapping": "../territorial-authorities-mapping.json",
-            "discriminator": "Government entity",
             "measure": { 
-                "column": "Authority", 
-                "group": {
-                    "column": "Type",
-                    "separator": "-",
-                    "include": [ ],
-                    "exclude": [ ]
-                },
-                "include": [ ],
+                "column": "Measure", 
+                "include": [
+                    {
+                        "value": "Rates rebates granted by DIA",
+                        "label": "Rates rebates granted by council"
+                    }
+                 ],
                 "exclude": [ ] 
             },
             "category": { 
-                "column": "Measure", 
+                "column": "Unit", 
                 "include": [ ],
                 "exclude": [ ] 
             },
-            "date": "Year"
+            "date": "Year ended June"
         },
         {
             "uri": "https://figure.nz/table/awE6B0Siz3kPENiS/download",
@@ -2276,7 +2275,7 @@
                 "include": [
                     {
                         "value": "NZD thousands",
-                        "label": "Financial position of local authorities"
+                        "label": "Financial position"
                     }
                  ],
                 "exclude": [ ] 
@@ -2298,7 +2297,7 @@
                 "include": [
                     {
                         "value": "NZD thousands",
-                        "label": "Local authority income and expenditure"
+                        "label": "Income and expenditure"
                     }
                  ],
                 "exclude": [ ] 
@@ -2316,8 +2315,17 @@
             "discriminator": "Local authority",
             "term-mapping": "../territorial-authorities-mapping.json",
             "measure": { 
-                "column": "Activity", 
-                "include": [ ],
+                "group":{
+                    "column": "Activity",
+                    "separator": "—"
+                },
+                "column": "Value Label", 
+                "include": [ 
+                    {
+                        "value": "NZD thousands",
+                        "label": "Income and spending"
+                    }
+                ],
                 "exclude": [ ] 
             },
             "category": { 
