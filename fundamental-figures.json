@@ -189,11 +189,36 @@
             "date": "Census Year"
         },
         {
+            "uri": "https://figure.nz/table/zVvceVNz8RazM2XM/download",
+            "parent": "Demographics",
+            "measure": {
+                "column": "Value Label",
+                "include": [ 
+                    {
+                        "value": "Number of live births",
+                        "label": "Births in year"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Ethnic group",
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "date": "Year"
+        },
+        {
             "uri": "https://figure.nz/table/3Oro8C1i2MOAnHSL/download",
             "parent": "Demographics",
             "measure": {
                 "column": "Value Label",
-                "include": [ ],
+                "include": [
+                    {
+                        "value": "Number of deaths",
+                        "label": "Deaths in year"
+                    }
+                 ],
                 "exclude": [ ]
             },
             "category": {
@@ -256,19 +281,26 @@
             "date": "Census Year"
         },
         {
+            "uri": "https://figure.nz/table/wN0BvvHmV3rUX6RM/download",
+            "parent": "Demographics",
+            "discriminator": "Territorial Authority",
+            "measure": {
+                "column": "Value Label",
+                "include": [
+                    {
+                        "value": "Number of marriages and civil unions",
+                        "label": "Marriages and civil unions in year"
+                    }
+                ]
+            },
+            "date": "Year"
+        },
+        {
             "uri": "https://figure.nz/table/Tnc6EcmqhcZTLJvv/download",
             "parent": "Demographics",
             "measure": {
                 "column": "Measure",
                 "include": [ 
-                    {
-                        "value": "Cigarette smoking behaviour for the census usually resident population count aged 15 years and over",
-                        "label": "Cigarette smoking behaviour (Age 15+)"
-                    },
-                    {
-                        "value": "Highest qualification for the census usually resident population count aged 15 years and over",
-                        "label": "Highest qualification (Age 15+)"
-                    },
                     {
                         "value": "Legally registered relationship status for the census usually resident population count aged 15 years and over",
                         "label": "Legally registered relationship status (Age 15+)"
@@ -276,6 +308,14 @@
                     {
                         "value": "Partnership status in current relationship for the census usually resident population count aged 15 years and over",
                         "label": "Current relationship partner status (Age 15+)"
+                    },
+                    {
+                        "value": "Cigarette smoking behaviour for the census usually resident population count aged 15 years and over",
+                        "label": "Cigarette smoking behaviour (Age 15+)"
+                    },
+                    {
+                        "value": "Highest qualification for the census usually resident population count aged 15 years and over",
+                        "label": "Highest qualification (Age 15+)"
                     },
                     {
                         "value": "Number of children born alive for the female census usually resident population count aged 15 years and over",
@@ -895,6 +935,95 @@
             "date": "Census Year"
         },
         {
+            "uri": "https://figure.nz/table/m0pJErmnoSZbfz9k/download",
+            "parent": "Households",
+            "discriminator": "Territorial authority",
+            "measure": {
+                "column": "Measure",
+                "group": {
+                    "column": "Property type",
+                    "separator": "—",
+                    "include": [ ],
+                    "exclude": [ ]
+                },
+                "include": [ 
+                    {
+                        "value": "Number of transfers",
+                        "label": "Residency/Visa status of property buyers"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Category",
+                "include": [ 
+                    {
+                        "value": "At least one NZ citizen"
+                    },
+                    {
+                        "value": "At least one NZ resident visa (but no citizens)"
+                    },
+                    {
+                        "value": "No NZ citizens or resident visas"
+                    },
+                    {
+                        "value": "Corporate only"
+                    },
+                    {
+                        "value": "Affiliation unknown",
+                        "label": "Unknown status"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/m0pJErmnoSZbfz9k/download",
+            "parent": "Households",
+            "discriminator": "Territorial authority",
+            "measure": {
+                "column": "Measure",
+                "group": {
+                    "column": "Property type",
+                    "separator": "—",
+                    "include": [ ],
+                    "exclude": [ 
+                        "All property"
+                    ]
+                },
+                "include": [ 
+                    {
+                        "value": "Number of transfers",
+                        "label": "Tax residency of property buyers"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Category",
+                "include": [ 
+                    {
+                        "value": "Only NZ tax residents"
+                    },
+                    {
+                        "value": "Mixture of NZ tax residents and non-residents"
+                    },
+                    {
+                        "value": "Only NZ tax non-residents"
+                    },
+                    {
+                        "value": "All parties exempt from stating tax residency"
+                    },
+                    {
+                        "value": "No tax statement due to contract date"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Year ended June"
+        },
+        {
             "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
             "parent": "Education",
             "measure": { 
@@ -1504,6 +1633,131 @@
             "date": "Census Year"
         },
         {
+            "uri": "https://figure.nz/table/0S1oDx1qzwwbCfLR/download",
+            "parent": "Work",
+            "measure": { 
+                "column": "Measure", 
+                "group": {
+                    "column": "Event",
+                    "separator": "",
+                    "include": [ 
+                        {
+                            "value": "Birth",
+                            "label": "gained due to opening of businesses, including branches"
+                        },
+                        {
+                            "value": "Death",
+                            "label": "lost due to closure of businesses, including branches"
+                        }
+                    ],
+                    "exclude": [ ]
+                },
+                "include": [ 
+                    {
+                        "value": "Geographic Units",
+                        "label": "Number of companies" 
+                    },
+                    {
+                        "value": "Employee Count",
+                        "label": "Number of employees" 
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Industry", 
+                "include": [ ],
+                "exclude": [
+                    "Total all industries"
+                 ] 
+            },
+            "date": "Year ended February"
+        },
+        {
+            "uri": "https://figure.nz/table/ypZy4yiEdow0VpQw/download",
+            "parent": "Work",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ 
+                    {
+                        "value": "Geographic Units",
+                        "label": "Number of companies, including branches, in each industry" 
+                    },
+                    {
+                        "value": "Employee Count",
+                        "label": "Number of people employed by companies located in this area, excluding self-employment and working proprietors" 
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Industry", 
+                "include": [ 
+                    {
+                        "value": "Agriculture, forestry and fishing"
+                    },
+                    {
+                        "value": "Mining"
+                    },
+                    {
+                        "value": "Manufacturing"
+                    },
+                    {
+                        "value": "Electricity, gas, water and waste services"
+                    },
+                    {
+                        "value": "Construction"
+                    },
+                    {
+                        "value": "Wholesale trade"
+                    },
+                    {
+                        "value": "Retail trade"
+                    },
+                    {
+                        "value": "Accommodation and food services"
+                    },
+                    {
+                        "value": "Transport, postal and warehousing"
+                    },
+                    {
+                        "value": "Information media and telecommunications"
+                    },
+                    {
+                        "value": "Financial and insurance services"
+                    },
+                    {
+                        "value": "Rental, hiring and real estate services"
+                    },
+                    {
+                        "value": "Professional, scientific and technical services"
+                    },
+                    {
+                        "value": "Administrative and support services"
+                    },
+                    {
+                        "value": "Public administration and safety"
+                    },
+                    {
+                        "value": "Education and training"
+                    },
+                    {
+                        "value": "Health care and social assistance"
+                    },
+                    {
+                        "value": "Arts and recreation services"
+                    },
+                    {
+                        "value": "Other services"
+                    }
+                ],
+                "exclude": [
+                    "Total all industries"
+                 ] 
+            },
+            "date": "Year as at February"
+        },
+        {
             "uri": "https://figure.nz/table/L7oNdnRlUQ0qdnqX/download",
             "parent": "Work",
             "measure": { 
@@ -1511,11 +1765,11 @@
                 "include": [ 
                     {
                         "value": "Industry (ANZSIC06 division) for the employed census usually resident population count aged 15 years and over",
-                        "label": "Industry of employment for people who live in the area (ANZSIC 06 division, Age 15+)" 
+                        "label": "Number of people age 15+ who live in this area and work in each industry, including self-employment and working proprietors" 
                     },
                     {
                         "value": "Industry (ANZSIC06 division) for workplace address for the employed census usually resident population count aged 15 years and over",
-                        "label": "Industry of employment for people who work in the area (ANZSIC 06 division, Age 15+)" 
+                        "label": "Number of people age 15+ who work in this area in each industry, including self-employment and working proprietors" 
                     }
                 ],
                 "exclude": [ ] 
@@ -1928,6 +2182,38 @@
                 "exclude": ["TOTAL land"] 
             },
             "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/6nMcLWkzfKSmmJAo/download",
+            "parent": "Agriculture",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 April"
+        },
+        {
+            "uri": "https://figure.nz/table/3MvtPuNkU5VBahov/download",
+            "parent": "Agriculture",
+            "measure": { 
+                "column": "Age class", 
+                "include": [
+                    {
+                        "value": "Total",
+                        "label": "Total area of planted production forest for each species"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Tree species", 
+                "include": [ ],
+                "exclude": [
+                    "All species"
+                 ] 
+            },
+            "date": "Year as at 1 April"
         },
         {
             "uri": "https://figure.nz/table/1zH3WqED6S4J9bW8/download",
