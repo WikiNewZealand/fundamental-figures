@@ -2314,6 +2314,7 @@
             "parent": "Local Government Finances",
             "discriminator": "Local authority",
             "term-mapping": "../territorial-authorities-mapping.json",
+            "exclude-zero-values": true,
             "measure": { 
                 "group":{
                     "column": "Activity",
