@@ -207,6 +207,12 @@ namespace FigureNZ.FundamentalFigures
                     r.CategoryLabel = category.Label;
                 }
 
+                if (r.Value != null && r.ValueLabel == "NZD thousands")
+                {
+                    r.ValueLabel = "nzd";
+                    r.Value = r.Value * 1000;
+                }
+
                 set.Add(r);
             }
 
