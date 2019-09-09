@@ -1037,6 +1037,114 @@
             "date": "Year ended June"
         },
         {
+            "uri": "https://figure.nz/table/EjpyQrJlX8LRZphl/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Measure", 
+                "group": {
+                    "column": "Sector",
+                    "separator": "—",
+                    "include": [ ],
+                    "exclude": [
+                        "Total"
+                    ]
+                },
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Category", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/T52DqR6aqRo8a8Lp/download",
+            "parent": "Education",
+            "discriminator": "Territorial authority",
+            "term-mapping": "../territorial-authorities-mapping.json",
+            "measure": { 
+                "column": "Measure", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/UBNMx2bi4bYNKXhi/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority of employment",
+            "measure": { 
+                "column": "Training type", 
+                "include": [ 
+                    {
+                        "value": "All Apprentices (including New Zealand Apprentices)",
+                        "label": "Apprentices"
+                    },
+                    {
+                        "value": "New Zealand Apprentices",
+                        "label": "Apprentices in the New Zealand Apprenticeships scheme"
+                    }
+                ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Label", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/YC1uJ26319dpOw1S/download",
+            "parent": "Education",
+            "discriminator": "Territorial Authority of employment",
+            "measure": { 
+                "column": "Training type", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "category": { 
+                "column": "Value Label", 
+                "include": [ ],
+                "exclude": [ ] 
+            },
+            "date": "Year"
+        },
+        {
+            "uri": "https://figure.nz/table/UVAcM5d9Sw3HxSw5/download",
+            "parent": "Education",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [
+                    {
+                        "value": "Number of schools",
+                        "label": "Total schools in this area"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
+            "uri": "https://figure.nz/table/TSb0AbjmYoTX7ZSC/download",
+            "parent": "Education",
+            "term": "Auckland",
+            "discriminator": "Local Board Area",
+            "measure": { 
+                "column": "Value Label", 
+                "include": [
+                    {
+                        "value": "Number of schools",
+                        "label": "Total schools in this area"
+                    }
+                 ],
+                "exclude": [ ] 
+            },
+            "date": "Year as at 1 July"
+        },
+        {
             "uri": "https://figure.nz/table/ts2ZJtzk2Hlne5iZ/download",
             "parent": "Education",
             "measure": { 
@@ -1084,21 +1192,6 @@
             "measure": { 
                 "column": "Measure", 
                 "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Year as at 1 July"
-        },
-        {
-            "uri": "https://figure.nz/table/UVAcM5d9Sw3HxSw5/download",
-            "parent": "Education",
-            "measure": { 
-                "column": "Value Label", 
-                "include": [
-                    {
-                        "value": "Number of schools",
-                        "label": "Total schools in this area"
-                    }
-                 ],
                 "exclude": [ ] 
             },
             "date": "Year as at 1 July"
@@ -1280,63 +1373,6 @@
             "date": "Year"
         },
         {
-            "uri": "https://figure.nz/table/UBNMx2bi4bYNKXhi/download",
-            "parent": "Education",
-            "discriminator": "Territorial Authority of employment",
-            "measure": { 
-                "column": "Training type", 
-                "include": [ 
-                    {
-                        "value": "All Apprentices (including New Zealand Apprentices)",
-                        "label": "Apprentices"
-                    },
-                    {
-                        "value": "New Zealand Apprentices",
-                        "label": "Apprentices in the New Zealand Apprenticeships scheme"
-                    }
-                ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Value Label", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Year"
-        },
-        {
-            "uri": "https://figure.nz/table/YC1uJ26319dpOw1S/download",
-            "parent": "Education",
-            "discriminator": "Territorial Authority of employment",
-            "measure": { 
-                "column": "Training type", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Value Label", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Year"
-        },
-        {
-            "uri": "https://figure.nz/table/T52DqR6aqRo8a8Lp/download",
-            "parent": "Education",
-            "discriminator": "Territorial authority",
-            "measure": { 
-                "column": "Measure", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Value Label", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Year as at 1 July"
-        },
-        {
             "uri": "https://figure.nz/table/6fzIjHApsQDUkfOm/download",
             "parent": "Education",
             "measure": { 
@@ -1389,29 +1425,6 @@
                 "exclude": [ ] 
             },
             "date": "Year as at 1 July"
-        },
-        {
-            "uri": "https://figure.nz/table/EjpyQrJlX8LRZphl/download",
-            "parent": "Education",
-            "measure": { 
-                "column": "Measure", 
-                "group": {
-                    "column": "Sector",
-                    "separator": "—",
-                    "include": [ ],
-                    "exclude": [
-                        "Total"
-                    ]
-                },
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "category": { 
-                "column": "Category", 
-                "include": [ ],
-                "exclude": [ ] 
-            },
-            "date": "Year"
         },
         {
             "uri": "https://figure.nz/table/l7qpKHPQLrNqZYeb/download",
