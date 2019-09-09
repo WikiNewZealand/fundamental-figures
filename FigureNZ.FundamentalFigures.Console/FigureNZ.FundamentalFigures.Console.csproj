@@ -19,6 +19,9 @@
     <Content Include="..\fundamental-figures.json" Link="fundamental-figures.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\territorial-authorities-mapping.json" Link="territorial-authorities-mapping.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\territorial-authorities.txt" Link="territorial-authorities.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

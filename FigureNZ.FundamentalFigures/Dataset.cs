@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace FigureNZ.FundamentalFigures
 {
@@ -9,6 +10,9 @@ namespace FigureNZ.FundamentalFigures
         public string Parent { get; set; }
 
         public string Term { get; set; }
+
+        [JsonProperty("term-mapping")]
+        public string TermMapping { get; set; }
 
         public string Discriminator { get; set; }
         

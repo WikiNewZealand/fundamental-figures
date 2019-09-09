@@ -39,6 +39,7 @@ A `Dataset` looks like this:
     "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
     "parent": "Name of section that this dataset will be displayed under in the output file",
     "term": "If the input term equals this value assume *all* rows in this csv are candidates for processing, defaults to 'null' which means we'll compare the input term with the discriminator value for each row",
+	"term-mapping": "Path to a file that defines alternate terms, e.g. map 'Auckland' to 'Auckland District Health Board' and 'Auckland City Council' to include rows with those terms as well. Defaults to null, which means no mappings will be loaded.",
     "discriminator": "Name of the column that we search, defaults to 'Territorial Authority'",
     "value": "Name of the column that holds the value of each row, defaults to 'Value'",
     "valueUnit": "Not currently used, defaults to 'ValueUnit'",
@@ -171,4 +172,19 @@ To solve the "Auckland problem", where Auckland has its own csv file for a `data
     ...
 }
 
+```
+
+A term mapping file looks like this:
+
+```
+{
+  "Auckland": [
+    "Auckland District Health Board",
+    "Auckland City Council"
+  ],
+  "Wellington": [
+  	  "Capital and Coast District Health Board",
+	  "Wellington City Council"
+  ]
+}
 ```

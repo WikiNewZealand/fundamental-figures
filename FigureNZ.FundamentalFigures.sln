@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{79ED9CD6-142B-4E8A-B72A-90A12D220C83}"
 	ProjectSection(SolutionItems) = preProject
 		fundamental-figures.json = fundamental-figures.json
+		territorial-authorities-mapping.json = territorial-authorities-mapping.json
 		territorial-authorities.txt = territorial-authorities.txt
 	EndProjectSection
 EndProject
@@ -17,9 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Json", "FigureNZ.FundamentalFigures.Json\FigureNZ.FundamentalFigures.Json.csproj", "{DE9C1985-C038-4CFE-98ED-39AE27204868}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures.Csv", "FigureNZ.FundamentalFigures.Csv\FigureNZ.FundamentalFigures.Csv.csproj", "{C2BB8790-E875-4C10-B61A-30693E3FDD6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Csv", "FigureNZ.FundamentalFigures.Csv\FigureNZ.FundamentalFigures.Csv.csproj", "{C2BB8790-E875-4C10-B61A-30693E3FDD6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureNZ.FundamentalFigures.Jekyll", "FigureNZ.FundamentalFigures.Jekyll\FigureNZ.FundamentalFigures.Jekyll.csproj", "{992CF9DE-F735-45FB-AD18-92212AB7EF5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureNZ.FundamentalFigures.Jekyll", "FigureNZ.FundamentalFigures.Jekyll\FigureNZ.FundamentalFigures.Jekyll.csproj", "{992CF9DE-F735-45FB-AD18-92212AB7EF5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

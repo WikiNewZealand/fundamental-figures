@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using CsvHelper;
+using Newtonsoft.Json;
 
 namespace FigureNZ.FundamentalFigures
 {
@@ -60,6 +61,25 @@ namespace FigureNZ.FundamentalFigures
 
         public static List<Record> ToRecords(this Dataset dataset, CsvReader csv, string term)
         {
+            HashSet<string> terms = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { term };
+
+            if (!string.IsNullOrEmpty(dataset.TermMapping))
+            {
+                using (StreamReader file = File.OpenText(dataset.TermMapping))
+                {
+                    Dictionary<string, List<string>> mapping = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+                    new JsonSerializer().Populate(file, mapping);
+
+                    if (mapping.TryGetValue(term, out List<string> maps))
+                    {
+                        foreach (string map in maps)
+                        {
+                            terms.Add(map);
+                        }
+                    }
+                }
+            }
+
             bool hasMeasureExclusions = dataset.Measure?.Exclude != null && dataset.Measure.Exclude.Any();
             HashSet<string> measureExclusions = new HashSet<string>(dataset.Measure?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
 
@@ -97,7 +117,7 @@ namespace FigureNZ.FundamentalFigures
                     continue;
                 }
 
-                if (!term.Equals(r.Discriminator, StringComparison.OrdinalIgnoreCase) && !term.Equals(dataset.Term, StringComparison.OrdinalIgnoreCase))
+                if (!terms.Contains(r.Discriminator) && !term.Equals(dataset.Term, StringComparison.OrdinalIgnoreCase))
                 {
                     countExcludedByDiscriminator++;
                     continue;
@@ -141,7 +161,7 @@ namespace FigureNZ.FundamentalFigures
 
                 if (!term.Equals(r.Discriminator, StringComparison.OrdinalIgnoreCase))
                 {
-                    r.Discriminator = $"{term.ToTitleCase()} — {r.Discriminator}";
+                    r.Discriminator = $"{term} — {r.Discriminator}";
                 }
 
                 r.Parent = dataset.Parent;
