@@ -874,6 +874,23 @@
             "date": "Quarter"
         },
         {
+            "uri": "https://figure.nz/table/QqOL6Qn84A1lYmnz/download",
+            "parent": "Households",
+            "term-mapping": "../territorial-authorities-mapping.json",
+            "discriminator": "Territorial authority",
+            "measure": {
+                "column": "Measure",
+                "include": [
+                    {
+                        "value": "Mean rent for residential properties",
+                        "label": "Average rent for homes"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Month"
+        },
+        {
             "uri": "https://figure.nz/table/4zpn0VpMy6sohnxS/download",
             "parent": "Households",
             "discriminator": "Territorial Authority",
@@ -883,10 +900,6 @@
                     {
                         "value": "Tenure of household for households in occupied private dwellings",
                         "label": "Home ownership by households" 
-                    },
-                    {
-                        "value": "Weekly rent paid for households in rented occupied private dwellings",
-                        "label": "Weekly rent paid by households" 
                     },
                     {
                         "value": "Sector of landlord for households in rented occupied private dwellings",
