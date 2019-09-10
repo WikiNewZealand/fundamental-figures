@@ -1045,7 +1045,13 @@
                 "column": "Milestone age",
                 "group": {
                     "column": "Measure",
-                    "separator": "—"
+                    "separator": "—",
+                    "include": [
+                        {
+                            "value": "Proportion of eligible children who were immunised",
+                            "label": "Proportion of eligible children who have completed age-appropriate immunisation by deprivation"
+                        }
+                    ]    
                  },
                 "include": [
                     {
@@ -1114,13 +1120,124 @@
                 "column": "Milestone age",
                 "group": {
                     "column": "Measure",
-                    "separator": "—"
+                    "separator": "—",
+                    "include": [
+                        {
+                            "value": "Proportion of eligible children who were immunised",
+                            "label": "Proportion of eligible children who have completed age-appropriate immunisation by ethnicity"
+                        }
+                    ]   
                  },
-                "include": [ ],
+                 "include": [
+                    {
+                        "value": "6 months",
+                        "label": "Children aged 6 months"
+                    },
+                    {
+                        "value": "8 months",
+                        "label": "Children aged 8 months"
+                    },
+                    {
+                        "value": "12 months",
+                        "label": "Children aged 12 months"
+                    },
+                    {
+                        "value": "18 months",
+                        "label": "Children aged 18 months"
+                    },
+                    {
+                        "value": "24 months",
+                        "label": "Children aged 24 months"
+                    },
+                    {
+                        "value": "5 years",
+                        "label": "Children aged 5 years"
+                    }
+
+                ],
                 "exclude": [ ]
             },
             "category": {
                 "column": "Ethnic group",
+                "include": [ ],
+                "exclude": [ 
+                    "Total"
+                ]
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/inEq0AY7EAX5V9hS/download",
+            "parent": "Health",
+            "term-mapping": "../territorial-authorities-dhb-mapping.json",
+            "discriminator": "DHB",
+            "measure": {
+                "column": "Water fluoridation status",
+                "group": {
+                    "column": "Ethnic group",
+                    "separator": "—",
+                    "exclude": [
+                        "Total"
+                    ]
+                 },
+                "include": [
+                    {
+                        "value": "Fluoridated",
+                        "label": "Dental health for 5-year-old children drinking fluoridated water"
+                    },
+                    {
+                        "value": "Non-fluoridated",
+                        "label": "Dental health for 5-year-old children drinking non-fluoridated water"
+                    }
+                 ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Measure",
+                "include": [
+                    { 
+                        "value": "Number of children examined"
+                    },
+                    {
+                        "value": "Number of children caries free",
+                        "label": "Number of children without cavities"
+                    },
+                    {
+                        "value": "Percentage of children caries free",
+                        "label": "Percentage of children without cavities"
+                    },
+                    { 
+                        "value": "Number of decayed, missing, and filled teeth"
+                    },
+                    { 
+                        "value": "Mean number of decayed, missing, and filled teeth per child"
+                    }
+                 ],
+                "exclude": [ ]
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/k1y6nNryavsEuwMS/download",
+            "parent": "Health",
+            "term-mapping": "../territorial-authorities-dhb-mapping.json",
+            "discriminator": "DHB of residence",
+            "measure": {
+                "column": "Patient type",
+                "include": [ 
+                    {
+                        "value": "Acute patients",
+                        "label": "Patients discharged after acute surgery"
+                    },
+                    {
+                        "value": "Elective patients",
+                        "label": "Patients discharged after elective surgery"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Service type",
                 "include": [ ],
                 "exclude": [ 
                     "Total"
@@ -2350,7 +2467,7 @@
         },
         {
             "uri": "https://figure.nz/table/deetNqyR2dBOp6WS/download",
-            "parent": "Local Government Finances",
+            "parent": "Council Finances",
             "discriminator": "Territorial Authority",
             "term-mapping": "../territorial-authorities-mapping.json",
             "measure": { 
@@ -2372,7 +2489,7 @@
         },
         {
             "uri": "https://figure.nz/table/awE6B0Siz3kPENiS/download",
-            "parent": "Local Government Finances",
+            "parent": "Council Finances",
             "discriminator": "Local authority",
             "term-mapping": "../territorial-authorities-mapping.json",
             "measure": { 
@@ -2394,7 +2511,7 @@
         },
         {
             "uri": "https://figure.nz/table/S2LNiW2acMml59MK/download",
-            "parent": "Local Government Finances",
+            "parent": "Council Finances",
             "discriminator": "Local authority",
             "term-mapping": "../territorial-authorities-mapping.json",
             "measure": { 
