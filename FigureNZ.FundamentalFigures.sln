@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{79ED9CD6-142B-4E8A-B72A-90A12D220C83}"
 	ProjectSection(SolutionItems) = preProject
 		fundamental-figures.json = fundamental-figures.json
+		territorial-authorities-dhb-mapping.json = territorial-authorities-dhb-mapping.json
 		territorial-authorities-mapping.json = territorial-authorities-mapping.json
 		territorial-authorities.txt = territorial-authorities.txt
 	EndProjectSection
