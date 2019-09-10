@@ -1,4 +1,8 @@
-{
+﻿{
+  "Ashburton": [
+    "Ashburton District Council",
+    "Canterbury Regional Council"
+  ],
   "Auckland": [
     "Franklin",
     "Manukau",
@@ -7,12 +11,262 @@
     "Rodney",
     "Auckland City",
     "Auckland Council",
+    "Auckland Regional Council",
+    "ARTA",
     "Auckland Transport",
-    "Auckland Tourism, Events and Economic Development",
     "ATEED"
   ],
-  "Ashburton": [
-    "Ashburton District Council",
-    "Canterbury Regional Council"
-  ] 
+  "Buller": [
+    "Buller District Council",
+    "West Coast Regional Council"
+  ],
+  "Carterton": [
+    "Carterton District Council",
+    "Greater Wellington Regional Council"
+  ],
+  "Central Hawke's Bay": [
+    "Central Hawke's Bay District Council",
+    "Hawke's Bay Regional Council"
+  ],
+  "Central Otago": [
+    "Central Otago District Council",
+    "Otago Regional Council"
+  ],
+  "Chatham Islands": [
+    "Chatham Islands Council"
+  ],
+  "Christchurch": [
+    "Banks Peninsula District Council",
+    "Canterbury Regional Council",
+    "Christchurch City Council"
+  ],
+  "Clutha": [
+    "Clutha District Council",
+    "Otago Regional Council"
+  ],
+  "Dunedin": [
+    "Dunedin City Council",
+    "Otago Regional Council"
+  ],
+  "Far North": [
+    "Far North District Council",
+    "Northland Regional Council"
+  ],
+  "Gisborne": [
+    "Gisborne District Council"
+  ],
+  "Gore": [
+    "Gore District Council",
+    "Southland Regional Council"
+  ],
+  "Grey": [
+    "Grey District Council",
+    "West Coast Regional Council"
+  ],
+  "Hamilton": [
+    "Hamilton City Council",
+    "Waikato Regional Council"
+  ],
+  "Hastings": [
+    "Hastings District Council",
+    "Hawke's Bay Regional Council"
+  ],
+  "Hauraki": [
+    "Hauraki District Council"
+  ],
+  "Horowhenua": [
+    "Horowhenua District Council",
+    "Horizons Regional Council"
+  ],
+  "Hurunui": [
+    "Hurunui District Council"
+  ],
+  "Invercargill": [
+    "Invercargill City Council",
+    "Southland Regional Council"
+  ],
+  "Kaikoura": [
+    "Canterbury Regional Council",
+    "Kaikoura District Council"
+  ],
+  "Kaipara": [
+    "Kaipara District Council",
+    "Northland Regional Council"
+  ],
+  "Kapiti Coast": [
+    "Greater Wellington Regional Council",
+    "Kapiti Coast District Council"
+  ],
+  "Kawerau": [
+    "Bay of Plenty Regional Council",
+    "Kawerau District Council"
+  ],
+  "Lower Hutt": [
+    "Greater Wellington Regional Council",
+    "Hutt City Council"
+  ],
+  "Mackenzie": [
+    "Canterbury Regional Council",
+    "Mackenzie District Council"
+  ],
+  "Manawatu": [
+    "Manawatu District Council",
+    "Horizons Regional Council"
+  ],
+  "Marlborough": [
+    "Marlborough District Council"
+  ],
+  "Masterton": [
+    "Greater Wellington Regional Council",
+    "Masterton District Council"
+  ],
+  "Matamata-Piako": [
+    "Matamata-Piako District Council",
+    "Waikato Regional Council"
+  ],
+  "Napier": [
+    "Hawke's Bay Regional Council",
+    "Napier City Council"
+  ],
+  "Nelson": [
+    "Nelson City Council"
+  ],
+  "New Plymouth": [
+    "New Plymouth District Council",
+    "Taranaki Regional Council"
+  ],
+  "Opotiki": [
+    "Bay of Plenty Regional Council",
+    "Opotiki District Council"
+  ],
+  "Otorohanga": [
+    "Otorohanga District Council",
+    "Waikato Regional Council"
+  ],
+  "Palmerston North": [
+    "Horizons Regional Council",
+    "Palmerston North City Council"
+  ],
+  "Porirua": [
+    "Greater Wellington Regional Council",
+    "Porirua City Council"
+  ],
+  "Queenstown-Lakes": [
+    "Otago Regional Council",
+    "Queenstown Lakes District Council"
+  ],
+  "Rangitikei": [
+    "Horizons Regional Council",
+    "Rangitikei District Council"
+  ],
+  "Rotorua": [
+    "Bay of Plenty Regional Council",
+    "Rotorua Lakes Council"
+  ],
+  "Ruapehu": [
+    "Horizons Regional Council",
+    "Ruapehu District Council"
+  ],
+  "Selwyn": [
+    "Canterbury Regional Council",
+    "Selwyn District Council"
+  ],
+  "South Taranaki": [
+    "South Taranaki District Council",
+    "Taranaki Regional Council"
+  ],
+  "South Waikato": [
+    "South Waikato District Council"
+  ],
+  "South Wairarapa": [
+    "Greater Wellington Regional Council",
+    "South Wairarapa District Council"
+  ],
+  "Southland": [
+    "Southland District Council",
+    "Southland Regional Council"
+  ],
+  "Stratford": [
+    "Stratford District Council",
+    "Taranaki Regional Council"
+  ],
+  "Tararua": [
+    "Horizons Regional Council",
+    "Tararua District Council"
+  ],
+  "Tasman": [
+    "Tasman District Council"
+  ],
+  "Taupo": [
+    "TaupÅ District Council",
+    "Waikato Regional Council"
+  ],
+  "Tauranga": [
+    "Bay of Plenty Regional Council",
+    "Tauranga City Council"
+  ],
+  "Thames-Coromandel": [
+    "Thames-Coromandel District Council",
+    "Waikato Regional Council"
+  ],
+  "Timaru": [
+    "Canterbury Regional Council",
+    "Timaru District Council"
+  ],
+  "Upper Hutt": [
+    "Greater Wellington Regional Council",
+    "Upper Hutt City Council"
+  ],
+  "Waikato": [
+    "Waikato District Council",
+    "Waikato Regional Council"
+  ],
+  "Waimakariri": [
+    "Canterbury Regional Council",
+    "Waimakariri District Council"
+  ],
+  "Waimate": [
+    "Canterbury Regional Council",
+    "Waimate District Council"
+  ],
+  "Waipa": [
+    "Waikato Regional Council",
+    "Waipa District Council"
+  ],
+  "Wairoa": [
+    "Hawke's Bay Regional Council",
+    "Wairoa District Council"
+  ],
+  "Waitaki": [
+    "Otago Regional Council",
+    "Waitaki District Council"
+  ],
+  "Waitomo": [
+    "Waikato Regional Council",
+    "Waitomo District Council"
+  ],
+  "Wellington": [
+    "Greater Wellington Regional Council",
+    "Wellington City Council"
+  ],
+  "Western Bay of Plenty": [
+    "Bay of Plenty Regional Council",
+    "Western Bay of Plenty District Council"
+  ],
+  "Westland": [
+    "West Coast Regional Council",
+    "Westland District Council"
+  ],
+  "Whakatane": [
+    "Bay of Plenty Regional Council",
+    "WhakatÄne District Council"
+  ],
+  "Whanganui": [
+    "Horizons Regional Council",
+    "Whanganui District Council"
+  ],
+  "Whangarei": [
+    "Northland Regional Council",
+    "Whangarei District Council"
+  ]
 }
