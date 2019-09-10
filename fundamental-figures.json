@@ -2533,7 +2533,7 @@
         },
         {
             "uri": "https://figure.nz/table/BDbwxnnEA5khmkwC/download",
-            "parent": "Local Government Finances",
+            "parent": "Council Finances",
             "discriminator": "Local authority",
             "term-mapping": "../territorial-authorities-mapping.json",
             "exclude-zero-values": true,
