@@ -1037,6 +1037,98 @@
             "date": "Year ended June"
         },
         {
+            "uri": "https://figure.nz/table/avIipYcV3USXe8tO/download",
+            "parent": "Health",
+            "term-mapping": "../territorial-authorities-dhb-mapping.json",
+            "discriminator": "District health board",
+            "measure": {
+                "column": "Milestone age",
+                "group": {
+                    "column": "Measure",
+                    "separator": "—"
+                 },
+                "include": [
+                    {
+                        "value": "6 months",
+                        "label": "Children aged 6 months"
+                    },
+                    {
+                        "value": "8 months",
+                        "label": "Children aged 8 months"
+                    },
+                    {
+                        "value": "12 months",
+                        "label": "Children aged 12 months"
+                    },
+                    {
+                        "value": "18 months",
+                        "label": "Children aged 18 months"
+                    },
+                    {
+                        "value": "24 months",
+                        "label": "Children aged 24 months"
+                    },
+                    {
+                        "value": "5 years",
+                        "label": "Children aged 5 years"
+                    }
+
+                ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Deprivation quintile",
+                "include": [
+                    {
+                        "value": "Quintile 1 (lowest)",
+                        "label": "Least deprived (Quintile 1)"
+                    },
+                    {
+                        "value": "Quintile 2"
+                    },
+                    {
+                        "value": "Quintile 3"
+                    },
+                    {
+                        "value": "Quintile 4"
+                    },
+                    {
+                        "value": "Quintile 5",
+                        "label": "Most deprived (Quintile 5)"
+                    },
+                    {
+                        "value": "Quintile unknown",
+                        "label": "Deprivation level unknown"
+                    }
+                ],
+                "exclude": [ ]
+            },
+            "date": "Year ended June"
+        },
+        {
+            "uri": "https://figure.nz/table/aunEx7mzUzTdU1C9/download",
+            "parent": "Health",
+            "term-mapping": "../territorial-authorities-dhb-mapping.json",
+            "discriminator": "District health board",
+            "measure": {
+                "column": "Milestone age",
+                "group": {
+                    "column": "Measure",
+                    "separator": "—"
+                 },
+                "include": [ ],
+                "exclude": [ ]
+            },
+            "category": {
+                "column": "Ethnic group",
+                "include": [ ],
+                "exclude": [ 
+                    "Total"
+                ]
+            },
+            "date": "Year ended June"
+        },
+        {
             "uri": "https://figure.nz/table/EjpyQrJlX8LRZphl/download",
             "parent": "Education",
             "measure": { 
