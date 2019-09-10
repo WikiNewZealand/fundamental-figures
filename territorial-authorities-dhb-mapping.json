@@ -1,9 +1,203 @@
-{
+﻿{
+  "Ashburton": [
+    "Canterbury"
+  ],
   "Auckland": [
+    "Auckland",
     "Counties Manukau",
     "Waitemata"
   ],
-  "Ashburton": [
+  "Buller": [
+    "West Coast"
+  ],
+  "Carterton": [
+    "Wairarapa"
+  ],
+  "Central Hawke's Bay": [
+    "Hawke's Bay"
+  ],
+  "Central Otago": [
+    "Southern"
+  ],
+  "Chatham Islands": [],
+  "Christchurch": [
     "Canterbury"
-  ] 
+  ],
+  "Clutha": [
+    "Southern"
+  ],
+  "Dunedin": [
+    "Southern"
+  ],
+  "Far North": [
+    "Northland"
+  ],
+  "Gisborne": [
+    "Tairawhiti"
+  ],
+  "Gore": [
+    "Southern"
+  ],
+  "Grey": [
+    "West Coast"
+  ],
+  "Hamilton": [
+    "Waikato"
+  ],
+  "Hastings": [
+    "Hawke's Bay"
+  ],
+  "Hauraki": [
+    "Waikato"
+  ],
+  "Horowhenua": [
+    "MidCentral"
+  ],
+  "Hurunui": [
+    "Canterbury"
+  ],
+  "Invercargill": [
+    "Southern"
+  ],
+  "Kaikoura": [
+    "Canterbury"
+  ],
+  "Kaipara": [
+    "Northland"
+  ],
+  "Kapiti Coast": [
+    "Capital & Coast"
+  ],
+  "Kawerau": [
+    "Bay of Plenty"
+  ],
+  "Lower Hutt": [
+    "Hutt"
+  ],
+  "Mackenzie": [
+    "South Canterbury"
+  ],
+  "Manawatu": [
+    "MidCentral"
+  ],
+  "Marlborough": [
+    "Nelson Marlborough"
+  ],
+  "Masterton": [
+    "Wairarapa"
+  ],
+  "Matamata-Piako": [
+    "Waikato"
+  ],
+  "Napier": [
+    "Hawke's Bay"
+  ],
+  "Nelson": [
+    "Nelson Marlborough"
+  ],
+  "New Plymouth": [
+    "Taranaki"
+  ],
+  "Opotiki": [
+    "Bay of Plenty"
+  ],
+  "Otorohanga": [
+    "Waikato"
+  ],
+  "Palmerston North": [
+    "MidCentral"
+  ],
+  "Porirua": [
+    "Capital & Coast"
+  ],
+  "Queenstown-Lakes": [
+    "Southern"
+  ],
+  "Rangitikei": [
+    "MidCentral"
+  ],
+  "Rotorua": [
+    "Lakes"
+  ],
+  "Ruapehu": [
+    "Whanganui"
+  ],
+  "Selwyn": [
+    "Canterbury"
+  ],
+  "South Taranaki": [
+    "Taranaki"
+  ],
+  "South Waikato": [
+    "Waikato"
+  ],
+  "South Wairarapa": [
+    "Wairarapa"
+  ],
+  "Southland": [
+    "Southern"
+  ],
+  "Stratford": [
+    "Taranaki"
+  ],
+  "Tararua": [
+    "MidCentral"
+  ],
+  "Tasman": [
+    "Nelson Marlborough"
+  ],
+  "Taupo": [
+    "Lakes"
+  ],
+  "Tauranga": [
+    "Bay of Plenty"
+  ],
+  "Thames-Coromandel": [
+    "Waikato"
+  ],
+  "Timaru": [
+    "South Canterbury"
+  ],
+  "Upper Hutt": [
+    "Hutt"
+  ],
+  "Waikato": [
+    "Waikato"
+  ],
+  "Waimakariri": [
+    "Canterbury"
+  ],
+  "Waimate": [
+    "South Canterbury"
+  ],
+  "Waipa": [
+    "Waikato"
+  ],
+  "Wairoa": [
+    "Hawke's Bay"
+  ],
+  "Waitaki": [
+    "Southern"
+  ],
+  "Waitomo": [
+    "Waikato"
+  ],
+  "Wellington": [
+    "Capital & Coast"
+  ],
+  "Western Bay of Plenty": [
+    "Bay of Plenty"
+  ],
+  "Westland": [
+    "West Coast"
+  ],
+  "Whakatane": [
+    "Bay of Plenty"
+  ],
+  "Whanganui": [
+    "Whanganui"
+  ],
+  "Whangarei": [
+    "Northland"
+  ]
 }
