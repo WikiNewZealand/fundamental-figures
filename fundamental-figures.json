@@ -1010,7 +1010,7 @@
                         "value": "Quintile 4"
                     },
                     {
-                        "value": "Quintile 5",
+                        "value": "Quintile 5 (highest)",
                         "label": "Most deprived (Quintile 5)"
                     },
                     {
@@ -1126,7 +1126,7 @@
                  ],
                 "exclude": [ ]
             },
-            "date": "Year ended June"
+            "date": "Year"
         },
         {
             "uri": "https://figure.nz/table/k1y6nNryavsEuwMS/download",
