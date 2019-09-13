@@ -24,15 +24,25 @@ namespace FigureNZ.FundamentalFigures.Csv
             {
                 var map = new RecordMap()
                     .Map(r => r.Discriminator, "Territorial Authority")
-                    .Map(r => r.Parent, "Topic")
-                    .Map(r => r.Measure, "Measure")
-                    .Map(r => r.Category, "Category")
+                    .Map(r => r.Parent, "Topic");
+
+                map
+                    .Map(r => r.Measure)
+                    .Name("Measure")
+                    .ConvertUsing(r => r.MeasureFormatted());
+
+                map
+                    .Map(r => r.Category)
+                    .Name("Category")
+                    .ConvertUsing(r => r.CategoryFormatted());
+
+                map
                     .Map(r => r.Value, "Value")
                     .Map(r => r.ValueUnit, "ValueUnit")
                     .Map(r => r.ValueLabel, "ValueLabel")
                     .Map(r => r.NullReason, "NullReason")
                     .Map(r => r.Date, "Date")
-                    .Map(r => r.DateLabel, "DateLabel"); ;
+                    .Map(r => r.DateLabel, "DateLabel");
 
                 map
                     .Map(r => r.Uri)
