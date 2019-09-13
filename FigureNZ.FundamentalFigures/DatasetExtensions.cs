@@ -209,7 +209,7 @@ namespace FigureNZ.FundamentalFigures
 
                 if (r.Value != null && r.ValueLabel == "NZD thousands")
                 {
-                    r.ValueLabel = "nzd";
+                    r.ValueLabel = "NZD";
                     r.Value = r.Value * 1000;
                 }
 
