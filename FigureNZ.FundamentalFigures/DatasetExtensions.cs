@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Transactions;
 using CsvHelper;
 using CsvHelper.TypeConversion;
 using Newtonsoft.Json;
@@ -57,18 +58,48 @@ namespace FigureNZ.FundamentalFigures
 
                     return true;
                 };
-                
-                csv.Configuration.RegisterClassMap(new RecordMap()
-                    .Map(r => r.Discriminator, dataset.Discriminator ?? "Territorial Authority")
-                    .Map(r => r.Date, dataset.Date)
-                    .Map(r => r.Measure, dataset.Measure?.Column)
-                    .Map(r => r.Group, dataset.Measure?.Group?.Column)
-                    .Map(r => r.Category, dataset.Category?.Column)
+
+                var map = new RecordMap()
+                    .Map(r => r.Selector, dataset.Selector ?? "Territorial Authority")
+                    .Map(r => r.Date, dataset.Date);
+
+                map.Map(r => r.Measures)
+                    .ConvertUsing(rr => dataset
+                        .Measure
+                        .Select((measure, index) => new { measure, index })
+                        .ToDictionary(
+                            mi => mi.measure.Name, 
+                            mi => new ColumnValue
+                            {
+                                Index = mi.index,
+                                Column = mi.measure.Name,
+                                Separator = mi.measure.Separator ?? " — ",
+                                Value = rr.GetField<string>(mi.measure.Name)
+                            })
+                    );
+
+                map.Map(r => r.Categories)
+                    .ConvertUsing(rr => dataset
+                        .Category
+                        .Select((category, index) => new { category, index })
+                        .ToDictionary(ci => 
+                            ci.category.Name, 
+                            ci => new ColumnValue
+                            {
+                                Index = ci.index,
+                                Column = ci.category.Name,
+                                Separator = ci.category.Separator ?? " — ",
+                                Value = rr.GetField<string>(ci.category.Name)
+                            })
+                    );
+
+                map
                     .Map(r => r.Value, dataset.Value ?? "Value")
                     .Map(r => r.ValueUnit, dataset.ValueUnit ?? "Value Unit")
                     .Map(r => r.ValueLabel, dataset.ValueLabel ?? "Value Label")
-                    .Map(r => r.NullReason, dataset.NullReason ?? "Null Reason")
-                );
+                    .Map(r => r.NullReason, dataset.NullReason ?? "Null Reason");
+
+                csv.Configuration.RegisterClassMap(map);
                 
                 return dataset.ToRecords(csv, term);
             }
@@ -95,29 +126,23 @@ namespace FigureNZ.FundamentalFigures
                 }
             }
 
-            bool hasMeasureExclusions = dataset.Measure?.Exclude != null && dataset.Measure.Exclude.Any();
-            HashSet<string> measureExclusions = new HashSet<string>(dataset.Measure?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+            bool hasMeasureExclusions = dataset.Measure.Any(c => c.Exclude != null && c.Exclude.Any());
+            Dictionary<string, HashSet<string>> measureExclusions = dataset.Measure.Where(c => c.Exclude != null).ToDictionary(c => c.Name, c => new HashSet<string>(c.Exclude, StringComparer.OrdinalIgnoreCase), StringComparer.OrdinalIgnoreCase);
+            
+            bool hasMeasureInclusions = dataset.Measure.Any(c => c.Include != null && c.Include.Any());
+            Dictionary<string, Dictionary<string, (int Index, Include Include)>> measureInclusions = dataset.Measure.Where(c => c.Include != null).ToDictionary(c => c.Name, c => c.Include.Select((include, index) => (Index: index, Include: include)).ToDictionary(ii => ii.Include.Value, i => i, StringComparer.OrdinalIgnoreCase), StringComparer.OrdinalIgnoreCase);
 
-            bool hasMeasureInclusions = dataset.Measure?.Include != null && dataset.Measure.Include.Any();
-            HashSet<string> measureInclusions = new HashSet<string>(dataset.Measure?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+            bool hasCategoryExclusions = dataset.Category.Any(c => c.Exclude != null && c.Exclude.Any());
+            Dictionary<string, HashSet<string>> categoryExclusions = dataset.Category.Where(c => c.Exclude != null).ToDictionary(c => c.Name, c => new HashSet<string>(c.Exclude, StringComparer.OrdinalIgnoreCase), StringComparer.OrdinalIgnoreCase);
 
-            bool hasGroupExclusions = dataset.Measure?.Group?.Exclude != null && dataset.Measure.Group.Exclude.Any();
-            HashSet<string> groupExclusions = new HashSet<string>(dataset.Measure?.Group?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
-
-            bool hasGroupInclusions = dataset.Measure?.Group?.Include != null && dataset.Measure.Group.Include.Any();
-            HashSet<string> groupInclusions = new HashSet<string>(dataset.Measure?.Group?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
-
-            bool hasCategoryExclusions = dataset.Category?.Exclude != null && dataset.Category.Exclude.Any();
-            HashSet<string> categoryExclusions = new HashSet<string>(dataset.Category?.Exclude ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
-
-            bool hasCategoryInclusions = dataset.Category?.Include != null && dataset.Category.Include.Any();
-            HashSet<string> categoryInclusions = new HashSet<string>(dataset.Category?.Include?.Select(i => i.Value) ?? new List<string>(), StringComparer.OrdinalIgnoreCase);
+            bool hasCategoryInclusions = dataset.Category.Any(c => c.Include != null && c.Include.Any());
+            Dictionary<string, Dictionary<string, (int Index, Include Include)>> categoryInclusions = dataset.Category.Where(c => c.Include != null).ToDictionary(c => c.Name, c => c.Include.Select((include, index) => (Index: index, Include: include)).ToDictionary(ii => ii.Include.Value, i => i, StringComparer.OrdinalIgnoreCase), StringComparer.OrdinalIgnoreCase);
 
             List<Record> set = new List<Record>();
 
             int countRecords = 0;
-            int countMissingDiscriminator = 0;
-            int countExcludedByDiscriminator = 0;
+            int countMissingSelector = 0;
+            int countExcludedBySelector = 0;
             int countExcludedByMeasure = 0;
             int countExcludedByGroup = 0;
             int countExcludedByCategory = 0;
@@ -127,84 +152,75 @@ namespace FigureNZ.FundamentalFigures
             {
                 countRecords++;
 
-                if (r.Discriminator == null)
+                if (r.Selector == null)
                 {
-                    countMissingDiscriminator++;
+                    countMissingSelector++;
                     continue;
                 }
 
-                if (!terms.Contains(r.Discriminator) && !term.Equals(dataset.Term, StringComparison.OrdinalIgnoreCase))
+                if (!terms.Contains(r.Selector) && !term.Equals(dataset.AllSelectorsMatchTerm, StringComparison.OrdinalIgnoreCase))
                 {
-                    countExcludedByDiscriminator++;
+                    countExcludedBySelector++;
                     continue;
                 }
-
-                if (hasMeasureExclusions && measureExclusions.Contains(r.Measure))
+                
+                if (hasMeasureExclusions && r.Measures.Any(m => measureExclusions.TryGetValue(m.Key, out var exclusions) && exclusions.Contains(m.Value.Value)))
                 {
                     countExcludedByMeasure++;
                     continue;
                 }
 
-                if (hasMeasureInclusions && !measureInclusions.Contains(r.Measure))
+                if (hasMeasureInclusions && r.Measures.Any(m => measureInclusions.TryGetValue(m.Key, out var inclusions) && inclusions.Any() && !inclusions.ContainsKey(m.Value.Value)))
                 {
                     countExcludedByMeasure++;
                     continue;
                 }
 
-                if (hasGroupExclusions && groupExclusions.Contains(r.Group))
-                {
-                    countExcludedByGroup++;
-                    continue;
-                }
-
-                if (hasGroupInclusions && !groupInclusions.Contains(r.Group))
-                {
-                    countExcludedByGroup++;
-                    continue;
-                }
-
-                if (hasCategoryExclusions && categoryExclusions.Contains(r.Category))
+                if (hasCategoryExclusions && r.Categories.Any(m => categoryExclusions.TryGetValue(m.Key, out var exclusions) && exclusions.Contains(m.Value.Value)))
                 {
                     countExcludedByCategory++;
                     continue;
                 }
 
-                if (hasCategoryInclusions && !categoryInclusions.Contains(r.Category))
+                if (hasCategoryInclusions && r.Categories.Any(c => categoryInclusions.TryGetValue(c.Key, out var inclusions) && inclusions.Any() && !inclusions.ContainsKey(c.Value.Value)))
                 {
                     countExcludedByCategory++;
                     continue;
                 }
 
-                if (!term.Equals(r.Discriminator, StringComparison.OrdinalIgnoreCase))
+                // If we've selected this row without a direct match to the supplied term, it's because we've got some mapping somewhere in the pipeline
+                // Prepend the term to the row's selector, so we get something like "Auckland — Waitemata DHB"
+                if (!term.Equals(r.Selector, StringComparison.OrdinalIgnoreCase))
                 {
-                    r.Discriminator = $"{term} — {r.Discriminator}";
+                    r.Selector = $"{term} — {r.Selector}";
                 }
 
-                r.Parent = dataset.Parent;
-                r.Uri = dataset.Uri;
-                r.Separator = dataset.Measure?.Group?.Separator;
-                r.DateLabel = dataset.Date;
-
-                Include measure = dataset.Measure?.Include?.FirstOrDefault(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
-
-                if (measure != null)
+                if (hasMeasureInclusions)
                 {
-                    r.MeasureLabel = measure.Label;
-                    r.ConvertToPercentage = measure.ConvertToPercentage;
+                    foreach (var m in r.Measures)
+                    {
+                        if (measureInclusions.TryGetValue(m.Key, out var mi) && mi.TryGetValue(m.Value.Value, out var ii))
+                        {
+                            m.Value.Label = ii.Include.Label;
+
+                            // TODO: Move this out to Measure?
+                            r.ConvertToPercentage = r.ConvertToPercentage || ii.Include.ConvertToPercentage;
+                        }
+                    }
                 }
 
-                Include group = dataset.Measure?.Group?.Include?.FirstOrDefault(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
-
-                if (group != null)
+                if (hasCategoryInclusions)
                 {
-                    r.GroupLabel = group.Label;
-                }
+                    foreach (var c in r.Categories)
+                    {
+                        if (categoryInclusions.TryGetValue(c.Key, out var ci) && ci.TryGetValue(c.Value.Value, out var ii))
+                        {
+                            c.Value.Label = ii.Include.Label;
 
-                Include category = dataset.Category?.Include?.FirstOrDefault(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(i.Label));
-
-                if (category != null)
-                {
-                    r.CategoryLabel = category.Label;
+                            // TODO: Move this out to Category?
+                            r.ConvertToPercentage = r.ConvertToPercentage || ii.Include.ConvertToPercentage;
+                        }
+                    }
                 }
 
                 if (r.Value != null && r.ValueLabel == "NZD thousands")
@@ -213,17 +229,21 @@ namespace FigureNZ.FundamentalFigures
                     r.Value = r.Value * 1000;
                 }
 
+                r.Parent = dataset.Parent;
+                r.Uri = dataset.Source;
+                r.DateLabel = dataset.Date;
+
                 set.Add(r);
             }
 
-            set = set
-                .GroupBy(r => new { r.Discriminator, r.Measure, r.Group, r.Category })
+            var ordered = set
+                .GroupBy(r => new { r.Selector, Measure = r.MeasureFormatted(), Category = r.CategoryFormatted() })
                 .Select(g => g
                     .OrderByDescending(r => r.Date)
                     .ThenByDescending(r => r.Value) // Case where Auckland appears twice for the same year because super city
                     .First()
                 )
-                .GroupBy(r => new {r.Discriminator, r.Measure, r.Group}) // If we're excluding zero values, pull them out here
+                .GroupBy(r => new { r.Selector, Measure = r.MeasureFormatted() })
                 .Select(g =>
                 {
                     decimal? total = g.Sum(r => r.Value);
@@ -237,7 +257,7 @@ namespace FigureNZ.FundamentalFigures
                     {
                         r.ValueUnit = "percentage";
                         r.ValueLabel = r.ValueLabel.ReplaceCaseInsensitive("Number", "%");
-                        r.Value = (r.Value / total) * 100; // Multiple by 100 to stay consistent with other values that are natively 100-based
+                        r.Value = (r.Value / total) * 100; // Multiple by 100 to stay consistent with other percentage values that are natively 100-based
                     }
 
                     return g;
@@ -245,6 +265,7 @@ namespace FigureNZ.FundamentalFigures
                 .SelectMany(g => g)
                 .Where(r =>
                 {
+                    // If we're excluding zero values, pull them out here
                     if (dataset.ExcludeZeroValues && r.Value == 0)
                     {
                         countExcludedByValue++;
@@ -253,24 +274,64 @@ namespace FigureNZ.FundamentalFigures
 
                     return true;
                 })
-                .OrderBy(r => r.Discriminator)
-                .ThenBy(r => dataset.Measure?.Include?.FindIndex(i => i.Value.Equals(r.Measure, StringComparison.OrdinalIgnoreCase)))
-                .ThenBy(r => r.Measure, StringComparer.OrdinalIgnoreCase)
-                .ThenBy(r => dataset.Measure?.Group?.Include?.FindIndex(i => i.Value.Equals(r.Group, StringComparison.OrdinalIgnoreCase)))
-                .ThenBy(r => r.Group, StringComparer.OrdinalIgnoreCase)
-                .ThenBy(r => dataset.Category?.Include?.FindIndex(i => i.Value.Equals(r.Category, StringComparison.OrdinalIgnoreCase)))
-                .ToList();
+                .OrderBy(r => r.Selector);
+
+            foreach (KeyValuePair<string, Dictionary<string, (int Index, Include Include)>> measureInclusion in measureInclusions)
+            {
+                ordered = ordered
+                    .ThenBy(r =>
+                    {
+                        if (!r.Measures.TryGetValue(measureInclusion.Key, out var column))
+                        {
+                            return (int?) null;
+                        }
+
+                        if (!measureInclusion.Value.TryGetValue(column.Value, out var inclusion))
+                        {
+                            return (int?) null;
+                        }
+
+                        return inclusion.Index;
+                    });
+            }
+
+            foreach (Column column in dataset.Measure)
+            {
+                ordered = ordered
+                    .ThenBy(r => r.Measures[column.Name].Value, StringComparer.OrdinalIgnoreCase);
+            }
+
+            foreach (KeyValuePair<string, Dictionary<string, (int Index, Include Include)>> categoryInclusion in categoryInclusions)
+            {
+                ordered = ordered
+                    .ThenBy(r =>
+                    {
+                        if (!r.Categories.TryGetValue(categoryInclusion.Key, out var column))
+                        {
+                            return (int?) null;
+                        }
+
+                        if (!categoryInclusion.Value.TryGetValue(column.Value, out var inclusion))
+                        {
+                            return (int?) null;
+                        }
+
+                        return inclusion.Index;
+                    });
+            }
+
+            set = ordered.ToList();
             
             Console.WriteLine($" - {countRecords} records read");
 
-            if (countMissingDiscriminator > 0)
+            if (countMissingSelector > 0)
             {
-                Console.WriteLine($" - {countMissingDiscriminator} records missing \"discriminator\"");
+                Console.WriteLine($" - {countMissingSelector} records missing \"selector\"");
             }
 
-            if (countExcludedByDiscriminator > 0)
+            if (countExcludedBySelector > 0)
             {
-                Console.WriteLine($" - {countExcludedByDiscriminator} records excluded by \"discriminator\"");
+                Console.WriteLine($" - {countExcludedBySelector} records excluded by \"selector\"");
             }
 
             if (countExcludedByMeasure > 0)

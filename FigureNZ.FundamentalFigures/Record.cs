@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FigureNZ.FundamentalFigures
 {
@@ -8,25 +10,15 @@ namespace FigureNZ.FundamentalFigures
 
         public Uri Uri { get; set; }
 
-        public string Discriminator { get; set; }
+        public string Selector { get; set; }
 
         public string Date { get; set; }
 
         public string DateLabel { get; set; }
 
-        public string Measure { get; set; }
+        public Dictionary<string, ColumnValue> Measures { get; set; }
 
-        public string MeasureLabel { get; set; }
-
-        public string Separator { get; set; }
-
-        public string Group { get; set; }
-
-        public string GroupLabel { get; set; }
-
-        public string Category { get; set; }
-
-        public string CategoryLabel { get; set; }
+        public Dictionary<string, ColumnValue> Categories { get; set; }
 
         public decimal? Value { get; set; }
 
@@ -40,24 +32,42 @@ namespace FigureNZ.FundamentalFigures
         
         public string MeasureFormatted()
         {
-            return !string.IsNullOrWhiteSpace(Group) ? $"{MeasureLabel ?? Measure} {Separator ?? "—"} {GroupLabel ?? Group}" : $"{MeasureLabel ?? Measure}";
+            return string.Join(string.Empty, Measures.OrderBy(m => m.Value.Index).Select((m, i) =>
+            {
+                string measure = m.Value.Label ?? m.Value.Value;
+
+                if (Measures.Count > 1 && i < (Measures.Count - 1))
+                {
+                    measure = measure + m.Value.Separator;
+                }
+
+                return measure;
+            }));
         }
 
         public string CategoryFormatted()
         {
-            var category = $"{CategoryLabel ?? Category}";
-
-            if (category.StartsWith("*-", StringComparison.OrdinalIgnoreCase))
+            return string.Join(string.Empty, Categories.OrderBy(c => c.Value.Index).Select((c, i) =>
             {
-                category = category.Remove(0, 2) + " and under";
-            }
+                string category = c.Value.Label ?? c.Value.Value;
 
-            if (category.EndsWith("-*", StringComparison.OrdinalIgnoreCase))
-            {
-                category = category.Remove(category.Length - 2, 2) + " and over";
-            }
+                if (category.StartsWith("*-", StringComparison.OrdinalIgnoreCase))
+                {
+                    category = category.Remove(0, 2) + " and under";
+                }
 
-            return category;
+                if (category.EndsWith("-*", StringComparison.OrdinalIgnoreCase))
+                {
+                    category = category.Remove(category.Length - 2, 2) + " and over";
+                }
+
+                if (Categories.Count > 1 && i < (Categories.Count - 1))
+                {
+                    category = category + c.Value.Separator;
+                }
+
+                return category;
+            }));
         }
 
         public string UriFormatted()

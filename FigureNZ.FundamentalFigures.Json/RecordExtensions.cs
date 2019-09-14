@@ -39,10 +39,10 @@ namespace FigureNZ.FundamentalFigures.Json
                             {
                                 Label = p.Key,
                                 Measures = p
-                                    .GroupBy(r => new { Measure = r.MeasureFormatted(), r.Discriminator })
+                                    .GroupBy(r => new { Measure = r.MeasureFormatted(), Discriminator = r.Selector })
                                     .Select(m => new
                                     {
-                                        m.FirstOrDefault()?.Discriminator,
+                                        Discriminator = m.FirstOrDefault()?.Selector,
                                         Label = m.Key.Measure,
                                         Categories = m.Select(r => new
                                         {

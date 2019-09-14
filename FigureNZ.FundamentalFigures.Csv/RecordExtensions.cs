@@ -23,16 +23,16 @@ namespace FigureNZ.FundamentalFigures.Csv
             using (var csv = new CsvWriter(writer))
             {
                 var map = new RecordMap()
-                    .Map(r => r.Discriminator, "Territorial Authority")
+                    .Map(r => r.Selector, "Territorial Authority")
                     .Map(r => r.Parent, "Topic");
 
                 map
-                    .Map(r => r.Measure)
+                    .Map(r => r.Measures)
                     .Name("Measure")
                     .ConvertUsing(r => r.MeasureFormatted());
 
                 map
-                    .Map(r => r.Category)
+                    .Map(r => r.Categories)
                     .Name("Category")
                     .ConvertUsing(r => r.CategoryFormatted());
 

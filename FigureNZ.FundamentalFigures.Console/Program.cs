@@ -38,6 +38,9 @@ namespace FigureNZ.FundamentalFigures.Console
 
             app.OnExecute(async () =>
             {
+                Stopwatch timer = new Stopwatch();
+                timer.Start();
+
                 string config = pathToConfiguration.ParsedValue;
                 string input = inputPath.ParsedValue ?? "./input";
                 string output = outputPath.ParsedValue ?? "./output";
@@ -52,9 +55,11 @@ namespace FigureNZ.FundamentalFigures.Console
                     types = new List<OutputTypeEnum> { OutputTypeEnum.Excel };
                 }
 
+                Figure figure = JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config));
+
                 foreach (string term in terms)
                 {
-                    var records = await JsonConvert.DeserializeObject<Figure>(File.ReadAllText(config)).ToRecords(term, input);
+                    List<Record> records = await figure.ToRecords(term, input);
 
                     foreach (OutputTypeEnum type in types)
                     {
@@ -102,6 +107,10 @@ namespace FigureNZ.FundamentalFigures.Console
                         }
                     }
                 }
+
+                timer.Stop();
+                System.Console.WriteLine();
+                System.Console.WriteLine($"Completed in {timer.Elapsed}");
 
                 return 0;
             });

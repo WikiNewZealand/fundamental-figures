@@ -8,10 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="output - Copy\**" />
     <Compile Remove="output\**" />
+    <EmbeddedResource Remove="output - Copy\**" />
     <EmbeddedResource Remove="output\**" />
     <None Remove="**\*.csv" />
     <None Remove="**\*.xlsx" />
+    <None Remove="output - Copy\**" />
     <None Remove="output\**" />
   </ItemGroup>
 

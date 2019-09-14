@@ -21,7 +21,7 @@ namespace FigureNZ.FundamentalFigures
             {
                 foreach (Dataset dataset in figure.Datasets)
                 {
-                    var csvFile = await client.DownloadHttpFileAsync(dataset.Uri, inputPath);
+                    var csvFile = await client.DownloadHttpFileAsync(dataset.Source, inputPath);
                     var records = dataset.ToRecords(csvFile, term);
 
                     set.AddRange(records);

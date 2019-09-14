@@ -16,9 +16,9 @@ namespace FigureNZ.FundamentalFigures.Excel
             {
                 int col = 1;
 
-                if (measureLabel != record.MeasureFormatted() || discriminatorLabel != record.Discriminator)
+                if (measureLabel != record.MeasureFormatted() || discriminatorLabel != record.Selector)
                 {
-                    discriminatorLabel = record.Discriminator;
+                    discriminatorLabel = record.Selector;
                     worksheet.Cells[row, col].Value = discriminatorLabel;
                     col++;
 

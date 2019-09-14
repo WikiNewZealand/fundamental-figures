@@ -32,70 +32,53 @@ An empty `Figure` looks like this:
 
 …where `datasets` is a collection of instances of the `Dataset` class. 
 
+## Schema
+
+We've provided the configuration file we use to build https://places.figure.nz/ in this reposistory (see [fundamental-figures.json](https://github.com/WikiNewZealand/fundamental-figures/blob/master/fundamental-figures.json)). You can use that file directly, or build your own configuration file.
+
 A `Dataset` looks like this:
 
 ```
 {
-    "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
+    "source": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
     "parent": "Name of section that this dataset will be displayed under in the output file",
-    "term": "If the input term equals this value assume *all* rows in this csv are candidates for processing, defaults to 'null' which means we'll compare the input term with the discriminator value for each row",
-    "term-mapping": "Path to a file that defines alternate terms, e.g. map 'Auckland' to 'Auckland District Health Board' and 'Auckland City Council' to include rows with those terms as well. Defaults to null, which means no mappings will be loaded.",
-    "discriminator": "Name of the column that we search, defaults to 'Territorial Authority'",
-    "value": "Name of the column that holds the value of each row, defaults to 'Value'",
-    "valueUnit": "Name of the column that holds the value unit of each row, defaults to 'ValueUnit'",
-    "valueLabel": "Name of the column that holds the value label of each row, defaults to 'ValueLabel'",
-    "exclude-zero-values": false, // <-- Exclude zero values from the final grouped result set, defaults to false
-    "measure": {
-        "column": "Name of column that defines subsets of this dataset",
-        "group": {
-            "column": "Name of column used to further subdivide each subset",
-            "separator": "Text to separate measure and group for display purposes, defaults to —",
+    "selector": "Name of the column that we search, defaults to 'Territorial Authority'",
+    "measure": [ // <-- List of columns that define the measure. More than one column indicates a "group by" operation
+        {
+            "name": "Name of column in the input .csv file",
+            "separator": "Text to separate this measure column from subsequent measure columns in this measure for display purposes, defaults to ' — '",
             "include": [
                 {
-                    "value": "Include row only if its group matches this value",
-                    "label": "[OPTIONAL] Transform row's group to this text for display purposes",					
-                },
-                {
-                    "value": "Include row only if its group matches this other row"
+                    "value": "Include row only if the column matches this value",
+                    "label": "Transform this column's value to this text for display purposes, defaults to 'null'",
+                    "convert-to-percentage": false // <-- [OPTIONAL] Calculate each category's value as a percentage of the overall measurement total, defaults to 'false'
                 }
             ],
             "exclude": [
-                "Exclude row if group matches this value",
-                "Exclude row if group matches this other value"
+                "Exclude row if the column matches this value",
+                "Exclude row if the column matches this other value"
             ]
-        },
-        "include": [
-            {
-		"value": "Include row only if its measure matches this value",
-		"label": "[OPTIONAL] Transform row's measure to this text for display purposes"
-		"convert-to-percentage": true // <-- [OPTIONAL] Calculate each category's value as a percentage of the overall measurement + group total
-            },
-            {
-                "value": "Include row only if its measure matches this other value"
-            }
-        ],
-        "exclude": [
-            "Exclude row if measure matches this value",
-            "Exclude row if measure matches this other value"
-        ]
-    },
-    "category": {
-        "column": "Name of column that defines the value we're measuring within the subset",
-        "include": [
-            {
-                "value": "Include row only if its category matches this value"
-            },
-            {
-                "value": "Include row only if its category matches this other value",
-                "label": "[OPTIONAL] Transform row's category to this text for display purposes"
-            }
-        ],
-        "exclude": [
-            "Exclude row if category matches this value",
-            "Exclude row if category matches this other value"
-        ]
-    },
-    "date": "Name of column that contains the date of the measurement"
+        }
+    ],
+    "category": [ // <-- List of columns that define the category. More than one column indicates a "group by" operation. Uses the same schema as "measure"
+        {
+            "name": "Name of column in the input .csv file",
+            "include": [
+                {
+                    "value": "Include row only if the column matches this value"
+                }
+            ],
+            "exclude": []
+        }
+    ],
+    "value": "Name of the column that holds the value of each row, defaults to 'Value'",
+    "valueUnit": "Name of the column that holds the value unit of each row, defaults to 'Value Unit'",
+    "valueLabel": "Name of the column that holds the value label of each row, defaults to 'Value Label'",
+    "nullReason": "Name of the column that holds the null reason for each row, defaults to 'Null Reason'",
+    "date": "Name of column that contains the date of the measurement",
+    "all-selectors-match-term": "If the input term equals this value assume *all* rows in this csv are candidates for processing, defaults to 'null' which means we'll compare the input term with the selector value for each row",
+    "exclude-zero-values": false, // <-- Exclude zero values from the final grouped result set, defaults to 'false'
+    "term-mapping": "Path to a file that defines alternate terms, e.g. map 'Auckland' to 'Auckland District Health Board' and 'Auckland City Council' to include rows with those terms as well. Defaults to null, which means no mappings will be loaded."
 }
 ```
 
@@ -103,14 +86,13 @@ A starting point for a `dataset` is:
 
 ```
 {
-    "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
+    "source": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxx/download",
     "parent": "",
-    "discriminator": "Territorial Authority",
-    "measure": {
-        "column": "",
-        "group": {
-            "column": "",
-            "separator": "—",
+    "selector": "Territorial Authority",
+    "measure": [
+        {
+            "name": "",
+            "separator": " — ",
             "include": [
                 {
                     "value": "",
@@ -119,61 +101,75 @@ A starting point for a `dataset` is:
                 {
                     "value": "",
                     "label": ""
-            }
+                }
             ],
             "exclude": [
                 "",
                 ""
             ]
         },
-        "include": [
-            {
-                "value": "",
-                "label": ""
-            },
-            {
-                "value": "",
-                "label": ""
-        }
-        ],
-        "exclude": [
-            "",
-            ""
-        ]
-    },
-    "category": {
-        "column": "",
-        "include": [
-            {
-                "value": "",
-                "label": ""
-            },
-            {
-                "value": "",
-                "label": ""
-        }
-        ],
-        "exclude": [
-            "",
-            ""
-        ]
-    },
+        {
+            "name": "",
+            "include": [
+                {
+                    "value": "",
+                    "label": ""
+                },
+                {
+                    "value": "",
+                    "label": ""
+                }
+            ],
+            "exclude": [
+                "",
+                ""
+            ]
+        }        
+    ],
+    "category": [
+        {
+            "name": "",
+            "include": [
+                {
+                    "value": "",
+                    "label": ""
+                },
+                {
+                    "value": "",
+                    "label": ""
+                }
+            ],
+            "exclude": [
+                "",
+                ""
+            ]
+        }        
+    ],
     "date": ""
 }
 ```
 
-To solve the "Auckland problem", where Auckland has its own csv file for a `dataset` that contains individual Local Board Areas, create a duplicate `dataset` and use the `term` and `discriminator` values:
+## Processing files for a Territorial Authority that contain only 'wards' 
+
+To solve the "Auckland problem", where Auckland has its own csv file for a `dataset` that contains individual Local Board Areas, create a duplicate `dataset` and set the `all-selectors-match-term` value:
 
 ```
 {
     "uri": "https://figure.nz/table/xxxxxxxxxxxxxxxxxxxxy/download",
     ...
-    "term": "Auckland",
-    "discriminator": "Local Board Area",
+    "all-selectors-match-term": "Auckland",
+    "selector": "Local Board Area", // <-- The column that holds the selectors we want to match
     ...
 }
 
 ```
+
+## Term Mapping files
+
+We've provided two examples of mapping files in this repository:
+
+- [territorial-authorities-mapping.json](https://github.com/WikiNewZealand/fundamental-figures/blob/master/territorial-authorities-mapping.json)
+- [territorial-authorities-dhb-mapping.json](https://github.com/WikiNewZealand/fundamental-figures/blob/master/territorial-authorities-dhb-mapping.json)
 
 A term mapping file looks like this:
 
@@ -189,3 +185,9 @@ A term mapping file looks like this:
   ]
 }
 ```
+
+## Migrating an old .json configuration file to new schema
+
+Use the `FigureNZ.FundamentalFigures.Migrator` project. It's a console app that takes the path to your old configuration file, and writes a `-migrated.json` version of the file to the same location.
+
+e.g. `fundamental-figures-migrator ../fundamental-figures.json`
