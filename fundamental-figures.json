@@ -936,42 +936,149 @@
       "date": "Census Year"
     },
     {
-      "source": "https://figure.nz/table/QtBjepmslacLQrEv/download   ",
+      "source": "https://figure.nz/table/m0pJErmnoSZbfz9k/download",
       "parent": "Households",
-      "selector": "Territorial Authority",
+      "selector": "Territorial authority",
       "measure": [
         {
-          "name": "Register",
+          "name": "Transfer party",
+          "separator": " with ",
           "include": [
-            {
-              "value": "Housing Register",
-              "label": "Households eligible for and ready to be matched to social housing"
+              {
+                  "value": "Buyers",
+                  "label": "Number of properties sold"
+              }
+          ],
+          "exclude": [ ]
+        },
+        {
+          "name": "Property type",
+          "separator": " by ",
+          "include": [
+              {
+                  "value": "Home involved",
+                  "label": "a home involved"
+              },
+              {
+                "value": "No home involved",
+                "label": "no home involved"
+              },
+              {
+                "value": "Property type unknown",
+                "label": "unknown property type"
             }
           ],
-          "exclude": []
-        }
+          "exclude": [ ]
+        },    
+        {
+          "name": "Measure",
+          "separator": "",
+          "include": [
+                  {
+                  "value": "Number of transfers",
+                  "label": "residency/visa status of buyer"
+                  }
+              ],
+              "exclude": [ ]
+          }     
       ],
-      "category": [],
-      "date": "Quarter"
+      "category": [
+          {
+              "name": "Category",
+              "include": [ 
+                {
+                    "value": "At least one NZ citizen"
+                },
+                {
+                    "value": "At least one NZ resident visa (but no citizens)"
+                },
+                {
+                    "value": "No NZ citizens or resident visas"
+                },
+                {
+                    "value": "Corporate only"
+                },
+                {
+                    "value": "Affiliation unknown",
+                    "label": "Unknown status"
+                }
+            ],
+              "exclude": [ ]
+          }        
+      ],
+      "date": "Year ended June"
     },
     {
-      "source": "https://figure.nz/table/8JXPnvqsPzlEPPXq/download",
+      "source": "https://figure.nz/table/m0pJErmnoSZbfz9k/download",
       "parent": "Households",
-      "selector": "Territorial Authority",
+      "selector": "Territorial authority",
       "measure": [
         {
-          "name": "Register",
+          "name": "Transfer party",
+          "separator": " with ",
           "include": [
-            {
-              "value": "Transfer Register",
-              "label": "Households in social housing who need to be rehoused for reasons such as too few or too many bedrooms, or for health reasons."
+              {
+                  "value": "Buyers",
+                  "label": "Number of properties sold"
+              }
+          ],
+          "exclude": [ ]
+        },
+        {
+          "name": "Property type",
+          "separator": " by ",
+          "include": [
+              {
+                  "value": "Home involved",
+                  "label": "a home involved"
+              },
+              {
+                "value": "No home involved",
+                "label": "no home involved"
+              },
+              {
+                "value": "Property type unknown",
+                "label": "unknown property type"
             }
           ],
-          "exclude": []
-        }
+          "exclude": [ ]
+        },    
+        {
+          "name": "Measure",
+          "separator": "",
+          "include": [
+                  {
+                  "value": "Number of transfers",
+                  "label": "tax residency status of buyer"
+                  }
+              ],
+              "exclude": [ ]
+          }     
       ],
-      "category": [],
-      "date": "Quarter"
+      "category": [
+          {
+              "name": "Category",
+              "include": [ 
+                {
+                    "value": "Only NZ tax residents"
+                },
+                {
+                    "value": "Mixture of NZ tax residents and non-residents"
+                },
+                {
+                    "value": "Only NZ tax non-residents"
+                },
+                {
+                    "value": "All parties exempt from stating tax residency"
+                },
+                {
+                    "value": "No tax statement due to contract date"
+                }
+            ],
+              "exclude": [ ]
+          }        
+      ],
+      "date": "Year ended June"
     },
     {
       "source": "https://figure.nz/table/QqOL6Qn84A1lYmnz/download",
@@ -1059,6 +1166,44 @@
         }
       ],
       "date": "Census Year"
+    },
+    {
+      "source": "https://figure.nz/table/QtBjepmslacLQrEv/download   ",
+      "parent": "Households",
+      "selector": "Territorial Authority",
+      "measure": [
+        {
+          "name": "Register",
+          "include": [
+            {
+              "value": "Housing Register",
+              "label": "Households eligible for and ready to be matched to social housing"
+            }
+          ],
+          "exclude": []
+        }
+      ],
+      "category": [],
+      "date": "Quarter"
+    },
+    {
+      "source": "https://figure.nz/table/8JXPnvqsPzlEPPXq/download",
+      "parent": "Households",
+      "selector": "Territorial Authority",
+      "measure": [
+        {
+          "name": "Register",
+          "include": [
+            {
+              "value": "Transfer Register",
+              "label": "Households in social housing who need to be rehoused for reasons such as too few or too many bedrooms, or for health reasons."
+            }
+          ],
+          "exclude": []
+        }
+      ],
+      "category": [],
+      "date": "Quarter"
     },
     {
       "source": "https://figure.nz/table/avIipYcV3USXe8tO/download",
