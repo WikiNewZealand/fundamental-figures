@@ -1206,6 +1206,118 @@
       "date": "Quarter"
     },
     {
+      "source": "https://figure.nz/table/2aIKTxKshII4yMSh/download",
+      "parent": "Wellbeing",
+      "selector": "Category",
+      "measure": [
+          {
+              "name": "Measured variable",
+              "include": [ 
+                {
+                  "value": "Sense of connection with people in neighbourhood",
+                  "label": "Rating of sense of connection with people in neighbourhood"
+                },
+                {
+                  "value": "Description of attractiveness of neighbourhood (buildings, roads, pathways, parks, green spaces etc)",
+                  "label": "Rating of neighbourhood attractiveness (buildings, roads, pathways, parks, green spaces etc)"
+                },
+                {
+                  "value": "Ease of getting to doctor"
+                },
+                {
+                  "value": "Main reason(s) for difficulty getting to doctor"
+                },
+                {
+                  "value": "Ease of using public transport"
+                },
+                {
+                  "value": "Main reason(s) for difficulty using public transport"
+                },
+                {
+                  "value": "Ease of getting to nearest supermarket or dairy"
+                },
+                {
+                  "value": "Main reason(s) for difficulty getting to nearest supermarket or dairy"
+                },
+                {
+                  "value": "Ease of getting to your nearest park or green space"
+                },
+                {
+                  "value": "Main reason(s) for difficulty getting to nearest park or green space"
+                },
+                {
+                  "value": "Household environmental practices"
+                },
+                {
+                  "value": "Involvement in environmental projects"
+                },
+                {
+                  "value": "Thinks there's an issue with air pollution in New Zealand"
+                },
+                {
+                  "value": "Main reason for issues with air pollution in New Zealand",
+                  "label": "Main perceived cause of issues with air pollution in New Zealand"
+                },
+                {
+                  "value": "Thinks there's an issue with changes in weather patterns in New Zealand"
+                },
+                {
+                  "value": "Main reason for issue with changes in weather patterns in New Zealand",
+                  "label": "Main percevied cause of issue with changes in weather patterns in New Zealand"
+                },
+                {
+                  "value": "Thinks there's an issue with plant and animal life becoming endangered or extinct in New Zealand"
+                },
+                {
+                  "value": "Main reason for issue with plant and animal life becoming endangered or extinct in New Zealand",
+                  "label": "Main perceived cause of issue with plant and animal life becoming endangered or extinct in New Zealand"
+                },
+                {
+                  "value": "Thinks there's an issue with the state of rivers, lakes, streams, wetlands, and aquatic life in New Zealand"
+                },
+                {
+                  "value": "Main reason for issues with the state of rivers, lakes, streams, wetlands, and aquatic life in New Zealand",
+                  "label": "Main perceived cause of issues with the state of rivers, lakes, streams, wetlands, and aquatic life in New Zealand"
+                },
+                {
+                  "value": "Thinks there's an issue with the state of the oceans and sea life in New Zealand"
+                },
+                {
+                  "value": "Main reason for issues with the state of the oceans and sea life in New Zealand",
+                  "label": "Main perceived cause of issues with the state of the oceans and sea life in New Zealand"
+                }
+              ],
+              "exclude": [
+                "Total"
+               ]
+          }     
+      ],
+      "category": [
+          {
+              "name": "Response category",
+              "separator": "",
+              "include": [ ],
+              "exclude": [ ]
+          },
+          {
+            "name": "Unit",
+            "include": [ 
+              {
+                "value": "Estimate",
+                "label": ""
+              },
+              {
+                "value": "Absolute sampling error",
+                "label": " - Sampling error"
+              }
+            ],
+            "exclude": [ ]
+        }          
+      ],
+      "term-mapping": "../territorial-authorities-mapping.json",
+      "date": "Year"
+    },
+    {
       "source": "https://figure.nz/table/avIipYcV3USXe8tO/download",
       "parent": "Health",
       "selector": "District health board",
