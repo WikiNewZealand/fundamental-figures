@@ -1329,6 +1329,152 @@
       "date": "Year"
     },
     {
+      "source": "https://figure.nz/table/IdWVSQUo3sDoZkvp/download",
+      "parent": "Wellbeing",
+      "selector": "Category",
+      "measure": [
+          {
+              "name": "Measured variable",
+              "include": [ 
+                {
+                  "value": "Overall life satisfaction",
+                  "label": "People's rating of their overall life satisfaction"
+                },
+                {
+                  "value": "Loneliness",
+                  "label": "People's rating of their loneliness"
+                },
+                {
+                  "value": "Life worthwhile",
+                  "label": "People's rating of whether their life is worthwhile"
+                },
+                {
+                  "value": "Income adequacy",
+                  "label": "People's rating of their income adequacy"
+                },
+                {
+                  "value": "Family wellbeing",
+                  "label": "People's rating of their family's wellbeing"
+                },
+                {
+                  "value": "Generalised trust for people",
+                  "label": "People's rating of their generalised trust for people"
+                },
+                {
+                  "value": "Security - Discrimination",
+                  "label": "People who have experienced discrimination"
+                },
+                {
+                  "value": "Ability to express identity",
+                  "label": "People who find it easy or very easy to express their identify"
+                },
+                {
+                  "value": "Acceptance of diversity - Disability",
+                  "label": "People who are comfortable or very comfortable with others who have disabilities or long-term health conditions"
+                },
+                {
+                  "value": "Acceptance of diversity - Ethnic",
+                  "label": "People who are comfortable or very comfortable people who are of a different ethnicity to them"
+                },
+                {
+                  "value": "Acceptance of diversity - Language",
+                  "label": "People who are comfortable or very comfortable with other people speaking different languages"
+                },
+                {
+                  "value": "Acceptance of diversity - Mental illness",
+                  "label": "People who are comfortable or very comfortable with other people who have mental illnesses"
+                },
+                {
+                  "value": "Acceptance of diversity - Religion",
+                  "label": "People who are comfortable or very comfortable with others who have different religions to them"
+                },
+                {
+                  "value": "Acceptance of diversity - Sexual orientation",
+                  "label": "People who are comfortable or very comfortable with others who have different sexual orientations to them"
+                },
+                {
+                  "value": "Fear of crime - Effect on life",
+                  "label": "People's rating of the effect fear of crime has on their life"
+                },                
+                {
+                  "value": "Safety - Home at night",
+                  "label": "People who feel safe or very safe at home at night"
+                },                
+                {
+                  "value": "Safety - Online transactions",
+                  "label": "People who feel safe or very safe making online transactions"
+                },                
+                {
+                  "value": "Safety - Waiting for public transport",
+                  "label": "People who feel safe or very safe waiting for public transport"
+                },                
+                {
+                  "value": "Self-rated general health"
+                },  
+                {
+                  "value": "Social contact - With family",
+                  "label": "Amount of social contact people had with family"
+                },  
+                {
+                  "value": "Social contact - With friends",
+                  "label": "Amount of social contact people had with friends"
+                },  
+                {
+                  "value": "Trust held for courts",
+                  "label": "Rating of amount of trust held for the courts"
+                },  
+                {
+                  "value": "Trust held for education system",
+                  "label": "Rating of amount of trust held for the education system"
+                },  
+                {
+                  "value": "Trust held for health system",
+                  "label": "Rating of amount of trust held for the health system"
+                },  
+                {
+                  "value": "Trust held for media",
+                  "label": "Rating of amount of trust held for media"
+                },  
+                {
+                  "value": "Trust held for parliament",
+                  "label": "Rating of amount of trust held for Parliament"
+                },  
+                {
+                  "value": "Trust held for police",
+                  "label": "Rating of amount of trust held for the Police"
+                }                
+              ],
+              "exclude": [
+                "Total"
+               ]
+          }     
+      ],
+      "category": [
+          {
+              "name": "Response category",
+              "separator": "",
+              "include": [ ],
+              "exclude": [ ]
+          },
+          {
+            "name": "Unit",
+            "include": [ 
+              {
+                "value": "Estimate",
+                "label": ""
+              },
+              {
+                "value": "Absolute sampling error",
+                "label": " - Sampling error"
+              }
+            ],
+            "exclude": [ ]
+        }          
+      ],
+      "term-mapping": "../territorial-authorities-mapping.json",
+      "date": "Year"
+    },
+    {
       "source": "https://figure.nz/table/2aIKTxKshII4yMSh/download",
       "parent": "Wellbeing",
       "selector": "Category",
