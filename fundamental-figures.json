@@ -1206,6 +1206,129 @@
       "date": "Quarter"
     },
     {
+      "source": "https://figure.nz/table/kj2zuuXqxTHjhK1R/download",
+      "parent": "Households",
+      "selector": "Category",
+      "measure": [
+          {
+              "name": "Measured variable",
+              "include": [ 
+                {
+                  "value": "Affordability of house or flat",
+                  "label": "Rating of affordability of house or flat"
+                },
+                {
+                  "value": "Number of times moved in past five years"
+                },
+                {
+                  "value": "Main reasons for moving (rented)"
+                },
+                {
+                  "value": "Main reasons for moving (owned)"
+                },
+                {
+                  "value": "Time spent living in house or flat"
+                },
+                {
+                  "value": "Suitability of house or flat"
+                },
+                {
+                  "value": "Suitability of house or flat location"
+                },
+                {
+                  "value": "House or flat colder than would like"
+                },
+                {
+                  "value": "Type of heating in living room"
+                },
+                {
+                  "value": "Number of nights main living area heated in winter"
+                },
+                {
+                  "value": "Main reasons for not heating living room"
+                },
+                {
+                  "value": "Main type of heating in bedroom"
+                },
+                {
+                  "value": "Number of nights bedroom heated in winter"
+                },
+                {
+                  "value": "Main reasons for not heating bedroom"
+                },
+                {
+                  "value": "Number of nights youngest child in household's bedroom heated in winter"
+                },
+                {
+                  "value": "Main reasons for not heating youngest child's bedroom"
+                },
+                {
+                  "value": "House is mouldy"
+                },
+                {
+                  "value": "Mould is larger than A4 sheet of paper",
+                  "label": "If mould is present, is it larger than an A4 sheet of paper"
+                },
+                {
+                  "value": "House or flat is damp"
+                },
+                {
+                  "value": "In the last seven days, after showering or bathing, how often was the bathroom aired out"
+                },
+                {
+                  "value": "In the last seven days, during or after cooking, how often was the kitchen aired out"
+                },
+                {
+                  "value": "In the last seven days, how many days was the bedroom aired out"
+                },
+                {
+                  "value": "Main reasons for not ventilating bedroom"
+                },
+                {
+                  "value": "Level of repairs needed",
+                  "label": "Level of repairs needed on house or flat"
+                },
+                {
+                  "value": "Reasons for not repairing house or flat (for homeowners)"
+                },
+                {
+                  "value": "Reasons for not repairing house or flat (for renters)"
+                },
+                {
+                  "value": "Type of outdoor area house or flat has"
+                }
+              ],
+              "exclude": [
+                "Total"
+               ]
+          }     
+      ],
+      "category": [
+          {
+              "name": "Response category",
+              "separator": "",
+              "include": [ ],
+              "exclude": [ ]
+          },
+          {
+            "name": "Unit",
+            "include": [ 
+              {
+                "value": "Estimate",
+                "label": ""
+              },
+              {
+                "value": "Absolute sample error",
+                "label": " - Sampling error"
+              }
+            ],
+            "exclude": [ ]
+        }          
+      ],
+      "term-mapping": "../territorial-authorities-mapping.json",
+      "date": "Year"
+    },
+    {
       "source": "https://figure.nz/table/2aIKTxKshII4yMSh/download",
       "parent": "Wellbeing",
       "selector": "Category",
