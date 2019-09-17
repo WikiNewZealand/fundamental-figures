@@ -1,0 +1,96 @@
+{
+  "datasets": [
+    {
+      "source": "https://figure.nz/table/T2Pky1MavryS2xzy/download",
+      "parent": "Elections",
+      "selector": "Government entity",
+      "measure": [
+          {
+              "name": "Type",
+              "separator": " for ",
+              "include": [
+                {
+                  "value": "Other",
+                  "label": "Other elections"
+                }
+               ],
+              "exclude": [ ]
+          },
+          {
+              "name": "Authority",
+              "separator": " - ",
+              "include": [ ],
+              "exclude": [ ]
+          },
+          {
+            "name": "Ward, Subdivision, Constituency",
+            "include": [ ],
+            "exclude": [ ]
+        }          
+      ],
+      "category": [
+          {
+              "name": "Measure",
+              "include": [ 
+                {
+                  "value": "Elected uncontested"
+                },
+                {
+                  "value": "Positions"
+                },
+                {
+                  "value": "Candidates"
+                },
+                {
+                  "value": "Candidates per position"
+                },
+                {
+                  "value": "Unfilled positions"
+                },
+                {
+                  "value": "Women candidates\n(%)"
+                },
+                {
+                  "value": "Women councillors\n(%)"
+                },
+                {
+                  "value": "Candidates (community) board members \n(%)",
+                  "label": "Candidates who are sitting members"
+                },
+                {
+                  "value": "(Community) board members elected \n(%)",
+                  "label": "Sitting members re-elected"
+                },
+                {
+                  "value": "Overall turnout (%)"
+                },
+                {
+                  "value": "Total voters"
+                },
+                {
+                  "value": "Total electors",
+                  "label": "Total number of people eligible to vote"
+                },
+                {
+                  "value": "Residential turnout \n(%)"
+                },
+                {
+                  "value": "Residential voters"
+                },
+                {
+                  "value": "Blank votes \n(%)"
+                },
+                {
+                  "value": "Total special votes cast \n(%)"
+                }
+
+              ],
+              "exclude": [ ]
+          }        
+      ],
+      "term-mapping": "../territorial-authorities-mapping.json",
+      "discriminator": "Government entity",
+      "date": "Year"
+    }
+  ]
+}
