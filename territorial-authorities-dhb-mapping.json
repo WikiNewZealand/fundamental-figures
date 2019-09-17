@@ -1,203 +1,271 @@
 ﻿{
   "Ashburton": [
-    "Canterbury"
+    "Canterbury",
+    "Canterbury DHB"
   ],
   "Auckland": [
     "Auckland",
     "Counties Manukau",
-    "Waitemata"
+    "Waitemata",
+    "Auckland DHB",
+    "Counties Manukau DHB",
+    "Waitemata DHB"
   ],
   "Buller": [
-    "West Coast"
+    "West Coast",
+    "West Coast DHB"
   ],
   "Carterton": [
-    "Wairarapa"
+    "Wairarapa",
+    "Wairarapa DHB"
   ],
   "Central Hawke's Bay": [
-    "Hawke's Bay"
+    "Hawke's Bay",
+    "Hawke's Bay DHB"
   ],
   "Central Otago": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Chatham Islands": [],
   "Christchurch": [
-    "Canterbury"
+    "Canterbury",
+    "Canterbury DHB"
   ],
   "Clutha": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Dunedin": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Far North": [
-    "Northland"
+    "Northland",
+    "Northland DHB"
   ],
   "Gisborne": [
-    "Tairawhiti"
+    "Tairawhiti",
+    "Tairawhiti DHB"
   ],
   "Gore": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Grey": [
-    "West Coast"
+    "West Coast",
+    "West Coast DHB"
   ],
   "Hamilton": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Hastings": [
-    "Hawke's Bay"
+    "Hawke's Bay",
+    "Hawke's Bay DHB"
   ],
   "Hauraki": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Horowhenua": [
-    "MidCentral"
+    "MidCentral",
+    "MidCentral DHB"
   ],
   "Hurunui": [
-    "Canterbury"
+    "Canterbury",
+    "Canterbury DHB"
   ],
   "Invercargill": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Kaikoura": [
-    "Canterbury"
+    "Canterbury",
+    "Canterbury DHB"
   ],
   "Kaipara": [
-    "Northland"
+    "Northland",
+    "Northland DHB"
   ],
   "Kapiti Coast": [
-    "Capital & Coast"
+    "Capital & Coast",
+    "Capital & Coast DHB"
   ],
   "Kawerau": [
-    "Bay of Plenty"
+    "Bay of Plenty",
+    "Bay of Plenty DHB"
   ],
   "Lower Hutt": [
-    "Hutt"
+    "Hutt",
+    "Hutt DHB"
   ],
   "Mackenzie": [
-    "South Canterbury"
+    "South Canterbury",
+    "South Canterbury DHB"
   ],
   "Manawatu": [
-    "MidCentral"
+    "MidCentral",
+    "MidCentral DHB"
   ],
   "Marlborough": [
-    "Nelson Marlborough"
+    "Nelson Marlborough",
+    "Nelson Marlborough DHB"
   ],
   "Masterton": [
-    "Wairarapa"
+    "Wairarapa",
+    "Wairarapa DHB"
   ],
   "Matamata-Piako": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Napier": [
-    "Hawke's Bay"
+    "Hawke's Bay",
+    "Hawke's Bay DHB"
   ],
   "Nelson": [
-    "Nelson Marlborough"
+    "Nelson Marlborough",
+    "Nelson Marlborough DHB"
   ],
   "New Plymouth": [
-    "Taranaki"
+    "Taranaki",
+    "Taranaki DHB"
   ],
   "Opotiki": [
-    "Bay of Plenty"
+    "Bay of Plenty",
+    "Bay of Plenty DHB"
   ],
   "Otorohanga": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Palmerston North": [
-    "MidCentral"
+    "MidCentral",
+    "MidCentral DHB"
   ],
   "Porirua": [
-    "Capital & Coast"
+    "Capital & Coast",
+    "Capital & Coast DHB"
   ],
   "Queenstown-Lakes": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Rangitikei": [
-    "MidCentral"
+    "MidCentral",
+    "MidCentral DHB"
   ],
   "Rotorua": [
-    "Lakes"
+    "Lakes",
+    "Lakes DHB"
   ],
   "Ruapehu": [
-    "Whanganui"
+    "Whanganui",
+    "Whanganui DHB"
   ],
   "Selwyn": [
-    "Canterbury"
+    "Canterbury",
+    "Canterbury DHB"
   ],
   "South Taranaki": [
-    "Taranaki"
+    "Taranaki",
+    "Taranaki DHB"
   ],
   "South Waikato": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "South Wairarapa": [
-    "Wairarapa"
+    "Wairarapa",
+    "Wairarapa DHB"
   ],
   "Southland": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Stratford": [
-    "Taranaki"
+    "Taranaki",
+    "Taranaki DHB"
   ],
   "Tararua": [
-    "MidCentral"
+    "MidCentral",
+    "MidCentral DHB"
   ],
   "Tasman": [
-    "Nelson Marlborough"
+    "Nelson Marlborough",
+    "Nelson Marlborough DHB"
   ],
   "Taupo": [
-    "Lakes"
+    "Lakes",
+    "Lakes DHB"
   ],
   "Tauranga": [
-    "Bay of Plenty"
+    "Bay of Plenty",
+    "Bay of Plenty DHB"
   ],
   "Thames-Coromandel": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Timaru": [
-    "South Canterbury"
+    "South Canterbury",
+    "South Canterbury DHB"
   ],
   "Upper Hutt": [
-    "Hutt"
+    "Hutt",
+    "Hutt DHB"
   ],
   "Waikato": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Waimakariri": [
-    "Canterbury"
+    "Canterbury",
+    "Canterbury DHB"
   ],
   "Waimate": [
-    "South Canterbury"
+    "South Canterbury",
+    "South Canterbury DHB"
   ],
   "Waipa": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Wairoa": [
-    "Hawke's Bay"
+    "Hawke's Bay",
+    "Hawke's Bay DHB"
   ],
   "Waitaki": [
-    "Southern"
+    "Southern",
+    "Southern DHB"
   ],
   "Waitomo": [
-    "Waikato"
+    "Waikato",
+    "Waikato DHB"
   ],
   "Wellington": [
-    "Capital & Coast"
+    "Capital & Coast",
+    "Capital & Coast DHB"
   ],
   "Western Bay of Plenty": [
-    "Bay of Plenty"
+    "Bay of Plenty",
+    "Bay of Plenty DHB"
   ],
   "Westland": [
-    "West Coast"
+    "West Coast",
+    "West Coast DHB"
   ],
   "Whakatane": [
-    "Bay of Plenty"
+    "Bay of Plenty",
+    "Bay of Plenty DHB"
   ],
   "Whanganui": [
-    "Whanganui"
+    "Whanganui",
+    "Whanganui DHB"
   ],
   "Whangarei": [
-    "Northland"
+    "Northland",
+    "Northland DHB"
   ]
 }
