@@ -1215,7 +1215,7 @@
               "include": [ 
                 {
                   "value": "Affordability of house or flat",
-                  "label": "Rating of affordability of house or flat"
+                  "label": "Affordability of house or flat, self-rated on a scale of 1-10"
                 },
                 {
                   "value": "Number of times moved in past five years"
@@ -1338,27 +1338,27 @@
               "include": [ 
                 {
                   "value": "Overall life satisfaction",
-                  "label": "People's rating of their overall life satisfaction"
+                  "label": "Overall life satisfaction as self-rated on scale of 1-10"
                 },
                 {
                   "value": "Loneliness",
-                  "label": "People's rating of their loneliness"
+                  "label": "Amount of time people feel lonely"
                 },
                 {
                   "value": "Life worthwhile",
-                  "label": "People's rating of whether their life is worthwhile"
+                  "label": "People's feeling of whether their life is worthwhile, self-rated on scale of 1-10"
                 },
                 {
                   "value": "Income adequacy",
-                  "label": "People's rating of their income adequacy"
+                  "label": "Self-assessed adequacy of income"
                 },
                 {
                   "value": "Family wellbeing",
-                  "label": "People's rating of their family's wellbeing"
+                  "label": "Wellbeing of families, self-rated on scale of 1-10"
                 },
                 {
                   "value": "Generalised trust for people",
-                  "label": "People's rating of their generalised trust for people"
+                  "label": "Generalised level of trust for people as self-rated on scale of 1-10"
                 },
                 {
                   "value": "Security - Discrimination",
@@ -1394,7 +1394,7 @@
                 },
                 {
                   "value": "Fear of crime - Effect on life",
-                  "label": "People's rating of the effect fear of crime has on their life"
+                  "label": "Effect fear of crime has on people's lives, self-rated on scale of 1-10"
                 },                
                 {
                   "value": "Safety - Home at night",
@@ -1421,27 +1421,27 @@
                 },  
                 {
                   "value": "Trust held for courts",
-                  "label": "Rating of amount of trust held for the courts"
+                  "label": "Trust people hold for the courts, rated on scale of 1-10"
                 },  
                 {
                   "value": "Trust held for education system",
-                  "label": "Rating of amount of trust held for the education system"
+                  "label": "Trust people hold for the education system, rated on scale of 1-10"
                 },  
                 {
                   "value": "Trust held for health system",
-                  "label": "Rating of amount of trust held for the health system"
+                  "label": "Trust people hold for the health system, rated on scale of 1-10"
                 },  
                 {
                   "value": "Trust held for media",
-                  "label": "Rating of amount of trust held for media"
+                  "label": "Trust people hold for media, rated on a scale of 1-10"
                 },  
                 {
                   "value": "Trust held for parliament",
-                  "label": "Rating of amount of trust held for Parliament"
+                  "label": "Trust people hold for Parliament, rated on a scale of 1-10"
                 },  
                 {
                   "value": "Trust held for police",
-                  "label": "Rating of amount of trust held for the Police"
+                  "label": "Trust people hold for the Police, rated on a scale of 1-10"
                 }                
               ],
               "exclude": [
@@ -1484,11 +1484,11 @@
               "include": [ 
                 {
                   "value": "Sense of connection with people in neighbourhood",
-                  "label": "Rating of sense of connection with people in neighbourhood"
+                  "label": "Sense of connection with people in neighbourhood, rated on a scale of 1-10"
                 },
                 {
                   "value": "Description of attractiveness of neighbourhood (buildings, roads, pathways, parks, green spaces etc)",
-                  "label": "Rating of neighbourhood attractiveness (buildings, roads, pathways, parks, green spaces etc)"
+                  "label": "Neighbourhood attractiveness (buildings, roads, pathways, parks, green spaces etc), rated on a scale of 1-10"
                 },
                 {
                   "value": "Ease of getting to doctor"
